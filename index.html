@@ -222,9 +222,11 @@ footer {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .social-links a {
@@ -234,6 +236,7 @@ footer {
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: .35s;
+    display: inline-block;
 }
 
 .social-links a:hover {
@@ -253,7 +256,7 @@ footer {
     }
 
     .nav-links {
-        display: none; /* Se oculta el menú largo en móviles */
+        display: none;
     }
 
     .logo {
@@ -282,6 +285,10 @@ footer {
         max-width: 340px;
         height: 200px;
     }
+
+    .social-links {
+        gap: 20px;
+    }
 }
 </style>
 </head>
@@ -301,7 +308,7 @@ footer {
             <li><a href="https://budastudio.github.io/buda-studio/">Buda Studio</a></li>
             <li><a href="https://budastudio.github.io/buda-collective-artist/">Collective</a></li>
             <li><a href="https://budastudio.github.io/founders">Founders</a></li>
-            <li><a href="mailto:contact@budastudio.art">Contact</a></li>
+            <li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
         </ul>
     </nav>
 
@@ -356,10 +363,10 @@ footer {
     <!-- FOOTER Y REDES SOCIALES -->
     <footer>
         <ul class="social-links">
-            <li><a href="https://x.com/" target="_blank">X (Twitter)</a></li>
-            <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
-            <li><a href="https://discord.com/" target="_blank">Discord</a></li>
-            <li><a href="mailto:contact@budastudio.art">Contact</a></li>
+            <li><a href="https://instagram.com/budastudio_art" target="_blank">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/lscarcia" target="_blank">LinkedIn</a></li>
+            <li><a href="https://discord.com/users/872909014067978273" target="_blank">Discord</a></li>
+            <li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
         </ul>
         <p class="copyright">&copy; Buda Studio. Building the future of artistic communities.</p>
     </footer>
