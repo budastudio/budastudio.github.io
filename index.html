@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buda Collective Art</title>
+
+<!-- FUENTE INTER DESDE WELCOME.HTML -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   ESTILOS BASE (SISTEMA DE DISEÑO WELCOME.HTML)
+   ========================================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#090909;
+    font-family:'Inter', sans-serif;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events: none;
+}
+
+/* CONTENEDOR GENERAL CON Z-INDEX SUPERIOR */
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* NAVEGACIÓN ESTILO WELCOME */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9, 9, 9, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-brand {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .35s;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+/* ESTRUCTURA SECCIONES */
+.section-container {
+    padding: 100px 20px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 200;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* BOTONES ESTILO WELCOME.HTML */
+.button {
+    display: inline-flex;
+    padding: 10px 22px;
+    border: 1px solid #d4af37;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .35s;
+    cursor: pointer;
+    background: transparent;
+}
+
+.button:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.button-secondary {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.button-secondary:hover {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+    color: #fff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(212, 175, 55, .18);
+    transition: .5s;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+}
+
+.hero-description {
+    max-width: 620px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #d0d0d0;
+    line-height: 1.7;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* SISTEMA DE TARJETAS (CARDS) ESTILO WELCOME.HTML */
+.cards {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    position: relative;
+    width: 330px;
+    height: 245px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .88)), var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: #111;
+    transition: .45s;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 0 35px rgba(212, 175, 55, .18);
+}
+
+.content {
+    padding: 25px;
+    width: 100%;
+}
+
+.card h2 {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.card p {
+    opacity: .75;
+    line-height: 1.5;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* BLOQUE MANIFESTO Y CAJAS TEXTUALES */
+.manifesto-box {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    padding: 35px 25px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.manifesto-text p {
+    margin: 10px auto;
+    line-height: 1.7;
+    font-size: 14px;
+    font-weight: 300;
+    color: #d0d0d0;
+}
+
+.manifesto-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.manifesto-text em {
+    font-style: normal;
+    color: #d4af37;
+}
+
+/* LISTA DE BENEFICIOS DE FEATURED Y FOUNDERS */
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 25px;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    color: #d0d0d0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.benefit-item span {
+    color: #d4af37;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .35s;
+}
+
+.footer-links a:hover {
+    color: #d4af37;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE DESDE WELCOME.HTML */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .logo {
+        width: 110px;
+        height: 110px;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 340px;
+        height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CANVAS DE POLVO DORADO DESDE WELCOME.HTML -->
+<canvas id="bg"></canvas>
+
+<div class="page-wrapper">
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <a href="https://budastudio.github.io/buda-studio/" class="nav-brand">BUDA COLLECTIVE</a>
+        <ul class="nav-links">
+            <li><a href="https://budastudio.github.io/buda-studio/">Buda Studio</a></li>
+            <li><a href="https://budastudio.github.io/buda-collective-artist/">Collective</a></li>
+            <li><a href="https://budastudio.github.io/founders">Founders</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+        <img src="logogold26_trans.png" class="logo" alt="Buda Collective Logo">
+        <h1>BUDA COLLECTIVE ART</h1>
+        <div class="subtitle">A Living Digital Art Experience</div>
+        
+        <p class="hero-description">
+            More than an NFT community. Your permanent Collective of Art.<br>
+            A curated multichain collective connecting artists, collectors and creators around the world.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://budastudio.github.io/buda-collective-artist/" class="button">JOIN COLLECTIVE</a>
+            <a href="#gallery" class="button button-secondary">EXPLORE GALLERY</a>
+            <a href="https://budastudio.github.io/founders" class="button button-secondary">FEATURED ARTISTS</a>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT BUDA STUDIO -->
+    <section id="about" class="section-container">
+        <div class="subtitle">The Visionary</div>
+        <h2 class="section-title">ABOUT BUDA STUDIO</h2>
+        
+        <div class="manifesto-box">
+            <div class="manifesto-text">
+                <p>Buda Studio was created by <strong>Leonardo M. Scarcia</strong>, visual artist, designer and developer with more than 25 years exploring the connection between art and technology.</p>
+                <p><em>Traditional Art & Fine Design Background</em></p>
+                <p>Digital Fine Art & Animation Exploration</p>
+                <p>Web3 Exploration since 2021 | NFT NYC 2024 Exhibiting Artist</p>
+                <p><strong>Building Buda Collective independently</strong> to create permanent digital homes for artists.</p>
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="https://budastudio.github.io/buda-studio/" class="button button-secondary">VISIT BUDA STUDIO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WHAT IS BUDA COLLECTIVE -->
+    <section id="collective" class="section-container">
+        <div class="subtitle">Architecture of Legacy</div>
+        <h2 class="section-title">WHAT IS BUDA COLLECTIVE</h2>
+
+        <div class="cards">
+            <div class="card" style="--bg:url('gallery.jpg')">
+                <div class="content">
+                    <h2>CURATED<br>ARTISTS</h2>
+                    <p>Discover artists selected for creativity, originality and vision.</p>
+                    <a href="https://budastudio.github.io/buda-collective-artist/" class="button">EXPLORE →</a>
+                </div>
+            </div>
+
+            <div class="card" style="--bg:url('community.jpg')">
+                <div class="content">
+                    <h2>MULTICHAIN<br>ECOSYSTEM</h2>
+                    <p>Connecting artists across Ethereum, Base, Tezos, XRPL and Solana ecosystems.</p>
+                    <a href="https://budastudio.github.io/buda-collective-artist/" class="button">LEARN →</a>
+                </div>
+            </div>
+
+            <div class="card" style="--bg:url('gallery.jpg')">
+                <div class="content">
+                    <h2>PERMANENT<br>IDENTITY</h2>
+                    <p>More than a collection. A permanent digital home for artists.</p>
+                    <a href="https://budastudio.github.io/buda-collective-artist/" class="button">ENTER →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOUNDER CLASS -->
+    <section id="founder" class="section-container">
+        <div class="subtitle">The First Generation</div>
+        <h2 class="section-title">FOUNDER CLASS</h2>
+
+        <div class="manifesto-box">
+            <div class="manifesto-text">
+                <p>The first <strong>25 artists</strong> building the foundation of Buda Collective.</p>
+            </div>
+            
+            <div class="benefits-list">
+                <div class="benefit-item"><span>✦</span> Founder Badge</div>
+                <div class="benefit-item"><span>✦</span> Founder Gallery Accent</div>
+                <div class="benefit-item"><span>✦</span> Early Recognition</div>
+                <div class="benefit-item"><span>✦</span> Permanent Presence</div>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <a href="https://budastudio.github.io/founders" class="button">ENTER FOUNDERS HUB</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED ARTIST & CURATOR -->
+    <section class="section-container">
+        <div class="subtitle">Upgrade Program</div>
+        <h2 class="section-title">FEATURED ARTIST & CURATION</h2>
+
+        <p class="hero-description">
+            Artists can elevate their presence inside the collective. Featured Artists can become Curators and help discover new creative voices.
+        </p>
+
+        <div class="benefits-list">
+            <div class="benefit-item"><span>✓</span> Exclusive artist profile</div>
+            <div class="benefit-item"><span>✓</span> Featured visibility</div>
+            <div class="benefit-item"><span>✓</span> Curator opportunities</div>
+            <div class="benefit-item"><span>✓</span> Community access</div>
+            <div class="benefit-item"><span>✓</span> Promotion through Buda channels</div>
+            <div class="benefit-item"><span>✓</span> One year featured position</div>
+        </div>
+    </section>
+
+    <!-- 6. GALLERY PREVIEW -->
+    <section id="gallery" class="section-container">
+        <div class="subtitle">Virtual Exhibition</div>
+        <h2 class="section-title">DIGITAL GALLERY PREVIEW</h2>
+
+        <div class="cards">
+            <div class="card" style="--bg:url('gallery.jpg')">
+                <div class="content">
+                    <h2>GENESIS<br>ARTIFACT #01</h2>
+                    <p>by Leonardo M. Scarcia</p>
+                    <a class="button">VIEW →</a>
+                </div>
+            </div>
+
+            <div class="card" style="--bg:url('community.jpg')">
+                <div class="content">
+                    <h2>LUMINOUS<br>IDENTITY</h2>
+                    <p>by Founder Class Artist</p>
+                    <a class="button">VIEW →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. COMMUNITY & JOIN -->
+    <section id="community" class="section-container">
+        <div class="subtitle">Growing Together</div>
+        <h2 class="section-title">BECOME PART OF THE COLLECTIVE</h2>
+        
+        <p class="hero-description">
+            Growing together through conversations, exhibitions and collaboration.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://budastudio.github.io/buda-collective-artist/" class="button">APPLY AS ARTIST</a>
+            <a href="https://budastudio.github.io/buda-collective-artist/" class="button button-secondary">BECOME FEATURED</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="https://budastudio.github.io/buda-studio/">Buda Studio</a></li>
+            <li><a href="https://budastudio.github.io/buda-collective-artist/">Collective</a></li>
+            <li><a href="https://budastudio.github.io/founders">Founders</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Discord</a></li>
+        </ul>
+        <p class="copyright">&copy; Buda Studio. Building the future of artistic communities.</p>
+    </footer>
+
+</div>
+
+<!-- SCRIPT EXACTO DE ANIMACIÓN DE PARTICULAS (WELCOME.HTML) -->
+<script>
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const particleCount = 60;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+class Particle {
+    constructor() {
+        this.reset();
+        this.y = Math.random() * height;
+    }
+
+    reset() {
+        this.x = Math.random() * width;
+        this.y = height + 10;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedY = -(Math.random() * 0.4 + 0.1);
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.alpha = Math.random() * 0.5 + 0.1;
+    }
+
+    update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+
+        if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+            this.reset();
+        }
+    }
+
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#d4af37'; 
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#d4af37';
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
