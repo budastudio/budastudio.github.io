@@ -1,0 +1,283 @@
+<style>
+/* ==========================================================================
+   ESTILOS BASE (SISTEMA DE DISEÑO WELCOME.HTML)
+   ========================================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#090909;
+    font-family:'Inter', sans-serif;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events: none;
+}
+
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN SUPERIOR
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9, 9, 9, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .35s;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+/* ==========================================================================
+   HERO SECTION & CONTENIDO
+   ========================================================================== */
+.hero{
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo{
+    display: block;
+    margin: 0 auto 20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(212,175,55,.18);
+    transition: .5s;
+}
+
+.logo:hover{
+    transform: scale(1.05) rotate(2deg);
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero-description{
+    max-width: 580px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #d0d0d0;
+    line-height: 1.7;
+    margin: 0 auto 40px;
+}
+
+/* SISTEMA DE TARJETAS (CARDS) ESTILO WELCOME.HTML */
+.cards{
+    display: flex;
+    gap: 25px;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    position: relative;
+    width: 310px;
+    height: 240px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: #111;
+    transition: .45s;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    text-align: left;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 0 35px rgba(212,175,55,.18);
+}
+
+.content{
+    padding: 25px;
+    width: 100%;
+}
+
+.card h2{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.card p{
+    opacity: .75;
+    line-height: 1.5;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* BOTONES ESTILO WELCOME.HTML */
+.button{
+    display: inline-flex;
+    padding: 10px 22px;
+    border: 1px solid #d4af37;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .35s;
+    cursor: pointer;
+    background: transparent;
+}
+
+.button:hover{
+    background: #d4af37;
+    color: #000;
+}
+
+/* ==========================================================================
+   FOOTER Y REDES SOCIALES (SEPARACIÓN CORREGIDA)
+   ========================================================================== */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px; /* Separación más amplia entre elementos */
+    flex-wrap: wrap; /* Evita que se solapen si la pantalla es reducida */
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .35s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #d4af37;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE DESDE WELCOME.HTML */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .logo {
+        width: 110px;
+        height: 110px;
+    }
+
+    h1{
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    .subtitle{
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card{
+        width: 100%;
+        max-width: 340px;
+        height: 200px;
+    }
+
+    .social-links {
+        gap: 20px; /* Separación moderada para móviles */
+    }
+}
+</style>
