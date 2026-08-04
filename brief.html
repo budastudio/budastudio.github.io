@@ -1,1 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BrandAnima — Creative Project Brief</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+
+margin:0;
+background:#070707;
+color:#f2eee6;
+font-family:Inter,Arial,Helvetica,sans-serif;
+
+}
+
+
+.container{
+
+max-width:900px;
+margin:auto;
+padding:60px 25px 80px;
+
+}
+
+
+.logo{
+
+font-size:24px;
+letter-spacing:8px;
+font-weight:600;
+color:#d4b06a;
+margin-bottom:70px;
+
+}
+
+
+h1{
+
+font-size:clamp(42px,7vw,72px);
+line-height:1;
+margin:0 0 25px;
+
+}
+
+
+h1 span{
+
+color:#d4b06a;
+
+}
+
+
+.subtitle{
+
+max-width:650px;
+font-size:19px;
+line-height:1.7;
+color:#aaa;
+margin-bottom:60px;
+
+}
+
+
+
+.section{
+
+margin-top:55px;
+
+}
+
+
+h2{
+
+font-size:16px;
+letter-spacing:3px;
+color:#d4b06a;
+margin-bottom:25px;
+
+}
+
+
+
+label{
+
+display:block;
+font-size:14px;
+color:#ccc;
+margin:18px 0 8px;
+
+}
+
+
+
+input,
+textarea,
+select{
+
+
+width:100%;
+
+padding:16px;
+
+background:#111;
+
+border:1px solid #333;
+
+border-radius:4px;
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+
+}
+
+
+
+input:focus,
+textarea:focus,
+select:focus{
+
+border-color:#d4b06a;
+
+}
+
+
+
+textarea{
+
+min-height:130px;
+
+resize:vertical;
+
+}
+
+
+
+button{
+
+
+margin-top:40px;
+
+width:100%;
+
+padding:20px;
+
+background:#d4b06a;
+
+border:none;
+
+color:#050505;
+
+font-size:18px;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+
+#result{
+
+margin-top:25px;
+
+color:#d4b06a;
+
+font-size:16px;
+
+}
+
+
+
+.footer{
+
+margin-top:70px;
+
+color:#777;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+
+.line{
+
+height:1px;
+
+background:#222;
+
+margin:60px 0;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+
+<div class="logo">
+BRANDANIMA
+</div>
+
+
+
+<h1>
+
+Create your brand's
+
+<span>
+visual story
+</span>
+
+</h1>
+
+
+
+<p class="subtitle">
+
+A creative motion studio for brands that want to communicate through design, animation and visual experiences.
+
+Tell us about your project and let's create something unique.
+
+</p>
+
+
+
+<form id="projectForm">
+
+
+
+<div class="section">
+
+
+<h2>
+01 — CONTACT INFORMATION
+</h2>
+
+
+<label>
+Name *
+</label>
+
+<input 
+name="name"
+required>
+
+
+<label>
+Company / Brand
+</label>
+
+<input 
+name="company">
+
+
+<label>
+Email *
+</label>
+
+<input 
+name="email"
+type="email"
+required>
+
+
+<label>
+Website / Instagram
+</label>
+
+<input 
+name="website">
+
+
+</div>
+
+
+
+
+<div class="section">
+
+
+<h2>
+02 — PROJECT
+</h2>
+
+
+
+<label>
+What type of project do you need?
+</label>
+
+
+<select name="project_type">
+
+
+<option>
+Brand Identity
+</option>
+
+
+<option>
+Motion Design
+</option>
+
+
+<option>
+3D Animation
+</option>
+
+
+<option>
+Video Campaign
+</option>
+
+
+<option>
+Social Media Content
+</option>
+
+
+<option>
+Creative Direction
+</option>
+
+
+</select>
+
+
+
+
+<label>
+Tell us about your project *
+</label>
+
+
+<textarea 
+name="description"
+required></textarea>
+
+
+
+
+<label>
+What is your main goal?
+</label>
+
+
+<textarea 
+name="goals"></textarea>
+
+
+
+</div>
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+03 — VISUAL DIRECTION
+</h2>
+
+
+
+<label>
+Visual references
+</label>
+
+
+<textarea
+
+name="visual_references"
+
+placeholder="Behance, Instagram, websites, artists...">
+
+</textarea>
+
+
+
+<label>
+Style / Atmosphere
+</label>
+
+
+<input
+
+name="style"
+
+placeholder="Luxury, futuristic, minimal, organic...">
+
+
+</div>
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+04 — PROJECT INVESTMENT
+</h2>
+
+
+
+<select name="budget">
+
+
+<option>
+USD 300 - 600
+</option>
+
+
+<option>
+USD 600 - 1500
+</option>
+
+
+<option>
+USD 1500+
+</option>
+
+
+<option>
+I need guidance
+</option>
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+<button>
+
+START MY PROJECT ✦
+
+</button>
+
+
+
+<p id="result"></p>
+
+
+
+</form>
+
+
+
+
+<div class="line"></div>
+
+
+
+<div class="footer">
+
+
+BrandAnima
+
+<br>
+
+Creative Motion Studio
+
+<br><br>
+
+A creative division by Buda Studio
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script type="module">
+
+
+import { createClient }
+
+from
+
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+
+
+const supabase = createClient(
+
+
+'https://ziautsdlspdojwwvwmfa.supabase.co',
+
+
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InppYXV0c2Rsc3Bkb2p3d3Z3bWZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyODQzMDIsImV4cCI6MjA5ODg2MDMwMn0.Q-MB34BVjposm0BwnmbO02vEkGDsJbEHeZrByv3FDkc'
+
+
+);
+
+
+
+const form = document.querySelector("#projectForm");
+
+
+
+form.addEventListener("submit", async (event)=>{
+
+
+event.preventDefault();
+
+
+
+const data = Object.fromEntries(
+
+new FormData(form)
+
+);
+
+
+
+const {error} = await supabase
+
+.from("project_inquiries")
+
+.insert([data]);
+
+
+
+
+if(error){
+
+
+console.log(error);
+
+
+document.querySelector("#result").innerHTML =
+
+"Something went wrong. Please try again.";
+
+
+}
+
+else{
+
+
+document.querySelector("#result").innerHTML =
+
+"Thank you! Your project brief has been received ✦";
+
+
+form.reset();
+
+
+}
+
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
