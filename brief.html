@@ -90,21 +90,38 @@ l_style.textContent=x.style;l_budget.textContent=x.budget;sendBtn.textContent=x.
 
 projectForm.onsubmit=async(e)=>{
 e.preventDefault();
+
 const data=Object.fromEntries(new FormData(projectForm));
-const {error}=await supabase.from('project_inquiries').insert([data]);
-if(error){result.textContent='Error: '+error.message;return;}
-try {
-  const result = await supabase.functions.invoke('resend-email', {
-    body: data
-  });
 
-  console.log("RESEND FUNCTION RESULT:", result);
+const {error}=await supabase
+.from('project_inquiries')
+.insert([data]);
 
-} catch(e) {
-  console.log("FUNCTION ERROR:", e);
+if(error){
+  result.textContent='Error: '+error.message;
+  return;
 }
-  result.textContent='✓ Project received!';
+
+try {
+
+  const response = await supabase.functions.invoke(
+    'resend-email',
+    {
+      body:data
+    }
+  );
+
+  console.log("FUNCTION RESPONSE:", response);
+
+} catch(e){
+
+  console.log("FUNCTION ERROR:", e);
+
+}
+
+result.textContent='✓ Project received!';
 projectForm.reset();
+
 };
 </script>
 </body>
