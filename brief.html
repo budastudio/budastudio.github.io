@@ -1,87 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BrandAnima | Creative Brief</title>
+<style>
+body{margin:0;background:#070707;color:#f2eee6;font-family:Arial,sans-serif}
+.wrap{max-width:900px;margin:auto;padding:40px}
+h1{font-size:52px} h1 span{color:#d4b06a}
+label{display:block;margin:16px 0 6px}
+input,textarea,select{width:100%;padding:14px;background:#111;color:#fff;border:1px solid #333}
+button{margin-top:24px;padding:16px;width:100%;background:#d4b06a;border:0;font-weight:bold;cursor:pointer}
+.top{display:flex;justify-content:space-between;align-items:center}
+.small{color:#999}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<h2>BRANDANIMA</h2>
+<select id="lang">
+<option value="pt">🇧🇷 Português</option>
+<option value="en">🇺🇸 English</option>
+<option value="es">🇪🇸 Español</option>
+</select>
+</div>
+<h1 id="title">Create your <span>visual story</span></h1>
+<p id="subtitle">Tell us about your project.</p>
+
+<form id="projectForm">
+<label id="l_name">Name</label><input name="name" required>
+<label id="l_company">Company</label><input name="company">
+<label>Email</label><input type="email" name="email" required>
+<label>Website / Instagram</label><input name="website">
+
+<label id="l_type">Project type</label>
+<select name="project_type">
+<option>Brand Identity</option><option>Motion Design</option><option>3D Animation</option>
+<option>Website</option><option>Creative Direction</option>
+</select>
+
+<label id="l_desc">Project description</label>
+<textarea name="description"></textarea>
+
+<label id="l_goal">Main goal</label>
+<textarea name="goals"></textarea>
+
+<label id="l_refs">Visual references</label>
+<textarea name="visual_references"></textarea>
+
+<label id="l_style">Style</label>
+<input name="style">
+
+<label id="l_budget">Budget</label>
+<select name="budget">
+<option>USD 300–600</option>
+<option>USD 600–1500</option>
+<option>USD 1500+</option>
+<option>I need guidance</option>
+</select>
+
+<button id="sendBtn">Start my project ✦</button>
+<p id="result" class="small"></p>
+</form>
+
+<p class="small">BrandAnima · A creative division by Buda Studio</p>
+</div>
+
 <script type="module">
+import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-import { createClient }
-
-from
-
-'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-
-const supabase = createClient(
-
+const supabase=createClient(
 'https://ziautsdlspdojwwvwmfa.supabase.co',
-
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InppYXV0c2Rsc3Bkb2p3d3Z3bWZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyODQzMDIsImV4cCI6MjA5ODg2MDMwMn0.Q-MB34BVjposm0BwnmbO02vEkGDsJbEHeZrByv3FDkc'
-
 );
 
+const t={
+en:{title:'Create your <span>visual story</span>',sub:'Tell us about your project.',name:'Name',company:'Company',type:'Project type',desc:'Project description',goal:'Main goal',refs:'Visual references',style:'Style',budget:'Budget',btn:'Start my project ✦'},
+pt:{title:'Crie a <span>história visual</span>',sub:'Conte-nos sobre seu projeto.',name:'Nome',company:'Empresa',type:'Tipo de projeto',desc:'Descrição',goal:'Objetivo',refs:'Referências',style:'Estilo',budget:'Investimento',btn:'Começar meu projeto ✦'},
+es:{title:'Crea tu <span>historia visual</span>',sub:'Cuéntanos sobre tu proyecto.',name:'Nombre',company:'Empresa',type:'Tipo de proyecto',desc:'Descripción',goal:'Objetivo',refs:'Referencias',style:'Estilo',budget:'Presupuesto',btn:'Iniciar mi proyecto ✦'}
+};
+lang.onchange=e=>{
+let x=t[e.target.value];
+title.innerHTML=x.title;subtitle.textContent=x.sub;
+l_name.textContent=x.name;l_company.textContent=x.company;l_type.textContent=x.type;
+l_desc.textContent=x.desc;l_goal.textContent=x.goal;l_refs.textContent=x.refs;
+l_style.textContent=x.style;l_budget.textContent=x.budget;sendBtn.textContent=x.btn;
+};
 
-
-const form = document.querySelector("#projectForm");
-
-
-form.addEventListener("submit", async(e)=>{
-
+projectForm.onsubmit=async(e)=>{
 e.preventDefault();
-
-
-const data = Object.fromEntries(
-new FormData(form)
-);
-
-
-
-const {error} = await supabase
-
-.from("project_inquiries")
-
-.insert([data]);
-
-
-
-if(error){
-
-console.log(error);
-
-document.querySelector("#result").innerHTML =
-"Error sending project.";
-
-return;
-
-}
-
-
-
-// enviar email
-
-const emailResponse = await supabase.functions.invoke(
-
-"resend-email",
-
-{
-
-body:data
-
-}
-
-);
-
-
-
-console.log(emailResponse);
-
-
-
-document.querySelector("#result").innerHTML =
-
-"Thank you! Your project brief has been received ✦";
-
-
-form.reset();
-
-
-
-});
-
-
+const data=Object.fromEntries(new FormData(projectForm));
+const {error}=await supabase.from('project_inquiries').insert([data]);
+if(error){result.textContent='Error: '+error.message;return;}
+try{await supabase.functions.invoke('resend-email',{body:data});}catch(e){}
+result.textContent='✓ Project received!';
+projectForm.reset();
+};
 </script>
+</body>
+</html>
