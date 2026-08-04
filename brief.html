@@ -93,7 +93,11 @@ e.preventDefault();
 const data=Object.fromEntries(new FormData(projectForm));
 const {error}=await supabase.from('project_inquiries').insert([data]);
 if(error){result.textContent='Error: '+error.message;return;}
-try{await supabase.functions.invoke('resend-email',{body:data});}catch(e){}
+try{
+  await supabase.functions.invoke('resend-mail',{body:data});
+}catch(e){
+  console.log(e);
+}
 result.textContent='✓ Project received!';
 projectForm.reset();
 };
