@@ -1,1048 +1,447 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leonardo M Scarcia | Senior Creative Director</title>
-  <meta name="description" content="Creative Designer with 20+ years of international experience creating visual identities, motion graphics, digital experiences and communication systems for brands and agencies.">
-  <style>
-    /* ==========================================================================
-       1. VARIABLES & DESIGN SYSTEM
-       ========================================================================== */
-    :root {
-      --bg-primary: #0a0a0c;
-      --bg-secondary: #121318;
-      --bg-card: rgba(255, 255, 255, 0.03);
-      --bg-card-hover: rgba(255, 255, 255, 0.06);
-      
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
-      --text-muted: #6b7280;
-      
-      --accent: #5e6ad2;
-      --accent-glow: rgba(94, 106, 210, 0.35);
-      --accent-light: #828df8;
-      
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(94, 106, 210, 0.5);
-      
-      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "SF Mono", "Fira Code", "Roboto Mono", monospace;
-      
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-full: 9999px;
-      
-      --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      
-      --max-width: 1200px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buda Collective Art</title>
 
-    /* ==========================================================================
-       2. RESET & BASE STYLES
-       ========================================================================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<!-- FUENTE INTER DESDE WELCOME.HTML -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
 
-    html {
-      scroll-behavior: smooth;
-      color-scheme: dark;
-    }
+<style>
+/* ==========================================================================
+   ESTILOS BASE (SISTEMA DE DISEÑO WELCOME.HTML)
+   ========================================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      selection-background-color: var(--accent);
-      selection-color: #ffffff;
-    }
+body{
+    background:#090909;
+    font-family:'Inter', sans-serif;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.6;
+    -webkit-font-smoothing: antialiased;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events: none;
+}
 
-    ul {
-      list-style: none;
-    }
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN SUPERIOR
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9, 9, 9, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-    /* Background Ambient Glow */
-    .ambient-glow {
-      position: fixed;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(94, 106, 210, 0.15) 0%, rgba(10, 10, 12, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-      filter: blur(60px);
-    }
+.nav-brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+}
 
-    .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
 
-    /* ==========================================================================
-       3. NAVIGATION (STICKY & GLASS)
-       ========================================================================== */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.25rem 0;
-      transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast), border var(--transition-fast);
-    }
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .35s;
+}
 
-    .header.scrolled {
-      background-color: rgba(10, 10, 12, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0.85rem 0;
-    }
+.nav-links a:hover {
+    color: #d4af37;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* ==========================================================================
+   HERO SECTION & CONTENIDO
+   ========================================================================== */
+.hero{
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.03em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+.logo{
+    display: block;
+    margin: 0 auto 20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(212,175,55,.18);
+    transition: .5s;
+}
 
-    .logo-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent-light);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-light);
+.logo:hover{
+    transform: scale(1.05) rotate(2deg);
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero-description{
+    max-width: 580px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #d0d0d0;
+    line-height: 1.7;
+    margin: 0 auto 40px;
+}
+
+/* SISTEMA DE TARJETAS (CARDS) ESTILO WELCOME.HTML */
+.cards{
+    display: flex;
+    gap: 25px;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    position: relative;
+    width: 310px;
+    height: 240px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-color: #111;
+    transition: .45s;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    text-align: left;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 0 35px rgba(212,175,55,.18);
+}
+
+.content{
+    padding: 25px;
+    width: 100%;
+}
+
+.card h2{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.card p{
+    opacity: .75;
+    line-height: 1.5;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* BOTONES ESTILO WELCOME.HTML */
+.button{
+    display: inline-flex;
+    padding: 10px 22px;
+    border: 1px solid #d4af37;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .35s;
+    cursor: pointer;
+    background: transparent;
+}
+
+.button:hover{
+    background: #d4af37;
+    color: #000;
+}
+
+/* ==========================================================================
+   FOOTER Y REDES SOCIALES
+   ========================================================================== */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .35s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #d4af37;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE DESDE WELCOME.HTML */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+        display: none;
     }
 
-    .nav-links a {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      font-weight: 500;
+    .logo {
+        width: 110px;
+        height: 110px;
     }
 
-    .nav-links a:hover {
-      color: var(--text-primary);
+    h1{
+        font-size: 28px;
+        letter-spacing: 3px;
     }
 
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem;
-      background-color: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      border-radius: var(--radius-full);
-      font-size: 0.78rem;
-      color: #4ade80;
-      font-weight: 500;
+    .subtitle{
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 
-    .status-pulse {
-      width: 6px;
-      height: 6px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-      animation: pulse 2s infinite;
+    .cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
-    @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    /* ==========================================================================
-       4. HERO SECTION
-       ========================================================================== */
-    .hero {
-      padding-top: 10rem;
-      padding-bottom: 6rem;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent-light);
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 5vw, 4.2rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 540px;
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.75rem;
-      border-radius: var(--radius-full);
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-    }
-
-    .btn-primary:hover {
-      background-color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-secondary {
-      background-color: var(--bg-card);
-      color: var(--text-primary);
-      border-color: var(--border-subtle);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--bg-card-hover);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    /* Photo Placeholder */
-    .profile-container {
-      position: relative;
-      width: 100%;
-      max-width: 380px;
-      margin: 0 auto;
-    }
-
-    .profile-wrapper {
-      position: relative;
-      border-radius: var(--radius-lg);
-      padding: 8px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
-      border: 1px solid var(--border-subtle);
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-
-    .profile-img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: calc(var(--radius-lg) - 4px);
-      background: linear-gradient(135deg, #1f2232 0%, #111218 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 1.5rem;
-      position: relative;
-    }
-
-    .profile-img-placeholder svg {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 1rem;
-      stroke: var(--accent-light);
-      opacity: 0.7;
-    }
-
-    .profile-note {
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      color: var(--text-secondary);
-      background: rgba(0,0,0,0.5);
-      padding: 0.4rem 0.8rem;
-      border-radius: var(--radius-sm);
-      border: 1px dashed var(--border-subtle);
-    }
-
-    /* ==========================================================================
-       5. STATEMENT SECTION
-       ========================================================================== */
-    .section {
-      padding: 6rem 0;
-    }
-
-    .statement {
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at center, rgba(94, 106, 210, 0.05) 0%, transparent 70%);
-      padding: 7rem 0;
-      text-align: center;
-    }
-
-    .statement-text {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.03em;
-      max-width: 900px;
-      margin: 0 auto;
-      color: var(--text-secondary);
-    }
-
-    .statement-text span {
-      color: var(--text-primary);
-      background: linear-gradient(120deg, #ffffff, var(--accent-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* ==========================================================================
-       6. SELECTED WORK
-       ========================================================================== */
-    .section-header {
-      margin-bottom: 3.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    .section-subtitle {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .work-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: all var(--transition-smooth);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .work-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--border-focus);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px var(--accent-glow);
-    }
-
-    .work-media {
-      width: 100%;
-      aspect-ratio: 16/10;
-      background: linear-gradient(135deg, #1a1b26 0%, #0d0e12 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .work-media-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .work-content {
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .work-tags {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.85rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-secondary);
-    }
-
-    .work-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .work-desc {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-
-    .work-link {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--accent-light);
-    }
-
-    .work-link svg {
-      transition: transform var(--transition-fast);
-    }
-
-    .work-card:hover .work-link svg {
-      transform: translateX(4px);
-    }
-
-    /* ==========================================================================
-       7. ABOUT SECTION
-       ========================================================================== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
-    }
-
-    .skills-container {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-    }
-
-    .skills-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .skills-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .skills-group-title {
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-chip {
-      padding: 0.4rem 0.8rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      color: var(--text-primary);
-    }
-
-    /* ==========================================================================
-       8. CLIENTS / PARTNERS
-       ========================================================================== */
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .client-item {
-      height: 80px;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      letter-spacing: -0.02em;
-      transition: all var(--transition-fast);
-      filter: grayscale(100%);
-      opacity: 0.6;
-      text-align: center;
-      padding: 0.5rem;
-    }
-
-    .client-item:hover {
-      opacity: 1;
-      filter: grayscale(0%);
-      border-color: rgba(255,255,255,0.2);
-      color: var(--text-primary);
-      transform: translateY(-2px);
-    }
-
-    /* ==========================================================================
-       9. EXPERIENCE / TIMELINE
-       ========================================================================== */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .timeline-item {
-      padding: 1.75rem;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 2rem;
-      transition: border-color var(--transition-fast);
-    }
-
-    .timeline-item:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .timeline-period {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .timeline-role {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .timeline-company {
-      color: var(--accent-light);
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .timeline-desc {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       10. CONTACT SECTION
-       ========================================================================== */
-    .contact-box {
-      background: linear-gradient(135deg, rgba(94, 106, 210, 0.1) 0%, rgba(18, 19, 24, 0.8) 100%);
-      border: 1px solid var(--border-focus);
-      border-radius: var(--radius-lg);
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-title {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-    }
-
-    .contact-subtitle {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .contact-email {
-      font-size: clamp(1.2rem, 2.5vw, 2rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      text-decoration: underline;
-      text-underline-offset: 8px;
-      text-decoration-color: var(--accent);
-      transition: text-decoration-color var(--transition-fast);
-    }
-
-    .contact-email:hover {
-      text-decoration-color: #ffffff;
+    .card{
+        width: 100%;
+        max-width: 340px;
+        height: 200px;
     }
 
     .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 3rem;
+        gap: 20px;
     }
-
-    .social-link {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: all var(--transition-fast);
-    }
-
-    .social-link:hover {
-      color: var(--text-primary);
-      background-color: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* ==========================================================================
-       11. FOOTER
-       ========================================================================== */
-    .footer {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* ==========================================================================
-       12. ELEGANT SCROLL REVEAL ANIMATIONS
-       ========================================================================== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-
-    /* ==========================================================================
-       13. RESPONSIVE DESIGN
-       ========================================================================== */
-    @media (max-width: 900px) {
-      .hero-grid, .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      .profile-container {
-        max-width: 300px;
-      }
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Background Ambient Lighting Effect -->
-  <div class="ambient-glow"></div>
+<!-- CANVAS DE POLVO DORADO DESDE WELCOME.HTML -->
+<canvas id="bg"></canvas>
 
-  <!-- Header & Navigation -->
-  <header class="header" id="header">
-    <div class="container nav">
-      <a href="#" class="logo">
-        <span class="logo-dot"></span>
-        BUDA STUDIO - BRAND ANIMATION
-      </a>
-      
-      <nav class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#about">About me</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <a href="https://budastudio.github.io/brief.html" target="_blank">Start a project</a>
-      </nav>
+<div class="page-wrapper">
 
-      <div class="status-badge">
-        <span class="status-pulse"></span>
-        Available for project
-      </div>
-    </div>
-  </header>
+    <!-- NAVEGACIÓN SUPERIOR -->
+    <nav>
+        <a href="https://budastudio.github.io/" class="nav-brand">BUDA COLLECTIVE</a>
+        <ul class="nav-links">
+            <li><a href="https://budastudio.github.io/buda-studio/">About</a></li>
+            <li><a href="https://budastudio.github.io/buda-studio/">Buda Studio</a></li>
+            <li><a href="https://budastudio.github.io/buda-collective-artist/">Collective</a></li>
+            <li><a href="https://budastudio.github.io/founders">Founders</a></li>
+            <li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content reveal">
-          <span class="hero-tag">Senior Creative Designer</span>
-          <h1 class="hero-title">Crafting digital experiences with precision & purpose</h1>
-          <p class="hero-subtitle">
-            Creative Designer with 20+ years of international experience creating visual identities, motion graphics, digital experiences and communication systems for brands and agencies.
-          </p>
-          <div class="hero-cta">
-            <a href="#work" class="btn btn-primary">Selected Works</a>
-            <a href="#contact" class="btn btn-secondary">Contact</a>
-          </div>
+    <!-- HERO SECTION CON LAS 3 TARJETAS -->
+    <section class="hero">
+
+        <img src="logogold26_trans.png" class="logo" alt="Buda Collective Logo">
+
+        <h1>BUDA COLLECTIVE ART</h1>
+
+        <div class="subtitle">
+            A Permanent Collective of Art
         </div>
 
-        <!-- Photo Integration Placeholder -->
-        <div class="profile-container reveal delay-1">
-          <div class="profile-wrapper">
-            <img src="perfil.jpg" alt="Leonardo M. Scarcia" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: calc(var(--radius-lg) - 4px);">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Editorial Statement Section -->
-  <section class="statement section">
-    <div class="container">
-      <p class="statement-text reveal">
-        "Design is not only about aesthetics.
-        <span>It is about creating meaning, emotion and connection.</span>
-         A visual language that transforms ideas into experiences."
-      </p>
-    </div>
-  </section>
-
-  <!-- Selected Work Section -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section-header reveal">
-        <div>
-          <h2 class="section-title">Selected works</h2>
-          <p class="section-subtitle">Selected projects in branding, motion graphics and digital experiences.</p>
-        </div>
-      </div>
-
-      <div class="work-grid">
-        <!-- Project Card 1 -->
-        <div class="work-card reveal">
-          <div class="work-media">
-            <img src="budacollect.jpg" alt="Buda collective art" class="work-image" />
-          </div>
-          <div class="work-content">
-            <div class="work-tags">
-              <span class="tag">Creative Direction</span>
-              <span class="tag">Digital Experience</span>
-              <span class="tag">Brand System</span>
-            </div>
-            <h3 class="work-title">Buda collective art</h3>
-            <p class="work-desc">
-              A digital ecosystem connecting artists through curation, storytelling and interactive experiences.
-              Creative direction, UX structure and digital platform development.
-            </p>
-            <a href="https://budastudio.github.io/buda-collective-artist/welcome.html" target="_blank" class="work-link">
-              Go to the Buda Collective
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card 2 -->
-        <div class="work-card reveal delay-1">
-          <div class="work-media">
-            <img src="behance.jpg" alt="Brand Identity Projects" class="work-image" />
-          </div>
-          <div class="work-content">
-            <div class="work-tags">
-              <span class="tag">Art direction</span>
-              <span class="tag">Brand</span>
-            </div>
-            <h3 class="work-title">Brand Identity Projects</h3>
-            <p class="work-desc">
-              Development of visual identities, brand systems and communication guidelines creating consistent
-              experiences across digital platforms.
-            </p>
-            <a href="https://behance.net/lscarcia" target="_blank" class="work-link">
-              Go to Behance
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card 3 -->
-        <div class="work-card reveal">
-          <div class="work-media">
-            <img src="reel.jpg" alt="Motion graphic for advertasign" class="work-image" />
-          </div>
-          <div class="work-content">
-            <div class="work-tags">
-              <span class="tag">Motion Graphics</span>
-              <span class="tag">Video Editing</span>
-            </div>
-            <h3 class="work-title">Motion graphic for advertasign</h3>
-            <p class="work-desc">Animation, visual storytelling and motion systems created for advertising, brands and digital content.</p>
-            <a href="https://youtube.com/playlist?list=PLFpfjNfq3apkCqBXMF_Qj8tSdk3_i48m_&si=w6Dodrt-pM8eMhxp" target="_blank" class="work-link">
-              Youtube Channel
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card 4 -->
-        <div class="work-card reveal delay-1">
-          <div class="work-media">
-            <img src="generative.jpg" alt="Digital Experiences" class="work-image" />
-          </div>
-          <div class="work-content">
-            <div class="work-tags">
-              <span class="tag">AI Generative Workflows</span>
-              <span class="tag">Creative Direction</span>
-            </div>
-            <h3 class="work-title">Digital Experiences</h3>
-            <p class="work-desc">Interactive digital experiences combining design, technology and storytelling to create engaging user journeys.</p>
-            <a href="#contact" class="work-link">
-              Go to 
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <h2 class="section-title" style="margin-bottom: 1.5rem;">About & Philosophy</h2>
-          <div class="about-text">
-            <p>
-              I am Leonardo M. Scarcia, Senior Creative Designer specialized in Brand Identity, Motion Graphics and Digital Experiences.
-              <br><br>
-              With more than 20 years of international experience, I have collaborated with agencies and brands including Mormaii, Neokai, Cellfish Media, TBWA Worldwide, The Jeffrey Group and United Virtualities.
-              <br><br>
-              My approach combines strategy, creativity and technology to transform ideas into meaningful visual experiences.
-            </p>
-            <p>
-              I believe great design is the balance between clarity, emotion and purpose.
-            </p>
-          </div>
-        </div>
-
-        <div class="skills-container reveal delay-1">
-          <h3 class="skills-title">SKILLS</h3>
-          
-          <div class="skills-group">
-            <div class="skills-list">
-              <span class="skill-chip">Brand Identity</span>
-              <span class="skill-chip">Creative Direction</span>
-              <span class="skill-chip">Motion Graphics</span>
-              <span class="skill-chip">Visual Storytelling</span>
-              <span class="skill-chip">Digital Experiences</span>
-              <span class="skill-chip">AI-assisted Workflows</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <div class="skills-group-title">Software & Tools</div>
-            <div class="skills-list">
-              <span class="skill-chip">After Effects</span>
-              <span class="skill-chip">Premiere Pro</span>
-              <span class="skill-chip">Photoshop</span>
-              <span class="skill-chip">Illustrator</span>
-              <span class="skill-chip">Figma</span>
-              <span class="skill-chip">Blender</span>
-              <span class="skill-chip">Midjourney</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Clients</h2>
-      </div>
-      <div class="clients-grid reveal">
-        <div class="client-item">TBWA Worldwide</div>
-        <div class="client-item">Mormaii</div>
-        <div class="client-item">Cellfish Media</div>
-        <div class="client-item">The Jeffrey Group</div>
-        <div class="client-item">Neokai</div>
-        <div class="client-item">United Virtualities</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="section" id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Experience</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-period">Present</div>
-          <div>
-            <h3 class="timeline-role">Founder & Creative Director</h3>
-            <div class="timeline-company">Buda Studio — Brasil </div>
-            <p class="timeline-desc">Leading creative projects in branding, motion graphics, digital experiences, AI-assisted design and visual storytelling.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-period">Past</div>
-          <div>
-            <h3 class="timeline-role">Senior Designer & Art Director</h3>
-            <div class="timeline-company">Neokai / Mormaii / TBWA / Cellfish Media</div>
-            <p class="timeline-desc">Brand identity, digital campaigns, visual assets and creative production for online platforms.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-period">Visual Artist Web 3 </div>
-          <div>
-            <h3 class="timeline-role">Visual Artist & Web3 Exhibitor</h3>
-            <div class="timeline-company">International Exhibitions</div>
-            <p class="timeline-desc">Exhibitions of animation and visual arts in NFT NYC y NFC Lisboa 2024/2025/26.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="contact-box reveal">
-        <h2 class="contact-title">Let's create something meaningful.</h2>
-        <p class="contact-subtitle">
-          Available for Creative Direction, Brand Identity, Motion Design and Digital Experience projects.
+        <p class="hero-description">
+            More than an NFT community. A curated collective connecting artists, collectors, and creators around the world.
         </p>
-        <a href="mailto:lscarcia@gmail.com" class="contact-email">Let's connect</a>
 
-        <div class="social-links">
-          <!-- LinkedIn -->
-          <a href="https://linkedin.com/in/lscarcia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
+        <div class="cards">
+
+            <!-- 1. JOIN COLLECTIVE -->
+            <div class="card" style="--bg:url('community.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/'">
+                <div class="content">
+                    <h2>JOIN THE<br>COLLECTIVE</h2>
+                    <p>Become part of our curated community of artists.</p>
+                    <a href="https://budastudio.github.io/buda-collective-artist/" class="button">APPLY →</a>
+                </div>
+            </div>
+
+            <!-- 2. EXPLORE GALLERY -->
+            <div class="card" style="--bg:url('gallery.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/welcome.html'">
+                <div class="content">
+                    <h2>EXPLORE<br>GALLERY</h2>
+                    <p>Experience the evolving exhibition of digital artists.</p>
+                    <a href="https://budastudio.github.io/buda-collective-artist/welcome.html" class="button">ENTER →</a>
+                </div>
+            </div>
+
+            <!-- 3. BUDA STUDIO -->
+            <div class="card" style="--bg:url('gallery.jpg')" onclick="location.href='https://budastudio.github.io/buda-studio/'">
+                <div class="content">
+                    <h2>BUDA<br>STUDIO</h2>
+                    <p>25+ years bridging visual art, design, and technology.</p>
+                    <a href="https://budastudio.github.io/buda-studio/" class="button">VISIT →</a>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-  </section>
+
+    </section>
+
+    <!-- FOOTER Y REDES SOCIALES -->
+    <footer>
+        <ul class="social-links">
+            <li><a href="https://instagram.com/budastudio_art" target="_blank">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/lscarcia" target="_blank">LinkedIn</a></li>
+            <li><a href="https://discord.com/users/872909014067978273" target="_blank">Discord</a></li>
+            <li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
+        </ul>
+        <p class="copyright">&copy; Buda Studio. Building the future of artistic communities.</p>
+    </footer>
+
+</div>
+
+<!-- SCRIPT EXACTO DE ANIMACIÓN DE PARTICULAS (WELCOME.HTML) -->
+<script>
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const particleCount = 60;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+class Particle {
+    constructor() {
+        this.reset();
+        this.y = Math.random() * height;
+    }
+
+    reset() {
+        this.x = Math.random() * width;
+        this.y = height + 10;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedY = -(Math.random() * 0.4 + 0.1);
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.alpha = Math.random() * 0.5 + 0.1;
+    }
+
+    update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+
+        if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+            this.reset();
+        }
+    }
+
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#d4af37'; 
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#d4af37';
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
 </body>
 </html>
