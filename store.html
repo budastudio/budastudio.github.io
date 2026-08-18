@@ -49,10 +49,8 @@ a{
 
 body::before{
     content:"";
-
     position:fixed;
     inset:0;
-
     pointer-events:none;
 
     background:
@@ -71,90 +69,61 @@ body::before{
 ============================================================ */
 
 nav{
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
-
     z-index:1000;
 
     padding:20px 40px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     background:rgba(9,9,9,.88);
-
     backdrop-filter:blur(14px);
 
     border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .nav-brand{
-
     font-size:13px;
-
     letter-spacing:4px;
-
     text-transform:uppercase;
-
     text-decoration:none;
-
     font-weight:300;
 }
 
 .nav-links{
-
     display:flex;
-
     align-items:center;
-
     gap:25px;
-
     list-style:none;
 }
 
 .nav-links a{
-
     color:rgba(255,255,255,.58);
-
     text-decoration:none;
-
     font-size:11px;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
-
     transition:.3s;
 }
 
 .nav-links a:hover{
-
     color:#d4af37;
 }
 
 .store-active{
-
     color:#d4af37!important;
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
 }
 
 .store-icon{
-
     width:15px;
-
     height:15px;
 }
 
@@ -164,45 +133,34 @@ nav{
 ============================================================ */
 
 .cart-button{
-
     position:relative;
 
     border:1px solid rgba(212,175,55,.6);
-
     background:transparent;
-
     color:#fff;
 
     padding:9px 15px;
-
     border-radius:999px;
 
     cursor:pointer;
 
     font-size:11px;
-
     letter-spacing:1px;
 
     transition:.3s;
 }
 
 .cart-button:hover{
-
     background:#d4af37;
-
     color:#000;
 }
 
 .cart-count{
-
     display:inline-flex;
-
     justify-content:center;
-
     align-items:center;
 
     min-width:18px;
-
     height:18px;
 
     margin-left:5px;
@@ -210,11 +168,9 @@ nav{
     border-radius:50%;
 
     background:#d4af37;
-
     color:#000;
 
     font-size:10px;
-
     font-weight:600;
 }
 
@@ -224,58 +180,35 @@ nav{
 ============================================================ */
 
 .hero{
-
-    padding:
-
-        145px
-
-        25px
-
-        55px;
-
+    padding:145px 25px 55px;
     text-align:center;
-
     max-width:1000px;
-
     margin:auto;
 }
 
 .kicker{
-
     color:#d4af37;
-
     font-size:10px;
-
     letter-spacing:4px;
-
     text-transform:uppercase;
-
     margin-bottom:18px;
 }
 
 h1{
-
     font-size:48px;
-
     font-weight:200;
-
     letter-spacing:8px;
-
     margin-bottom:18px;
 }
 
 .hero-text{
-
     max-width:650px;
-
     margin:auto;
 
     color:#aaa;
 
     font-size:14px;
-
     font-weight:300;
-
     line-height:1.8;
 }
 
@@ -285,32 +218,21 @@ h1{
 ============================================================ */
 
 .filters{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     gap:10px;
-
     flex-wrap:wrap;
 
     max-width:1000px;
 
-    margin:
-
-        15px
-
-        auto
-
-        45px;
+    margin:15px auto 45px;
 
     padding:0 20px;
 }
 
 .filter{
-
     border:1px solid rgba(255,255,255,.12);
 
     background:transparent;
@@ -322,7 +244,6 @@ h1{
     padding:9px 17px;
 
     font-size:10px;
-
     letter-spacing:1.5px;
 
     cursor:pointer;
@@ -331,18 +252,13 @@ h1{
 }
 
 .filter:hover{
-
     border-color:#d4af37;
-
     color:#fff;
 }
 
 .filter.active{
-
     background:#d4af37;
-
     color:#000;
-
     border-color:#d4af37;
 }
 
@@ -352,16 +268,9 @@ h1{
 ============================================================ */
 
 .store{
-
     max-width:1250px;
-
     margin:auto;
-
-    padding:
-
-        0 25px
-
-        100px;
+    padding:0 25px 100px;
 }
 
 
@@ -370,16 +279,12 @@ h1{
 ============================================================ */
 
 .carousel-wrapper{
-
     position:relative;
-
     overflow:hidden;
 }
 
 .carousel{
-
     display:flex;
-
     gap:22px;
 
     overflow-x:auto;
@@ -388,17 +293,10 @@ h1{
 
     scrollbar-width:none;
 
-    padding:
-
-        5px
-
-        4px
-
-        25px;
+    padding:5px 4px 25px;
 }
 
 .carousel::-webkit-scrollbar{
-
     display:none;
 }
 
@@ -408,18 +306,9 @@ h1{
 ============================================================ */
 
 .product{
+    flex:0 0 320px;
 
-    flex:
-
-        0 0
-
-        320px;
-
-    border:
-
-        1px solid
-
-        rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
 
     border-radius:24px;
 
@@ -433,52 +322,38 @@ h1{
 }
 
 .product:hover{
-
     transform:translateY(-7px);
 
     border-color:#d4af37;
 
     box-shadow:
-
-        0 15px 50px
-
-        rgba(0,0,0,.5),
-
-        0 0 30px
-
-        rgba(212,175,55,.08);
+        0 15px 50px rgba(0,0,0,.5),
+        0 0 30px rgba(212,175,55,.08);
 }
 
 
-/* PRODUCT IMAGE */
+/* ============================================================
+   PRODUCT IMAGE
+============================================================ */
 
 .product-image{
-
     position:relative;
 
     width:100%;
-
     height:330px;
 
     overflow:hidden;
 
     background:
-
         linear-gradient(
-
             135deg,
-
             #171717,
-
             #090909
-
         );
 }
 
 .product-image img{
-
     width:100%;
-
     height:100%;
 
     object-fit:cover;
@@ -489,23 +364,114 @@ h1{
 }
 
 .product:hover .product-image img{
-
-    transform:scale(1.04);
+    transform:scale(1.025);
 }
 
 
-/* PLACEHOLDER */
+/* ============================================================
+   IMAGE TOGGLE
+============================================================ */
+
+.image-toggle{
+    position:absolute;
+
+    left:50%;
+    bottom:15px;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+
+    display:flex;
+
+    gap:3px;
+
+    padding:4px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.78);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:blur(10px);
+
+    white-space:nowrap;
+}
+
+.image-toggle button{
+    border:none;
+
+    background:transparent;
+
+    color:rgba(255,255,255,.55);
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:8px;
+
+    letter-spacing:1.3px;
+
+    transition:.3s;
+}
+
+.image-toggle button:hover{
+    color:#fff;
+}
+
+.image-toggle button.active{
+    background:#d4af37;
+    color:#000;
+}
+
+
+/* ============================================================
+   IMAGE LABEL
+============================================================ */
+
+.image-label{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    z-index:4;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.68);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:rgba(255,255,255,.65);
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    pointer-events:none;
+}
+
+
+/* ============================================================
+   PLACEHOLDER
+============================================================ */
 
 .placeholder{
-
     width:100%;
-
     height:100%;
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     flex-direction:column;
@@ -520,28 +486,24 @@ h1{
 }
 
 .placeholder-symbol{
-
     font-size:55px;
-
     color:#d4af37;
-
     opacity:.35;
-
     margin-bottom:12px;
 }
 
 
-/* BADGE */
+/* ============================================================
+   BADGE
+============================================================ */
 
 .badge{
-
     position:absolute;
 
     top:15px;
-
     left:15px;
 
-    z-index:3;
+    z-index:5;
 
     padding:6px 10px;
 
@@ -561,15 +523,15 @@ h1{
 }
 
 
-/* PRODUCT INFO */
+/* ============================================================
+   PRODUCT INFO
+============================================================ */
 
 .product-info{
-
     padding:22px;
 }
 
 .product-type{
-
     font-size:9px;
 
     letter-spacing:2px;
@@ -582,31 +544,78 @@ h1{
 }
 
 .product-name{
-
     font-size:19px;
 
     font-weight:300;
 
     letter-spacing:1px;
 
-    margin-bottom:7px;
+    margin-bottom:10px;
 }
 
 .product-description{
-
     color:#999;
 
     font-size:12px;
 
-    line-height:1.6;
+    line-height:1.65;
 
-    min-height:40px;
+    min-height:58px;
 
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
-.product-bottom{
 
+/* ============================================================
+   PRODUCT DETAILS
+============================================================ */
+
+.product-details{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    padding:13px 0;
+
+    margin-bottom:16px;
+
+    border-top:1px solid rgba(255,255,255,.07);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.detail-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    font-size:10px;
+}
+
+.detail-label{
+    color:#666;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.detail-value{
+    color:#bbb;
+
+    text-align:right;
+}
+
+
+/* ============================================================
+   PRODUCT BOTTOM
+============================================================ */
+
+.product-bottom{
     display:flex;
 
     justify-content:space-between;
@@ -617,7 +626,6 @@ h1{
 }
 
 .price{
-
     font-size:17px;
 
     font-weight:300;
@@ -626,12 +634,7 @@ h1{
 }
 
 .buy-button{
-
-    border:
-
-        1px solid
-
-        #d4af37;
+    border:1px solid #d4af37;
 
     background:transparent;
 
@@ -651,14 +654,11 @@ h1{
 }
 
 .buy-button:hover{
-
     background:#d4af37;
-
     color:#000;
 }
 
 .buy-button:disabled{
-
     opacity:.35;
 
     cursor:not-allowed;
@@ -668,11 +668,43 @@ h1{
 
 
 /* ============================================================
+   DETAILS BUTTON
+============================================================ */
+
+.details-button{
+    width:100%;
+
+    margin-top:12px;
+
+    padding:10px;
+
+    border:none;
+
+    background:transparent;
+
+    color:#666;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.details-button:hover{
+    color:#d4af37;
+}
+
+
+/* ============================================================
    CAROUSEL ARROWS
 ============================================================ */
 
 .carousel-arrow{
-
     position:absolute;
 
     top:45%;
@@ -680,26 +712,19 @@ h1{
     transform:translateY(-50%);
 
     width:42px;
-
     height:42px;
 
     border-radius:50%;
 
-    border:
+    border:1px solid rgba(212,175,55,.7);
 
-        1px solid
-
-        rgba(212,175,55,.7);
-
-    background:
-
-        rgba(9,9,9,.8);
+    background:rgba(9,9,9,.8);
 
     color:#fff;
 
     cursor:pointer;
 
-    z-index:5;
+    z-index:20;
 
     font-size:18px;
 
@@ -707,29 +732,275 @@ h1{
 }
 
 .carousel-arrow:hover{
-
     background:#d4af37;
-
     color:#000;
 }
 
 .arrow-left{
-
     left:5px;
 }
 
 .arrow-right{
-
     right:5px;
 }
 
 
 /* ============================================================
-   CART DRAWER
+   ARTWORK MODAL
+============================================================ */
+
+.artwork-modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    background:rgba(0,0,0,.88);
+
+    backdrop-filter:blur(12px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+}
+
+.artwork-modal.open{
+    opacity:1;
+    visibility:visible;
+}
+
+.artwork-modal-content{
+    position:relative;
+
+    width:min(1100px,100%);
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    background:#101010;
+
+    border:1px solid rgba(212,175,55,.22);
+
+    border-radius:24px;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.7);
+}
+
+.modal-close{
+    position:absolute;
+
+    top:18px;
+    right:20px;
+
+    z-index:20;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(0,0,0,.7);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+}
+
+.modal-close:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+.modal-gallery{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:1px;
+
+    background:#222;
+}
+
+.modal-gallery-item{
+    position:relative;
+
+    aspect-ratio:1 / 1;
+
+    background:#090909;
+
+    overflow:hidden;
+}
+
+.modal-gallery-item img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.modal-gallery-label{
+    position:absolute;
+
+    left:18px;
+    bottom:18px;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.7);
+
+    color:#ccc;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+.modal-info{
+    padding:32px;
+}
+
+.modal-kicker{
+    color:#d4af37;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.modal-title{
+    font-size:32px;
+
+    font-weight:200;
+
+    letter-spacing:2px;
+
+    margin-bottom:16px;
+}
+
+.modal-description{
+    max-width:750px;
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-bottom:24px;
+}
+
+.modal-specs{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin-bottom:25px;
+}
+
+.modal-spec{
+    padding:16px;
+
+    background:#101010;
+}
+
+.modal-spec-label{
+    color:#666;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:5px;
+}
+
+.modal-spec-value{
+    color:#ddd;
+
+    font-size:11px;
+}
+
+.modal-footer{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.modal-price{
+    font-size:23px;
+
+    font-weight:300;
+}
+
+.modal-add{
+    border:1px solid #d4af37;
+
+    background:#d4af37;
+
+    color:#000;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    transition:.3s;
+}
+
+.modal-add:hover{
+    background:#fff;
+
+    border-color:#fff;
+}
+
+
+/* ============================================================
+   CART OVERLAY
 ============================================================ */
 
 .overlay{
-
     position:fixed;
 
     inset:0;
@@ -748,18 +1019,19 @@ h1{
 }
 
 .overlay.open{
-
     opacity:1;
-
     visibility:visible;
 }
 
-.cart-drawer{
 
+/* ============================================================
+   CART DRAWER
+============================================================ */
+
+.cart-drawer{
     position:fixed;
 
     top:0;
-
     right:0;
 
     width:min(430px,100%);
@@ -768,11 +1040,7 @@ h1{
 
     background:#0d0d0d;
 
-    border-left:
-
-        1px solid
-
-        rgba(212,175,55,.2);
+    border-left:1px solid rgba(212,175,55,.2);
 
     z-index:1600;
 
@@ -786,12 +1054,10 @@ h1{
 }
 
 .cart-drawer.open{
-
     transform:translateX(0);
 }
 
 .cart-header{
-
     display:flex;
 
     justify-content:space-between;
@@ -800,15 +1066,10 @@ h1{
 
     padding:25px;
 
-    border-bottom:
-
-        1px solid
-
-        rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .cart-header h2{
-
     font-size:18px;
 
     font-weight:300;
@@ -817,7 +1078,6 @@ h1{
 }
 
 .close-cart{
-
     background:none;
 
     border:none;
@@ -830,12 +1090,10 @@ h1{
 }
 
 .close-cart:hover{
-
     color:#d4af37;
 }
 
 .cart-items{
-
     flex:1;
 
     overflow-y:auto;
@@ -844,7 +1102,6 @@ h1{
 }
 
 .empty-cart{
-
     text-align:center;
 
     padding:70px 20px;
@@ -855,7 +1112,6 @@ h1{
 }
 
 .cart-item{
-
     display:grid;
 
     grid-template-columns:75px 1fr auto;
@@ -866,17 +1122,11 @@ h1{
 
     padding:15px 0;
 
-    border-bottom:
-
-        1px solid
-
-        rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .cart-thumb{
-
     width:75px;
-
     height:75px;
 
     border-radius:10px;
@@ -887,30 +1137,25 @@ h1{
 }
 
 .cart-thumb img{
-
     width:100%;
-
     height:100%;
 
     object-fit:cover;
 }
 
 .cart-item-name{
-
     font-size:13px;
 
     margin-bottom:4px;
 }
 
 .cart-item-price{
-
     color:#d4af37;
 
     font-size:12px;
 }
 
 .quantity{
-
     display:flex;
 
     align-items:center;
@@ -921,16 +1166,10 @@ h1{
 }
 
 .quantity button{
-
     width:22px;
-
     height:22px;
 
-    border:
-
-        1px solid
-
-        #555;
+    border:1px solid #555;
 
     background:transparent;
 
@@ -942,12 +1181,10 @@ h1{
 }
 
 .quantity span{
-
     font-size:11px;
 }
 
 .remove{
-
     border:none;
 
     background:none;
@@ -960,7 +1197,6 @@ h1{
 }
 
 .remove:hover{
-
     color:#d4af37;
 }
 
@@ -970,18 +1206,12 @@ h1{
 ============================================================ */
 
 .cart-footer{
-
     padding:25px;
 
-    border-top:
-
-        1px solid
-
-        rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.08);
 }
 
 .cart-total{
-
     display:flex;
 
     justify-content:space-between;
@@ -992,7 +1222,6 @@ h1{
 }
 
 .cart-total span:first-child{
-
     color:#aaa;
 
     font-size:12px;
@@ -1003,14 +1232,12 @@ h1{
 }
 
 .cart-total span:last-child{
-
     font-size:20px;
 
     font-weight:300;
 }
 
 .checkout{
-
     width:100%;
 
     padding:14px;
@@ -1035,12 +1262,10 @@ h1{
 }
 
 .checkout:hover{
-
     background:#fff;
 }
 
 .checkout:disabled{
-
     background:#333;
 
     color:#777;
@@ -1049,7 +1274,6 @@ h1{
 }
 
 .paypal-note{
-
     text-align:center;
 
     color:#555;
@@ -1067,7 +1291,6 @@ h1{
 ============================================================ */
 
 .store-note{
-
     max-width:700px;
 
     margin:55px auto 0;
@@ -1089,20 +1312,14 @@ h1{
 ============================================================ */
 
 footer{
-
     padding:45px 20px;
 
-    border-top:
-
-        1px solid
-
-        rgba(255,255,255,.06);
+    border-top:1px solid rgba(255,255,255,.06);
 
     text-align:center;
 }
 
 .social-links{
-
     display:flex;
 
     justify-content:center;
@@ -1117,7 +1334,6 @@ footer{
 }
 
 .social-links a{
-
     color:#666;
 
     text-decoration:none;
@@ -1132,12 +1348,10 @@ footer{
 }
 
 .social-links a:hover{
-
     color:#d4af37;
 }
 
 .copyright{
-
     color:#444;
 
     font-size:10px;
@@ -1153,44 +1367,35 @@ footer{
 @media(max-width:768px){
 
     nav{
-
         padding:15px 20px;
     }
 
     .nav-links{
-
         display:none;
     }
 
     .hero{
-
         padding-top:120px;
     }
 
     h1{
-
         font-size:34px;
-
         letter-spacing:5px;
     }
 
     .product{
-
         flex-basis:82vw;
     }
 
     .product-image{
-
-        height:300px;
+        height:330px;
     }
 
     .carousel-arrow{
-
         display:none;
     }
 
     .filters{
-
         justify-content:flex-start;
 
         overflow-x:auto;
@@ -1203,14 +1408,70 @@ footer{
     }
 
     .filters::-webkit-scrollbar{
-
         display:none;
     }
 
     .filter{
-
         flex-shrink:0;
     }
+
+    .modal-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .modal-info{
+        padding:25px 20px;
+    }
+
+    .modal-title{
+        font-size:25px;
+    }
+
+    .modal-specs{
+        grid-template-columns:1fr;
+    }
+
+    .modal-footer{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .modal-price{
+        text-align:center;
+    }
+
+    .modal-add{
+        width:100%;
+    }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media(max-width:420px){
+
+    .product{
+        flex-basis:88vw;
+    }
+
+    .product-info{
+        padding:19px;
+    }
+
+    .product-image{
+        height:315px;
+    }
+
+    .image-toggle button{
+        padding:7px 9px;
+
+        font-size:7px;
+    }
+
 }
 
 </style>
@@ -1323,7 +1584,7 @@ class="cart-count">
 <header class="hero">
 
 <div class="kicker">
-BUDA STUDIO / STORE
+BUDA STUDIO / ONLINE GALLERY
 </div>
 
 <h1>
@@ -1333,7 +1594,7 @@ STORE
 <p class="hero-text">
 
 Original artworks, limited editions, physical objects,
-wearables and digital pieces created and curated by
+wearables and selected pieces created and curated by
 Buda Studio.
 
 </p>
@@ -1421,8 +1682,6 @@ onclick="moveCarousel(-1)">
 id="productCarousel"
 class="carousel">
 
-<!-- PRODUCTS GENERATED BY JAVASCRIPT -->
-
 </div>
 
 
@@ -1439,13 +1698,57 @@ onclick="moveCarousel(1)">
 
 <p class="store-note">
 
-Every piece is produced, selected or curated through
-Buda Studio. Availability and edition size may vary
-according to the artwork.
+Each original artwork is selected and presented through
+Buda Studio. Dimensions are provided in centimeters and
+inches for international collectors. Availability and
+edition size may vary according to the work.
 
 </p>
 
 </main>
+
+
+
+<!-- ============================================================
+     ARTWORK MODAL
+============================================================ -->
+
+<div
+id="artworkModal"
+class="artwork-modal"
+onclick="closeArtworkModal(event)">
+
+<div
+class="artwork-modal-content"
+onclick="event.stopPropagation()">
+
+
+<button
+class="modal-close"
+onclick="closeArtworkModal()">
+
+×
+
+</button>
+
+
+<div
+id="modalGallery"
+class="modal-gallery">
+
+</div>
+
+
+<div
+id="modalInfo"
+class="modal-info">
+
+</div>
+
+
+</div>
+
+</div>
 
 
 
@@ -1509,7 +1812,7 @@ Total
 </span>
 
 <span id="cartTotal">
-R$ 0,00
+US$ 0.00
 </span>
 
 </div>
@@ -1609,170 +1912,295 @@ Contact
    PRODUCT CATALOG
 ============================================================ */
 
-/*
-   AQUÍ VAS A CAMBIAR LOS PRODUCTOS REALES.
-
-   image:
-   Ponemos por ejemplo:
-
-   "images/painting01.jpg"
-
-   o simplemente:
-
-   "painting01.jpg"
-
-   si la imagen está en la raíz del repositorio.
-*/
-
-
 const products = [
 
 
 /* ------------------------------------------------------------
-   PAINTING
+   PAINTING 01
 ------------------------------------------------------------ */
 
 {
     id:1,
 
-    name:"PANTONE ONÍRICO #01",
+    name:"Collective Thoughts",
 
     category:"PAINTING",
 
     description:
-    "Original painting — unique 1/1 artwork.",
+    "An exploration of accumulated ideas, perceptions and experiences. Layers of matter and color create a space where individual consciousness meets the collective.",
 
-    price:1200,
+    technique:"Oil on canvas",
 
-    currency:"BRL",
+    dimensions:"80 × 60 cm",
 
-    image:"",
+    dimensionsIn:"31.5 × 23.6 in",
+
+    price:300,
+
+    currency:"USD",
+
+    image:"painting1.jpg",
+
+    contextImage:"painting1_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL"
+    badge:"ORIGINAL",
+
+    status:"Unique 1/1"
 },
 
+
+/* ------------------------------------------------------------
+   PAINTING 02
+------------------------------------------------------------ */
 
 {
     id:2,
 
-    name:"ECOS DE PACHAMAMA",
+    name:"Buddha Enlightening",
 
     category:"PAINTING",
 
     description:
-    "Original artwork from the Pachamama series.",
+    "A contemporary interpretation of Buddha as a symbol of presence, transformation and inner awakening. The painting invites contemplation through gesture, form and light.",
 
-    price:950,
+    technique:"Oil on canvas",
 
-    currency:"BRL",
+    dimensions:"80 × 60 cm",
 
-    image:"",
+    dimensionsIn:"31.5 × 23.6 in",
+
+    price:300,
+
+    currency:"USD",
+
+    image:"painting2.jpg",
+
+    contextImage:"painting2_ambient.jpg",
 
     stock:1,
 
-    badge:"1/1"
+    badge:"ORIGINAL",
+
+    status:"Unique 1/1"
 },
 
 
-
 /* ------------------------------------------------------------
-   PRINT
+   PAINTING 03
 ------------------------------------------------------------ */
 
 {
     id:3,
 
-    name:"BUDA JOURNEY — PRINT",
+    name:"Pepe Little Princess",
 
-    category:"PRINT",
+    category:"PAINTING",
 
     description:
-    "Fine art print — archival paper, limited edition.",
+    "A small-scale portrait transforming Pepe into a playful and almost iconic figure. Its intimate format contrasts with the visual presence of the character, blending humor, digital culture and painting.",
 
-    price:95,
+    technique:"Oil on canvas",
 
-    currency:"BRL",
+    dimensions:"26 × 18.5 cm",
 
-    image:"",
+    dimensionsIn:"10.2 × 7.3 in",
 
-    stock:20,
+    price:100,
 
-    badge:"LIMITED"
+    currency:"USD",
+
+    image:"painting3.jpg",
+
+    contextImage:"painting3_ambient.jpg",
+
+    stock:1,
+
+    badge:"ORIGINAL",
+
+    status:"Unique 1/1"
 },
 
+
+/* ------------------------------------------------------------
+   PAINTING 04
+------------------------------------------------------------ */
 
 {
     id:4,
 
-    name:"THEORY OF CHAOS — PRINT",
+    name:"Pepe Pumpkin",
 
-    category:"PRINT",
+    category:"PAINTING",
 
     description:
-    "Limited museum-quality art print.",
+    "An experimental interpretation of Pepe through drawing, color and playful symbolism. Executed on 300 gsm paper with watercolor pencils, the work combines precision and spontaneity.",
 
-    price:120,
+    technique:"Watercolor pencil on 300 gsm paper",
 
-    currency:"BRL",
+    dimensions:"21 × 15 cm",
 
-    image:"",
+    dimensionsIn:"8.3 × 5.9 in",
 
-    stock:15,
+    price:95,
 
-    badge:"EDITION"
+    currency:"USD",
+
+    image:"painting4.jpg",
+
+    contextImage:"painting4_ambient.jpg",
+
+    stock:1,
+
+    badge:"ORIGINAL",
+
+    status:"Unique 1/1"
 },
 
 
-
 /* ------------------------------------------------------------
-   T-SHIRT
+   PAINTING 05
 ------------------------------------------------------------ */
 
 {
     id:5,
 
-    name:"BUDA STUDIO T-SHIRT",
+    name:"Bitcoiner Influencer",
 
-    category:"T-SHIRT",
+    category:"PAINTING",
 
     description:
-    "Buda Studio collective edition.",
+    "An ironic and contemporary reflection on the influencer within crypto culture. The work connects digital identity, speculation, symbolic power and the visual language of a new global economy.",
 
-    price:150,
+    technique:"Oil on canvas",
 
-    currency:"BRL",
+    dimensions:"26 × 19 cm",
 
-    image:"tshirt-black.jpeg",
+    dimensionsIn:"10.2 × 7.5 in",
 
-    stock:12,
+    price:200,
 
-    badge:"STUDIO"
+    currency:"USD",
+
+    image:"painting5.jpg",
+
+    contextImage:"painting5_ambient.jpg",
+
+    stock:1,
+
+    badge:"ORIGINAL",
+
+    status:"Unique 1/1"
 },
 
+
+/* ------------------------------------------------------------
+   PAINTING 06 — TRIPTYCH
+------------------------------------------------------------ */
 
 {
     id:6,
 
-    name:"PANTONE ONÍRICO TEE",
+    name:"Waves",
+
+    category:"PAINTING",
+
+    description:
+    "A triptych dedicated to the constant movement of the ocean. Three individual paintings operate as fragments of a single perception — rhythm, repetition and transformation.",
+
+    technique:"Oil on canvas — triptych",
+
+    dimensions:"3 works · 18 × 13 cm each",
+
+    dimensionsIn:"3 works · 7.1 × 5.1 in each",
+
+    price:300,
+
+    currency:"USD",
+
+    image:"painting6.jpg",
+
+    contextImage:"painting6_ambient.jpg",
+
+    stock:1,
+
+    badge:"TRIPTYCH",
+
+    status:"Unique 1/1"
+},
+
+
+/* ------------------------------------------------------------
+   FUTURE PRINT
+------------------------------------------------------------ */
+
+{
+    id:7,
+
+    name:"Buda Journey — Print",
+
+    category:"PRINT",
+
+    description:
+    "Fine art print produced as a limited edition for collectors.",
+
+    technique:"Fine art print",
+
+    dimensions:"—",
+
+    dimensionsIn:"—",
+
+    price:95,
+
+    currency:"USD",
+
+    image:"",
+
+    contextImage:"",
+
+    stock:20,
+
+    badge:"LIMITED",
+
+    status:"Limited edition"
+},
+
+
+/* ------------------------------------------------------------
+   FUTURE T-SHIRT
+------------------------------------------------------------ */
+
+{
+    id:8,
+
+    name:"Buda Studio T-Shirt",
 
     category:"T-SHIRT",
 
     description:
-    "Limited artwork edition printed on cotton.",
+    "Buda Studio wearable edition featuring the studio identity.",
 
-    price:169,
+    technique:"Cotton",
 
-    currency:"BRL",
+    dimensions:"Multiple sizes",
 
-    image:"",
+    dimensionsIn:"Multiple sizes",
 
-    stock:10,
+    price:35,
 
-    badge:"LIMITED"
+    currency:"USD",
+
+    image:"tshirt-black.jpeg",
+
+    contextImage:"",
+
+    stock:12,
+
+    badge:"STUDIO",
+
+    status:"Limited production"
 },
-
 
 
 /* ------------------------------------------------------------
@@ -1780,26 +2208,35 @@ const products = [
 ------------------------------------------------------------ */
 
 {
-    id:7,
+    id:9,
 
-    name:"BUDA STUDIO OBJECT #01",
+    name:"Buda Studio Object #01",
 
     category:"PHYSICAL",
 
     description:
-    "Small studio object — limited production.",
+    "Small studio object produced as part of the Buda Studio physical collection.",
 
-    price:000,
+    technique:"Physical object",
 
-    currency:"BRL",
+    dimensions:"—",
+
+    dimensionsIn:"—",
+
+    price:0,
+
+    currency:"USD",
 
     image:"",
 
+    contextImage:"",
+
     stock:5,
 
-    badge:"PHYSICAL"
-},
+    badge:"PHYSICAL",
 
+    status:"Limited production"
+},
 
 
 /* ------------------------------------------------------------
@@ -1807,28 +2244,37 @@ const products = [
 ------------------------------------------------------------ */
 
 {
-    id:8,
+    id:10,
 
-    name:"SPONTANEOUS WORK #01",
+    name:"Spontaneous Work #01",
 
     category:"OBJKT",
 
     description:
-    "Digital artwork — collectible edition.",
+    "Digital artwork created and released as a collectible edition.",
+
+    technique:"Digital artwork",
+
+    dimensions:"Digital",
+
+    dimensionsIn:"Digital",
 
     price:35,
 
-    currency:"BRL",
+    currency:"USD",
 
     image:"",
 
+    contextImage:"",
+
     stock:10,
 
-    badge:"DIGITAL"
+    badge:"DIGITAL",
+
+    status:"Collectible edition"
 }
 
 ];
-
 
 
 /* ============================================================
@@ -1838,7 +2284,6 @@ const products = [
 let cart = [];
 
 
-
 /* ============================================================
    FORMAT PRICE
 ============================================================ */
@@ -1846,32 +2291,85 @@ let cart = [];
 function formatPrice(price){
 
     return new Intl.NumberFormat(
-        'pt-BR',
+        'en-US',
         {
             style:'currency',
-            currency:'BRL'
+            currency:'USD'
         }
     ).format(price);
 
 }
 
 
-
 /* ============================================================
-   PRODUCT IMAGE / PLACEHOLDER
+   PRODUCT VISUAL
 ============================================================ */
 
 function productVisual(product){
 
-    if(product.image){
+    if(!product.image){
 
         return `
 
+            <div class="placeholder">
+
+                <div class="placeholder-symbol">
+                    ✦
+                </div>
+
+                Buda Studio
+
+            </div>
+
+        `;
+
+    }
+
+
+    const contextButton =
+        product.contextImage
+
+        ?
+
+        `
+
+        <div class="image-toggle">
+
+            <button
+            class="active"
+            onclick="switchProductImage(${product.id},'artwork',this)">
+
+                ARTWORK
+
+            </button>
+
+            <button
+            onclick="switchProductImage(${product.id},'context',this)">
+
+                IN SPACE
+
+            </button>
+
+        </div>
+
+        `
+
+        :
+
+        '';
+
+
+    return `
+
         <img
+        id="product-image-${product.id}"
         src="${product.image}"
         alt="${product.name}"
         loading="lazy"
+        data-artwork="${product.image}"
+        data-context="${product.contextImage || ''}"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
 
         <div
         class="placeholder"
@@ -1885,27 +2383,97 @@ function productVisual(product){
 
         </div>
 
-        `;
 
-    }
+        <div
+        id="image-label-${product.id}"
+        class="image-label">
 
-
-    return `
-
-        <div class="placeholder">
-
-            <div class="placeholder-symbol">
-                ✦
-            </div>
-
-            Buda Studio
+            ARTWORK
 
         </div>
+
+
+        ${contextButton}
 
     `;
 
 }
 
+
+/* ============================================================
+   SWITCH IMAGE
+============================================================ */
+
+function switchProductImage(id,type,button){
+
+    const product =
+        products.find(
+            item => item.id === id
+        );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const image =
+        document.getElementById(
+            `product-image-${id}`
+        );
+
+
+    const label =
+        document.getElementById(
+            `image-label-${id}`
+        );
+
+
+    if(!image){
+
+        return;
+
+    }
+
+
+    if(
+        type === 'context' &&
+        product.contextImage
+    ){
+
+        image.src =
+            product.contextImage;
+
+        label.textContent =
+            'IN SPACE';
+
+    }else{
+
+        image.src =
+            product.image;
+
+        label.textContent =
+            'ARTWORK';
+
+    }
+
+
+    const buttons =
+        button
+        .parentElement
+        .querySelectorAll('button');
+
+
+    buttons.forEach(btn =>
+        btn.classList.remove('active')
+    );
+
+
+    button.classList.add('active');
+
+}
 
 
 /* ============================================================
@@ -1915,7 +2483,9 @@ function productVisual(product){
 function renderProducts(category='ALL'){
 
     const carousel =
-        document.getElementById('productCarousel');
+        document.getElementById(
+            'productCarousel'
+        );
 
 
     const filtered =
@@ -1966,19 +2536,79 @@ function renderProducts(category='ALL'){
                     ${product.category}
                 </div>
 
+
                 <h2 class="product-name">
                     ${product.name}
                 </h2>
+
 
                 <p class="product-description">
                     ${product.description}
                 </p>
 
 
+                <div class="product-details">
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Technique
+                        </span>
+
+                        <span class="detail-value">
+                            ${product.technique}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Dimensions
+                        </span>
+
+                        <span class="detail-value">
+                            ${product.dimensions}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Inches
+                        </span>
+
+                        <span class="detail-value">
+                            ${product.dimensionsIn}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Edition
+                        </span>
+
+                        <span class="detail-value">
+                            ${product.status}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
                 <div class="product-bottom">
 
                     <div class="price">
+
                         ${formatPrice(product.price)}
+
                     </div>
 
 
@@ -1997,6 +2627,15 @@ function renderProducts(category='ALL'){
 
                 </div>
 
+
+                <button
+                class="details-button"
+                onclick="openArtworkModal(${product.id})">
+
+                    VIEW FULL DETAILS →
+
+                </button>
+
             </div>
 
         `;
@@ -2009,6 +2648,268 @@ function renderProducts(category='ALL'){
 }
 
 
+/* ============================================================
+   ARTWORK MODAL
+============================================================ */
+
+function openArtworkModal(id){
+
+    const product =
+        products.find(
+            item => item.id === id
+        );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const gallery =
+        document.getElementById(
+            'modalGallery'
+        );
+
+
+    const info =
+        document.getElementById(
+            'modalInfo'
+        );
+
+
+    const artworkHTML =
+        product.image
+
+        ?
+
+        `
+
+        <div class="modal-gallery-item">
+
+            <img
+            src="${product.image}"
+            alt="${product.name} — artwork">
+
+            <div class="modal-gallery-label">
+                Artwork
+            </div>
+
+        </div>
+
+        `
+
+        :
+
+        `
+
+        <div class="modal-gallery-item">
+
+            <div class="placeholder">
+
+                <div class="placeholder-symbol">
+                    ✦
+                </div>
+
+                Artwork
+
+            </div>
+
+        </div>
+
+        `;
+
+
+    const contextHTML =
+        product.contextImage
+
+        ?
+
+        `
+
+        <div class="modal-gallery-item">
+
+            <img
+            src="${product.contextImage}"
+            alt="${product.name} — in space">
+
+            <div class="modal-gallery-label">
+                In Space
+            </div>
+
+        </div>
+
+        `
+
+        :
+
+        `
+
+        <div class="modal-gallery-item">
+
+            <div class="placeholder">
+
+                <div class="placeholder-symbol">
+                    ✦
+                </div>
+
+                In Space
+
+            </div>
+
+        </div>
+
+        `;
+
+
+    gallery.innerHTML =
+        artworkHTML +
+        contextHTML;
+
+
+    info.innerHTML = `
+
+        <div class="modal-kicker">
+
+            ${product.category} ·
+            ${product.status}
+
+        </div>
+
+
+        <h2 class="modal-title">
+
+            ${product.name}
+
+        </h2>
+
+
+        <p class="modal-description">
+
+            ${product.description}
+
+        </p>
+
+
+        <div class="modal-specs">
+
+
+            <div class="modal-spec">
+
+                <div class="modal-spec-label">
+                    Technique
+                </div>
+
+                <div class="modal-spec-value">
+                    ${product.technique}
+                </div>
+
+            </div>
+
+
+            <div class="modal-spec">
+
+                <div class="modal-spec-label">
+                    Dimensions
+                </div>
+
+                <div class="modal-spec-value">
+                    ${product.dimensions}
+                </div>
+
+            </div>
+
+
+            <div class="modal-spec">
+
+                <div class="modal-spec-label">
+                    Inches
+                </div>
+
+                <div class="modal-spec-value">
+                    ${product.dimensionsIn}
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <div class="modal-price">
+
+                ${formatPrice(product.price)}
+
+            </div>
+
+
+            <button
+            class="modal-add"
+            onclick="addToCart(${product.id}); closeArtworkModal();"
+            ${product.stock <= 0 ? 'disabled' : ''}>
+
+                ${
+                    product.stock <= 0
+                    ? 'SOLD OUT'
+                    : 'ADD TO CART'
+                }
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById('artworkModal')
+    .classList.add('open');
+
+
+    document.body.style.overflow =
+        'hidden';
+
+}
+
+
+/* ============================================================
+   CLOSE ARTWORK MODAL
+============================================================ */
+
+function closeArtworkModal(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById('artworkModal')
+    ){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById('artworkModal')
+    .classList.remove('open');
+
+
+    if(
+        !document
+        .getElementById('cartDrawer')
+        .classList.contains('open')
+    ){
+
+        document.body.style.overflow =
+            '';
+
+    }
+
+}
+
 
 /* ============================================================
    FILTERS
@@ -2018,11 +2919,9 @@ document
 .querySelectorAll('.filter')
 .forEach(button => {
 
-
     button.addEventListener(
         'click',
         () => {
-
 
             document
             .querySelectorAll('.filter')
@@ -2044,7 +2943,6 @@ document
 });
 
 
-
 /* ============================================================
    ADD TO CART
 ============================================================ */
@@ -2057,7 +2955,10 @@ function addToCart(id){
         );
 
 
-    if(!product || product.stock <= 0){
+    if(
+        !product ||
+        product.stock <= 0
+    ){
 
         return;
 
@@ -2099,7 +3000,6 @@ function addToCart(id){
     openCart();
 
 }
-
 
 
 /* ============================================================
@@ -2284,7 +3184,6 @@ function updateCart(){
 }
 
 
-
 /* ============================================================
    CHANGE QUANTITY
 ============================================================ */
@@ -2341,7 +3240,6 @@ function changeQuantity(id,amount){
 }
 
 
-
 /* ============================================================
    REMOVE
 ============================================================ */
@@ -2358,7 +3256,6 @@ function removeFromCart(id){
     updateCart();
 
 }
-
 
 
 /* ============================================================
@@ -2383,7 +3280,6 @@ function openCart(){
 }
 
 
-
 /* ============================================================
    CLOSE CART
 ============================================================ */
@@ -2404,7 +3300,6 @@ function closeCart(){
         '';
 
 }
-
 
 
 /* ============================================================
@@ -2431,21 +3326,29 @@ function moveCarousel(direction){
 }
 
 
+/* ============================================================
+   ESC KEY
+============================================================ */
+
+document.addEventListener(
+    'keydown',
+    event => {
+
+        if(event.key === 'Escape'){
+
+            closeArtworkModal();
+
+            closeCart();
+
+        }
+
+    }
+);
+
 
 /* ============================================================
    PAYPAL CHECKOUT
 ============================================================ */
-
-/*
-   ESTA FUNCIÓN QUEDA PREPARADA PARA PAYPAL.
-
-   Cuando conectemos PayPal real,
-   esta función será reemplazada por
-   el checkout oficial.
-
-   NO colocar aquí una secret key.
-
-*/
 
 function checkout(){
 
@@ -2469,7 +3372,6 @@ function checkout(){
     );
 
 }
-
 
 
 /* ============================================================
