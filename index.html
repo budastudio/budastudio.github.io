@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buda Studio</title>
 
-<!-- FUENTE INTER DESDE WELCOME.HTML -->
+<!-- FUENTE INTER -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
-   ESTILOS BASE (SISTEMA DE DISEÑO WELCOME.HTML)
+   ESTILOS BASE
    ========================================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -31,458 +32,858 @@ canvas{
     position:fixed;
     inset:0;
     z-index:0;
-    pointer-events: none;
+    pointer-events:none;
 }
 
-.page-wrapper {
-    position: relative;
-    z-index: 1;
-    width: 100%;
+.page-wrapper{
+    position:relative;
+    z-index:1;
+    width:100%;
 }
 
 /* ==========================================================================
-   MENÚ DE NAVEGACIÓN SUPERIOR
+   MENÚ
    ========================================================================== */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(9, 9, 9, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(9,9,9,.85);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.nav-brand {
-    font-size: 13px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 300;
+.nav-brand{
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#fff;
+    text-decoration:none;
+    font-weight:300;
 }
 
-.nav-links {
-    display: flex;
-    gap: 25px;
-    list-style: none;
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+    align-items:center;
 }
 
-.nav-links a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: .35s;
+.nav-links a{
+    color:rgba(255,255,255,.6);
+    text-decoration:none;
+
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:.35s;
 }
 
-.nav-links a:hover {
-    color: #d4af37;
+.nav-links a:hover{
+    color:#d4af37;
 }
+
 /* LAST DROP */
-.nav-links a.last-drop {
-    color: #d4af37;
+
+.nav-links a.last-drop{
+    color:#d4af37;
 }
 
-.nav-links a.last-drop:hover {
-    color: #fff;
-    text-shadow: 0 0 12px rgba(212,175,55,.6);
+.nav-links a.last-drop:hover{
+    color:#fff;
+    text-shadow:0 0 12px rgba(212,175,55,.6);
 }
+
+/* STORE */
+
+.store-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+}
+
+.store-icon{
+    width:15px;
+    height:15px;
+}
+
 /* ==========================================================================
-   HERO SECTION & CONTENIDO
+   HERO
    ========================================================================== */
+
 .hero{
-    min-height: 100vh;
-    padding: 120px 20px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height:100vh;
+
+    padding:120px 20px 60px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
 }
 
 .logo{
-    display: block;
-    margin: 0 auto 20px;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    box-shadow: 0 0 50px rgba(212,175,55,.18);
-    transition: .5s;
+    display:block;
+
+    margin:0 auto 20px;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 50px rgba(212,175,55,.18);
+
+    transition:.5s;
 }
 
 .logo:hover{
-    transform: scale(1.05) rotate(2deg);
+    transform:scale(1.05) rotate(2deg);
 }
 
 h1{
-    font-size: 36px;
-    font-weight: 200;
-    letter-spacing: 6px;
-    margin-bottom: 10px;
+    font-size:36px;
+    font-weight:200;
+    letter-spacing:6px;
+
+    margin-bottom:10px;
 }
 
 .subtitle{
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: #d4af37;
-    text-transform: uppercase;
-    margin-bottom: 25px;
+    font-size:13px;
+    letter-spacing:3px;
+
+    color:#d4af37;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
 }
 
 .hero-description{
-    max-width: 580px;
-    font-size: 14px;
-    font-weight: 300;
-    color: #d0d0d0;
-    line-height: 1.7;
-    margin: 0 auto 40px;
-}
+    max-width:580px;
 
-/* SISTEMA DE TARJETAS (CARDS) ESTILO WELCOME.HTML */
-.cards{
-    display: flex;
-    gap: 25px;
-    max-width: 1100px;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+    font-size:14px;
+    font-weight:300;
 
-.card{
-    position: relative;
-    width: 310px;
-    height: 240px;
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 24px;
-    overflow: hidden;
-    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), var(--bg);
-    background-size: cover;
-    background-position: center;
-    background-color: #111;
-    transition: .45s;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-end;
-    text-align: left;
-}
+    color:#d0d0d0;
 
-.card:hover{
-    transform: translateY(-8px);
-    border-color: #d4af37;
-    box-shadow: 0 0 35px rgba(212,175,55,.18);
-}
+    line-height:1.7;
 
-.content{
-    padding: 25px;
-    width: 100%;
-}
-
-.card h2{
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 1.2;
-    margin-bottom: 10px;
-}
-
-.card p{
-    opacity: .75;
-    line-height: 1.5;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-/* BOTONES ESTILO WELCOME.HTML */
-.button{
-    display: inline-flex;
-    padding: 10px 22px;
-    border: 1px solid #d4af37;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 1px;
-    transition: .35s;
-    cursor: pointer;
-    background: transparent;
-}
-
-.button:hover{
-    background: #d4af37;
-    color: #000;
+    margin:0 auto 40px;
 }
 
 /* ==========================================================================
-   FOOTER Y REDES SOCIALES
+   CARDS
    ========================================================================== */
-footer {
-    padding: 40px 20px;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+.cards{
+    display:flex;
+
+    gap:25px;
+
+    max-width:1100px;
+    width:100%;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
 }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
-    flex-wrap: wrap;
-    list-style: none;
-    margin-bottom: 25px;
+.card{
+    position:relative;
+
+    width:310px;
+    height:240px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.88)
+        ),
+        var(--bg);
+
+    background-size:cover;
+    background-position:center;
+
+    background-color:#111;
+
+    transition:.45s;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    text-align:left;
 }
 
-.social-links a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: .35s;
-    display: inline-block;
+.card:hover{
+    transform:translateY(-8px);
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 35px rgba(212,175,55,.18);
 }
 
-.social-links a:hover {
-    color: #d4af37;
+.content{
+    padding:25px;
+    width:100%;
 }
 
-.copyright {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 12px;
-    letter-spacing: 1px;
+.card h2{
+    font-weight:300;
+
+    font-size:20px;
+
+    line-height:1.2;
+
+    margin-bottom:10px;
 }
 
-/* RESPONSIVE DESDE WELCOME.HTML */
-@media (max-width: 768px) {
-    nav {
-        padding: 15px 20px;
+.card p{
+    opacity:.75;
+
+    line-height:1.5;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+/* BOTONES */
+
+.button{
+    display:inline-flex;
+
+    padding:10px 22px;
+
+    border:1px solid #d4af37;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    background:transparent;
+}
+
+.button:hover{
+    background:#d4af37;
+
+    color:#000;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer{
+    padding:40px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+.social-links{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    list-style:none;
+
+    margin-bottom:25px;
+}
+
+.social-links a{
+    color:rgba(255,255,255,.6);
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.35s;
+
+    display:inline-block;
+}
+
+.social-links a:hover{
+    color:#d4af37;
+}
+
+.copyright{
+    color:rgba(255,255,255,.4);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media(max-width:768px){
+
+    nav{
+        padding:15px 20px;
     }
 
-    .nav-links {
-        display: none;
+    .nav-links{
+        display:none;
     }
 
-    .logo {
-        width: 110px;
-        height: 110px;
+    .logo{
+        width:110px;
+        height:110px;
     }
 
     h1{
-        font-size: 28px;
-        letter-spacing: 3px;
+        font-size:28px;
+        letter-spacing:3px;
     }
 
     .subtitle{
-        font-size: 11px;
-        letter-spacing: 2px;
+        font-size:11px;
+        letter-spacing:2px;
     }
 
     .cards{
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:20px;
     }
 
     .card{
-        width: 100%;
-        max-width: 340px;
-        height: 200px;
+        width:100%;
+
+        max-width:340px;
+
+        height:200px;
     }
 
-    .social-links {
-        gap: 20px;
+    .social-links{
+        gap:20px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- CANVAS DE POLVO DORADO DESDE WELCOME.HTML -->
+<!-- CANVAS -->
 <canvas id="bg"></canvas>
 
 <div class="page-wrapper">
 
-    <!-- NAVEGACIÓN SUPERIOR -->
-    <nav>
-        <a href="https://budastudio.github.io/" class="nav-brand">BUDA STUDIO</a>
-        <ul class="nav-links">
-    <li>
-        <a href="https://budastudio.github.io/portfolio/">
-            Buda Studio
-        </a>
-    </li>
+<!-- ==========================================================================
+     NAVIGATION
+     ========================================================================== -->
 
-    <li>
-    <a
-        href="https://budastudio.github.io/portfolio/carrouselnft.html"
-        class="last-drop"
-    >
-        Last Drop
-    </a>
+<nav>
+
+<a
+href="https://budastudio.github.io/"
+class="nav-brand">
+
+BUDA STUDIO
+
+</a>
+
+<ul class="nav-links">
+
+<li>
+
+<a href="https://budastudio.github.io/portfolio/">
+
+Buda Studio
+
+</a>
+
 </li>
 
-    <li>
-        <a href="https://budastudio.github.io/buda-collective-artist/welcome.html">
-            Collective
-        </a>
-    </li>
 
-    <li>
-        <a href="https://budastudio.github.io/buda-collective-artist/founders.html">
-            Founders
-        </a>
-    </li>
+<li>
 
-    <li>
-        <a href="https://budastudio.github.io/brief.html">
-            Start a project
-        </a>
-    </li>
+<a
+href="https://budastudio.github.io/portfolio/carrouselnft.html"
+class="last-drop">
 
-    <li>
-        <a href="mailto:budastudiomkt@gmail.com">
-            Contact
-        </a>
-    </li>
+Last Drop
+
+</a>
+
+</li>
+
+
+<li>
+
+<a href="https://budastudio.github.io/buda-collective-artist/welcome.html">
+
+Collective
+
+</a>
+
+</li>
+
+
+<!-- STORE -->
+
+<li>
+
+<a
+href="https://budastudio.github.io/store.html"
+class="store-link">
+
+<svg
+class="store-icon"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.5"
+aria-hidden="true">
+
+<path d="M5 8h14l1 13H4L5 8Z"/>
+
+<path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+
+</svg>
+
+Store
+
+</a>
+
+</li>
+
+
+<li>
+
+<a href="https://budastudio.github.io/brief.html">
+
+Start a project
+
+</a>
+
+</li>
+
+
+<li>
+
+<a href="mailto:budastudiomkt@gmail.com">
+
+Contact
+
+</a>
+
+</li>
+
 </ul>
-    </nav>
 
-    <!-- HERO SECTION CON LAS 3 TARJETAS -->
-    <section class="hero">
+</nav>
 
-        <img src="logogold26_trans.png" class="logo" alt="Buda Collective Logo">
 
-        <h1>BUDA STUDIO</h1>
+<!-- ==========================================================================
+     HERO
+     ========================================================================== -->
 
-        <div class="subtitle">
-            A Permanent Collective of Art of Leonardo M Scarcia
-        </div>
+<section class="hero">
 
-        <p class="hero-description">
-            More than an NFT community. A curated collective connecting artists, collectors, and creators around the world.
-        </p>
+<img
+src="logogold26_trans.png"
+class="logo"
+alt="Buda Studio Logo">
 
-        <div class="cards">
 
-            <!-- 1. JOIN COLLECTIVE -->
-            <div class="card" style="--bg:url('community.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/'">
-                <div class="content">
-                    <h2>JOIN THE<br>COLLECTIVE</h2>
-                    <p>Become part of our curated community of artists.</p>
-                    <a href="https://budastudio.github.io/buda-collective-artist/" class="button">APPLY →</a>
-                </div>
-            </div>
+<h1>
 
-            <!-- 2. EXPLORE GALLERY -->
-            <div class="card" style="--bg:url('gallery.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/welcome.html'">
-                <div class="content">
-                    <h2>EXPLORE<br>GALLERY</h2>
-                    <p>Experience the evolving exhibition of digital artists.</p>
-                    <a href="https://budastudio.github.io/buda-collective-artist/welcome.html" class="button">ENTER →</a>
-                </div>
-            </div>
+BUDA STUDIO
 
-            <!-- 3. BUDA STUDIO -->
-            <div class="card" style="--bg:url('gallery.jpg')" onclick="location.href='https://budastudio.github.io/buda-studio/'">
-                <div class="content">
-                    <h2>BUDA<br>STUDIO</h2>
-                    <p>25+ years bridging visual art, design, and technology.</p>
-                    <a href="https://budastudio.github.io/portfolio/" class="button">VISIT →</a>
-                </div>
-            </div>
+</h1>
 
-        </div>
 
-    </section>
+<div class="subtitle">
 
-    <!-- FOOTER Y REDES SOCIALES -->
-    <footer>
-        <ul class="social-links">
-           <li><a href="https://x.com/budastudio_nft" target="_blank">X Twitter</a></li>
-           <li><a href="https://linktr.ee/budastudio" target="_blank">Linktree</a></li>
-            <li><a href="https://instagram.com/budastudio_art" target="_blank">Instagram</a></li>
-            <li><a href="https://discord.com/users/872909014067978273" target="_blank">Discord</a></li>
-            <li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
-        </ul>
-        <p class="copyright">&copy; Buda Studio. Building the future of artistic communities.</p>
-    </footer>
+A Permanent Collective of Art of Leonardo M Scarcia
 
 </div>
 
-<!-- SCRIPT EXACTO DE ANIMACIÓN DE PARTICULAS (WELCOME.HTML) -->
+
+<p class="hero-description">
+
+More than an NFT community. A curated collective connecting artists, collectors, and creators around the world.
+
+</p>
+
+
+<div class="cards">
+
+
+<!-- JOIN COLLECTIVE -->
+
+<div
+class="card"
+style="--bg:url('community.jpg')"
+onclick="location.href='https://budastudio.github.io/buda-collective-artist/'">
+
+<div class="content">
+
+<h2>
+JOIN THE<br>
+COLLECTIVE
+</h2>
+
+<p>
+Become part of our curated community of artists.
+</p>
+
+<a
+href="https://budastudio.github.io/buda-collective-artist/"
+class="button">
+
+APPLY →
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- EXPLORE GALLERY -->
+
+<div
+class="card"
+style="--bg:url('gallery.jpg')"
+onclick="location.href='https://budastudio.github.io/buda-collective-artist/welcome.html'">
+
+<div class="content">
+
+<h2>
+EXPLORE<br>
+GALLERY
+</h2>
+
+<p>
+Experience the evolving exhibition of digital artists.
+</p>
+
+<a
+href="https://budastudio.github.io/buda-collective-artist/welcome.html"
+class="button">
+
+ENTER →
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- BUDA STUDIO -->
+
+<div
+class="card"
+style="--bg:url('gallery.jpg')"
+onclick="location.href='https://budastudio.github.io/buda-studio/'">
+
+<div class="content">
+
+<h2>
+BUDA<br>
+STUDIO
+</h2>
+
+<p>
+25+ years bridging visual art, design, and technology.
+</p>
+
+<a
+href="https://budastudio.github.io/portfolio/"
+class="button">
+
+VISIT →
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+
+<footer>
+
+<ul class="social-links">
+
+<li>
+<a
+href="https://x.com/budastudio_nft"
+target="_blank">
+
+X Twitter
+
+</a>
+</li>
+
+
+<li>
+<a
+href="https://linktr.ee/budastudio"
+target="_blank">
+
+Linktree
+
+</a>
+</li>
+
+
+<li>
+<a
+href="https://instagram.com/budastudio_art"
+target="_blank">
+
+Instagram
+
+</a>
+</li>
+
+
+<li>
+<a
+href="https://discord.com/users/872909014067978273"
+target="_blank">
+
+Discord
+
+</a>
+</li>
+
+
+<li>
+<a href="mailto:budastudiomkt@gmail.com">
+
+Contact
+
+</a>
+</li>
+
+</ul>
+
+
+<p class="copyright">
+
+&copy; Buda Studio. Building the future of artistic communities.
+
+</p>
+
+</footer>
+
+</div>
+
+
+<!-- ==========================================================================
+     PARTICLES
+     ========================================================================== -->
+
 <script>
+
 const canvas = document.getElementById('bg');
+
 const ctx = canvas.getContext('2d');
 
 let particles = [];
+
 const particleCount = 60;
+
 let width = canvas.width = window.innerWidth;
+
 let height = canvas.height = window.innerHeight;
 
+
 window.addEventListener('resize', () => {
+
     width = canvas.width = window.innerWidth;
+
     height = canvas.height = window.innerHeight;
+
 });
 
-class Particle {
-    constructor() {
+
+class Particle{
+
+    constructor(){
+
         this.reset();
+
         this.y = Math.random() * height;
+
     }
 
-    reset() {
+
+    reset(){
+
         this.x = Math.random() * width;
+
         this.y = height + 10;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.speedY = -(Math.random() * 0.4 + 0.1);
-        this.speedX = (Math.random() - 0.5) * 0.2;
-        this.alpha = Math.random() * 0.5 + 0.1;
+
+        this.size = Math.random() * 1.5 + .5;
+
+        this.speedY = -(Math.random() * .4 + .1);
+
+        this.speedX = (Math.random() - .5) * .2;
+
+        this.alpha = Math.random() * .5 + .1;
+
     }
 
-    update() {
+
+    update(){
+
         this.y += this.speedY;
+
         this.x += this.speedX;
 
-        if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+
+        if(
+            this.y < -10 ||
+            this.x < -10 ||
+            this.x > width + 10
+        ){
+
             this.reset();
+
         }
+
     }
 
-    draw() {
+
+    draw(){
+
         ctx.save();
+
         ctx.globalAlpha = this.alpha;
+
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = '#d4af37'; 
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = '#d4af37';
+
         ctx.shadowBlur = 8;
+
         ctx.shadowColor = '#d4af37';
+
         ctx.fill();
+
         ctx.restore();
+
     }
+
 }
 
-for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+
+for(
+    let i = 0;
+    i < particleCount;
+    i++
+){
+
+    particles.push(
+        new Particle()
+    );
+
 }
 
-function animate() {
-    ctx.clearRect(0, 0, width, height);
-    
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
     particles.forEach(p => {
+
         p.update();
+
         p.draw();
+
     });
-    
-    requestAnimationFrame(animate);
+
+
+    requestAnimationFrame(
+        animate
+    );
+
 }
+
 
 animate();
+
 </script>
 
 </body>
