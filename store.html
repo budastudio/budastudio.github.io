@@ -7,7 +7,9 @@
 
 <title>Store — Buda Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -105,9 +107,11 @@ nav{
 .nav-links a{
     color:rgba(255,255,255,.58);
     text-decoration:none;
+
     font-size:11px;
     letter-spacing:2px;
     text-transform:uppercase;
+
     transition:.3s;
 }
 
@@ -117,6 +121,7 @@ nav{
 
 .store-active{
     color:#d4af37!important;
+
     display:flex;
     align-items:center;
     gap:7px;
@@ -181,16 +186,21 @@ nav{
 
 .hero{
     padding:145px 25px 55px;
+
     text-align:center;
+
     max-width:1000px;
     margin:auto;
 }
 
 .kicker{
     color:#d4af37;
+
     font-size:10px;
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     margin-bottom:18px;
 }
 
@@ -198,6 +208,7 @@ h1{
     font-size:48px;
     font-weight:200;
     letter-spacing:8px;
+
     margin-bottom:18px;
 }
 
@@ -209,12 +220,13 @@ h1{
 
     font-size:14px;
     font-weight:300;
+
     line-height:1.8;
 }
 
 
 /* ============================================================
-   CATEGORY FILTER
+   FILTERS
 ============================================================ */
 
 .filters{
@@ -236,7 +248,6 @@ h1{
     border:1px solid rgba(255,255,255,.12);
 
     background:transparent;
-
     color:rgba(255,255,255,.58);
 
     border-radius:999px;
@@ -270,6 +281,7 @@ h1{
 .store{
     max-width:1250px;
     margin:auto;
+
     padding:0 25px 100px;
 }
 
@@ -306,7 +318,7 @@ h1{
 ============================================================ */
 
 .product{
-    flex:0 0 320px;
+    flex:0 0 340px;
 
     border:1px solid rgba(255,255,255,.08);
 
@@ -333,14 +345,14 @@ h1{
 
 
 /* ============================================================
-   PRODUCT IMAGE
+   PRODUCT VISUAL
 ============================================================ */
 
 .product-image{
     position:relative;
 
     width:100%;
-    height:330px;
+    height:350px;
 
     overflow:hidden;
 
@@ -369,14 +381,43 @@ h1{
 
 
 /* ============================================================
-   IMAGE TOGGLE
+   BADGE
 ============================================================ */
 
-.image-toggle{
+.badge{
     position:absolute;
 
-    left:50%;
+    top:15px;
+    left:15px;
+
+    z-index:10;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.72);
+
+    border:1px solid rgba(212,175,55,.5);
+
+    color:#d4af37;
+
+    font-size:9px;
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+
+/* ============================================================
+   IMAGE MODE SWITCH
+============================================================ */
+
+.image-mode{
+    position:absolute;
+
     bottom:15px;
+    left:50%;
 
     transform:translateX(-50%);
 
@@ -384,85 +425,71 @@ h1{
 
     display:flex;
 
-    gap:3px;
-
-    padding:4px;
+    padding:3px;
 
     border-radius:999px;
 
-    background:rgba(0,0,0,.78);
+    background:rgba(0,0,0,.72);
 
-    border:1px solid rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.15);
 
     backdrop-filter:blur(10px);
-
-    white-space:nowrap;
 }
 
-.image-toggle button{
+.image-mode button{
     border:none;
 
     background:transparent;
 
     color:rgba(255,255,255,.55);
 
-    padding:7px 11px;
+    padding:7px 12px;
 
     border-radius:999px;
 
-    cursor:pointer;
-
     font-size:8px;
 
-    letter-spacing:1.3px;
+    letter-spacing:1.2px;
 
-    transition:.3s;
+    cursor:pointer;
+
+    transition:.25s;
 }
 
-.image-toggle button:hover{
+.image-mode button:hover{
     color:#fff;
 }
 
-.image-toggle button.active{
+.image-mode button.active{
     background:#d4af37;
     color:#000;
 }
 
 
 /* ============================================================
-   IMAGE LABEL
+   IMAGE LOADING
 ============================================================ */
 
-.image-label{
+.product-image.loading::after{
+    content:"";
+
     position:absolute;
 
-    top:15px;
-    right:15px;
+    inset:0;
 
-    z-index:4;
+    display:flex;
 
-    padding:6px 10px;
+    align-items:center;
+    justify-content:center;
 
-    border-radius:999px;
-
-    background:rgba(0,0,0,.68);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    color:rgba(255,255,255,.65);
-
-    font-size:8px;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
+    background:rgba(9,9,9,.2);
 
     pointer-events:none;
 }
 
 
 /* ============================================================
-   PLACEHOLDER
+   IMAGE ERROR / PLACEHOLDER
 ============================================================ */
 
 .placeholder{
@@ -487,39 +514,12 @@ h1{
 
 .placeholder-symbol{
     font-size:55px;
+
     color:#d4af37;
+
     opacity:.35;
+
     margin-bottom:12px;
-}
-
-
-/* ============================================================
-   BADGE
-============================================================ */
-
-.badge{
-    position:absolute;
-
-    top:15px;
-    left:15px;
-
-    z-index:5;
-
-    padding:6px 10px;
-
-    border-radius:999px;
-
-    background:rgba(0,0,0,.72);
-
-    border:1px solid rgba(212,175,55,.5);
-
-    color:#d4af37;
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
 }
 
 
@@ -550,7 +550,7 @@ h1{
 
     letter-spacing:1px;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .product-description{
@@ -558,56 +558,115 @@ h1{
 
     font-size:12px;
 
-    line-height:1.65;
+    line-height:1.7;
 
-    min-height:58px;
+    min-height:80px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 
 /* ============================================================
-   PRODUCT DETAILS
+   CURRENCY DISPLAY
 ============================================================ */
 
-.product-details{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:5px;
-
-    padding:13px 0;
-
-    margin-bottom:16px;
-
-    border-top:1px solid rgba(255,255,255,.07);
-
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.detail-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    font-size:10px;
-}
-
-.detail-label{
+.price-label{
     color:#666;
 
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
     text-transform:uppercase;
+
+    margin-bottom:3px;
+}
+
+.price{
+    font-size:19px;
+
+    font-weight:300;
+
+    white-space:nowrap;
+}
+
+.price-currency{
+    color:#d4af37;
+
+    font-size:9px;
+
+    margin-left:3px;
 
     letter-spacing:1px;
 }
 
-.detail-value{
-    color:#bbb;
+.crypto-prices{
+    margin-top:13px;
 
-    text-align:right;
+    padding-top:13px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6px 12px;
+}
+
+.crypto-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:9px;
+
+    color:#777;
+}
+
+.crypto-row strong{
+    color:#aaa;
+
+    font-weight:400;
+
+    white-space:nowrap;
+}
+
+.crypto-symbol{
+    color:#d4af37;
+
+    margin-right:4px;
+}
+
+.rate-status{
+    margin-top:9px;
+
+    color:#555;
+
+    font-size:8px;
+
+    line-height:1.5;
+}
+
+
+/* ============================================================
+   PRICE NOTE
+============================================================ */
+
+.price-note{
+    margin-top:12px;
+
+    color:#666;
+
+    font-size:8px;
+
+    line-height:1.6;
+
+    font-style:italic;
 }
 
 
@@ -620,17 +679,11 @@ h1{
 
     justify-content:space-between;
 
-    align-items:center;
+    align-items:flex-end;
 
     gap:15px;
-}
 
-.price{
-    font-size:17px;
-
-    font-weight:300;
-
-    white-space:nowrap;
+    margin-top:20px;
 }
 
 .buy-button{
@@ -651,10 +704,13 @@ h1{
     cursor:pointer;
 
     transition:.3s;
+
+    white-space:nowrap;
 }
 
 .buy-button:hover{
     background:#d4af37;
+
     color:#000;
 }
 
@@ -664,39 +720,6 @@ h1{
     cursor:not-allowed;
 
     border-color:#555;
-}
-
-
-/* ============================================================
-   DETAILS BUTTON
-============================================================ */
-
-.details-button{
-    width:100%;
-
-    margin-top:12px;
-
-    padding:10px;
-
-    border:none;
-
-    background:transparent;
-
-    color:#666;
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.details-button:hover{
-    color:#d4af37;
 }
 
 
@@ -746,258 +769,7 @@ h1{
 
 
 /* ============================================================
-   ARTWORK MODAL
-============================================================ */
-
-.artwork-modal{
-    position:fixed;
-
-    inset:0;
-
-    z-index:3000;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:30px;
-
-    background:rgba(0,0,0,.88);
-
-    backdrop-filter:blur(12px);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.35s;
-}
-
-.artwork-modal.open{
-    opacity:1;
-    visibility:visible;
-}
-
-.artwork-modal-content{
-    position:relative;
-
-    width:min(1100px,100%);
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
-    background:#101010;
-
-    border:1px solid rgba(212,175,55,.22);
-
-    border-radius:24px;
-
-    box-shadow:0 30px 100px rgba(0,0,0,.7);
-}
-
-.modal-close{
-    position:absolute;
-
-    top:18px;
-    right:20px;
-
-    z-index:20;
-
-    width:38px;
-    height:38px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    background:rgba(0,0,0,.7);
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    transition:.3s;
-}
-
-.modal-close:hover{
-    background:#d4af37;
-    color:#000;
-}
-
-.modal-gallery{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:1px;
-
-    background:#222;
-}
-
-.modal-gallery-item{
-    position:relative;
-
-    aspect-ratio:1 / 1;
-
-    background:#090909;
-
-    overflow:hidden;
-}
-
-.modal-gallery-item img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-.modal-gallery-label{
-    position:absolute;
-
-    left:18px;
-    bottom:18px;
-
-    padding:7px 11px;
-
-    border-radius:999px;
-
-    background:rgba(0,0,0,.7);
-
-    color:#ccc;
-
-    font-size:8px;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
-}
-
-.modal-info{
-    padding:32px;
-}
-
-.modal-kicker{
-    color:#d4af37;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    margin-bottom:10px;
-}
-
-.modal-title{
-    font-size:32px;
-
-    font-weight:200;
-
-    letter-spacing:2px;
-
-    margin-bottom:16px;
-}
-
-.modal-description{
-    max-width:750px;
-
-    color:#999;
-
-    font-size:13px;
-
-    line-height:1.9;
-
-    margin-bottom:24px;
-}
-
-.modal-specs{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:1px;
-
-    background:rgba(255,255,255,.08);
-
-    margin-bottom:25px;
-}
-
-.modal-spec{
-    padding:16px;
-
-    background:#101010;
-}
-
-.modal-spec-label{
-    color:#666;
-
-    font-size:8px;
-
-    letter-spacing:1.5px;
-
-    text-transform:uppercase;
-
-    margin-bottom:5px;
-}
-
-.modal-spec-value{
-    color:#ddd;
-
-    font-size:11px;
-}
-
-.modal-footer{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-}
-
-.modal-price{
-    font-size:23px;
-
-    font-weight:300;
-}
-
-.modal-add{
-    border:1px solid #d4af37;
-
-    background:#d4af37;
-
-    color:#000;
-
-    padding:12px 22px;
-
-    border-radius:999px;
-
-    cursor:pointer;
-
-    font-size:10px;
-
-    letter-spacing:1.5px;
-
-    transition:.3s;
-}
-
-.modal-add:hover{
-    background:#fff;
-
-    border-color:#fff;
-}
-
-
-/* ============================================================
-   CART OVERLAY
+   CART DRAWER
 ============================================================ */
 
 .overlay{
@@ -1022,11 +794,6 @@ h1{
     opacity:1;
     visibility:visible;
 }
-
-
-/* ============================================================
-   CART DRAWER
-============================================================ */
 
 .cart-drawer{
     position:fixed;
@@ -1384,11 +1151,11 @@ footer{
     }
 
     .product{
-        flex-basis:82vw;
+        flex-basis:84vw;
     }
 
     .product-image{
-        height:330px;
+        height:320px;
     }
 
     .carousel-arrow{
@@ -1415,63 +1182,9 @@ footer{
         flex-shrink:0;
     }
 
-    .modal-gallery{
-        grid-template-columns:1fr;
+    .crypto-prices{
+        grid-template-columns:1fr 1fr;
     }
-
-    .modal-info{
-        padding:25px 20px;
-    }
-
-    .modal-title{
-        font-size:25px;
-    }
-
-    .modal-specs{
-        grid-template-columns:1fr;
-    }
-
-    .modal-footer{
-        flex-direction:column;
-
-        align-items:stretch;
-    }
-
-    .modal-price{
-        text-align:center;
-    }
-
-    .modal-add{
-        width:100%;
-    }
-
-}
-
-
-/* ============================================================
-   SMALL MOBILE
-============================================================ */
-
-@media(max-width:420px){
-
-    .product{
-        flex-basis:88vw;
-    }
-
-    .product-info{
-        padding:19px;
-    }
-
-    .product-image{
-        height:315px;
-    }
-
-    .image-toggle button{
-        padding:7px 9px;
-
-        font-size:7px;
-    }
-
 }
 
 </style>
@@ -1531,7 +1244,6 @@ stroke="currentColor"
 stroke-width="1.5">
 
 <path d="M5 8h14l1 13H4L5 8Z"/>
-
 <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
 
 </svg>
@@ -1584,7 +1296,7 @@ class="cart-count">
 <header class="hero">
 
 <div class="kicker">
-BUDA STUDIO / ONLINE GALLERY
+BUDA STUDIO / STORE
 </div>
 
 <h1>
@@ -1594,7 +1306,7 @@ STORE
 <p class="hero-text">
 
 Original artworks, limited editions, physical objects,
-wearables and selected pieces created and curated by
+wearables and digital pieces created and curated by
 Buda Studio.
 
 </p>
@@ -1682,6 +1394,8 @@ onclick="moveCarousel(-1)">
 id="productCarousel"
 class="carousel">
 
+<!-- PRODUCTS GENERATED BY JAVASCRIPT -->
+
 </div>
 
 
@@ -1698,57 +1412,13 @@ onclick="moveCarousel(1)">
 
 <p class="store-note">
 
-Each original artwork is selected and presented through
-Buda Studio. Dimensions are provided in centimeters and
-inches for international collectors. Availability and
-edition size may vary according to the work.
+Every piece is produced, selected or curated through
+Buda Studio. Availability and edition size may vary
+according to the artwork.
 
 </p>
 
 </main>
-
-
-
-<!-- ============================================================
-     ARTWORK MODAL
-============================================================ -->
-
-<div
-id="artworkModal"
-class="artwork-modal"
-onclick="closeArtworkModal(event)">
-
-<div
-class="artwork-modal-content"
-onclick="event.stopPropagation()">
-
-
-<button
-class="modal-close"
-onclick="closeArtworkModal()">
-
-×
-
-</button>
-
-
-<div
-id="modalGallery"
-class="modal-gallery">
-
-</div>
-
-
-<div
-id="modalInfo"
-class="modal-info">
-
-</div>
-
-
-</div>
-
-</div>
 
 
 
@@ -1812,7 +1482,7 @@ Total
 </span>
 
 <span id="cartTotal">
-US$ 0.00
+$0.00 USD
 </span>
 
 </div>
@@ -1910,30 +1580,41 @@ Contact
 
 /* ============================================================
    PRODUCT CATALOG
+   ============================================================
+
+   ADD NEW PRODUCTS HERE.
+
+   For every product you only need to add:
+
+   id
+   name
+   category
+   description
+   price
+   currency
+   image
+   ambientImage
+   stock
+   badge
+
 ============================================================ */
+
 
 const products = [
 
-
 /* ------------------------------------------------------------
-   PAINTING 01
+   1 — COLLECTIVE THOUGHTS
 ------------------------------------------------------------ */
 
 {
     id:1,
 
-    name:"Collective Thoughts",
+    name:"COLLECTIVE THOUGHTS",
 
     category:"PAINTING",
 
     description:
-    "An exploration of accumulated ideas, perceptions and experiences. Layers of matter and color create a space where individual consciousness meets the collective.",
-
-    technique:"Oil on canvas",
-
-    dimensions:"80 × 60 cm",
-
-    dimensionsIn:"31.5 × 23.6 in",
+    "Original oil painting on canvas. 80 × 60 cm (31.5 × 23.6 in). A contemplative work exploring shared perception, individual consciousness and the invisible connections between thoughts.",
 
     price:300,
 
@@ -1941,35 +1622,27 @@ const products = [
 
     image:"painting1.jpg",
 
-    contextImage:"painting1_ambient.jpg",
+    ambientImage:"painting1_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL",
-
-    status:"Unique 1/1"
+    badge:"ORIGINAL"
 },
 
 
 /* ------------------------------------------------------------
-   PAINTING 02
+   2 — BUDDHA ENLIGHTING
 ------------------------------------------------------------ */
 
 {
     id:2,
 
-    name:"Buddha Enlightening",
+    name:"BUDDHA ENLIGHTING",
 
     category:"PAINTING",
 
     description:
-    "A contemporary interpretation of Buddha as a symbol of presence, transformation and inner awakening. The painting invites contemplation through gesture, form and light.",
-
-    technique:"Oil on canvas",
-
-    dimensions:"80 × 60 cm",
-
-    dimensionsIn:"31.5 × 23.6 in",
+    "Original oil painting on canvas. 80 × 60 cm (31.5 × 23.6 in). A meditative composition inspired by awakening, inner balance and the search for clarity.",
 
     price:300,
 
@@ -1977,35 +1650,27 @@ const products = [
 
     image:"painting2.jpg",
 
-    contextImage:"painting2_ambient.jpg",
+    ambientImage:"painting2_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL",
-
-    status:"Unique 1/1"
+    badge:"ORIGINAL"
 },
 
 
 /* ------------------------------------------------------------
-   PAINTING 03
+   3 — PEPE LITTLE PRINCESS
 ------------------------------------------------------------ */
 
 {
     id:3,
 
-    name:"Pepe Little Princess",
+    name:"PEPE LITTLE PRINCESS",
 
     category:"PAINTING",
 
     description:
-    "A small-scale portrait transforming Pepe into a playful and almost iconic figure. Its intimate format contrasts with the visual presence of the character, blending humor, digital culture and painting.",
-
-    technique:"Oil on canvas",
-
-    dimensions:"26 × 18.5 cm",
-
-    dimensionsIn:"10.2 × 7.3 in",
+    "Original oil painting on canvas. 26 × 18.5 cm (10.2 × 7.3 in). A playful and intimate portrait from the Pepe series, combining character, symbolism and contemporary visual culture.",
 
     price:100,
 
@@ -2013,35 +1678,27 @@ const products = [
 
     image:"painting3.jpg",
 
-    contextImage:"painting3_ambient.jpg",
+    ambientImage:"painting3_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL",
-
-    status:"Unique 1/1"
+    badge:"ORIGINAL"
 },
 
 
 /* ------------------------------------------------------------
-   PAINTING 04
+   4 — PEPE PUMPKING
 ------------------------------------------------------------ */
 
 {
     id:4,
 
-    name:"Pepe Pumpkin",
+    name:"PEPE PUMPKING",
 
     category:"PAINTING",
 
     description:
-    "An experimental interpretation of Pepe through drawing, color and playful symbolism. Executed on 300 gsm paper with watercolor pencils, the work combines precision and spontaneity.",
-
-    technique:"Watercolor pencil on 300 gsm paper",
-
-    dimensions:"21 × 15 cm",
-
-    dimensionsIn:"8.3 × 5.9 in",
+    "Original watercolor pencil drawing on 300 gsm paper. 21 × 15 cm (8.3 × 5.9 in). A delicate work from the Pepe series, combining hand-drawn detail with a playful contemporary language.",
 
     price:95,
 
@@ -2049,35 +1706,27 @@ const products = [
 
     image:"painting4.jpg",
 
-    contextImage:"painting4_ambient.jpg",
+    ambientImage:"painting4_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL",
-
-    status:"Unique 1/1"
+    badge:"ORIGINAL"
 },
 
 
 /* ------------------------------------------------------------
-   PAINTING 05
+   5 — BITCOINER INFLUENCER
 ------------------------------------------------------------ */
 
 {
     id:5,
 
-    name:"Bitcoiner Influencer",
+    name:"BITCOINER INFLUENCER",
 
     category:"PAINTING",
 
     description:
-    "An ironic and contemporary reflection on the influencer within crypto culture. The work connects digital identity, speculation, symbolic power and the visual language of a new global economy.",
-
-    technique:"Oil on canvas",
-
-    dimensions:"26 × 19 cm",
-
-    dimensionsIn:"10.2 × 7.5 in",
+    "Original oil painting on canvas. 26 × 19 cm (10.2 × 7.5 in). A contemporary portrait reflecting the intersection of internet culture, digital identity and the emerging crypto economy.",
 
     price:200,
 
@@ -2085,35 +1734,27 @@ const products = [
 
     image:"painting5.jpg",
 
-    contextImage:"painting5_ambient.jpg",
+    ambientImage:"painting5_ambient.jpg",
 
     stock:1,
 
-    badge:"ORIGINAL",
-
-    status:"Unique 1/1"
+    badge:"ORIGINAL"
 },
 
 
 /* ------------------------------------------------------------
-   PAINTING 06 — TRIPTYCH
+   6 — WAVES
 ------------------------------------------------------------ */
 
 {
     id:6,
 
-    name:"Waves",
+    name:"WAVES",
 
     category:"PAINTING",
 
     description:
-    "A triptych dedicated to the constant movement of the ocean. Three individual paintings operate as fragments of a single perception — rhythm, repetition and transformation.",
-
-    technique:"Oil on canvas — triptych",
-
-    dimensions:"3 works · 18 × 13 cm each",
-
-    dimensionsIn:"3 works · 7.1 × 5.1 in each",
+    "Original triptych composed of three oil paintings on canvas. Each panel measures 18 × 13 cm (7.1 × 5.1 in). A three-part composition inspired by rhythm, movement and the continuous energy of the ocean.",
 
     price:300,
 
@@ -2121,160 +1762,15 @@ const products = [
 
     image:"painting6.jpg",
 
-    contextImage:"painting6_ambient.jpg",
+    ambientImage:"painting6_ambient.jpg",
 
     stock:1,
 
-    badge:"TRIPTYCH",
-
-    status:"Unique 1/1"
-},
-
-
-/* ------------------------------------------------------------
-   FUTURE PRINT
------------------------------------------------------------- */
-
-{
-    id:7,
-
-    name:"Buda Journey — Print",
-
-    category:"PRINT",
-
-    description:
-    "Fine art print produced as a limited edition for collectors.",
-
-    technique:"Fine art print",
-
-    dimensions:"—",
-
-    dimensionsIn:"—",
-
-    price:95,
-
-    currency:"USD",
-
-    image:"",
-
-    contextImage:"",
-
-    stock:20,
-
-    badge:"LIMITED",
-
-    status:"Limited edition"
-},
-
-
-/* ------------------------------------------------------------
-   FUTURE T-SHIRT
------------------------------------------------------------- */
-
-{
-    id:8,
-
-    name:"Buda Studio T-Shirt",
-
-    category:"T-SHIRT",
-
-    description:
-    "Buda Studio wearable edition featuring the studio identity.",
-
-    technique:"Cotton",
-
-    dimensions:"Multiple sizes",
-
-    dimensionsIn:"Multiple sizes",
-
-    price:35,
-
-    currency:"USD",
-
-    image:"tshirt-black.jpeg",
-
-    contextImage:"",
-
-    stock:12,
-
-    badge:"STUDIO",
-
-    status:"Limited production"
-},
-
-
-/* ------------------------------------------------------------
-   PHYSICAL
------------------------------------------------------------- */
-
-{
-    id:9,
-
-    name:"Buda Studio Object #01",
-
-    category:"PHYSICAL",
-
-    description:
-    "Small studio object produced as part of the Buda Studio physical collection.",
-
-    technique:"Physical object",
-
-    dimensions:"—",
-
-    dimensionsIn:"—",
-
-    price:0,
-
-    currency:"USD",
-
-    image:"",
-
-    contextImage:"",
-
-    stock:5,
-
-    badge:"PHYSICAL",
-
-    status:"Limited production"
-},
-
-
-/* ------------------------------------------------------------
-   OBJKT
------------------------------------------------------------- */
-
-{
-    id:10,
-
-    name:"Spontaneous Work #01",
-
-    category:"OBJKT",
-
-    description:
-    "Digital artwork created and released as a collectible edition.",
-
-    technique:"Digital artwork",
-
-    dimensions:"Digital",
-
-    dimensionsIn:"Digital",
-
-    price:35,
-
-    currency:"USD",
-
-    image:"",
-
-    contextImage:"",
-
-    stock:10,
-
-    badge:"DIGITAL",
-
-    status:"Collectible edition"
+    badge:"TRIPTYCH"
 }
 
 ];
+
 
 
 /* ============================================================
@@ -2285,16 +1781,156 @@ let cart = [];
 
 
 /* ============================================================
-   FORMAT PRICE
+   LIVE CURRENCY RATES
 ============================================================ */
 
-function formatPrice(price){
+let rates = {
+
+    USD:1,
+
+    BRL:null,
+
+    BTC:null,
+
+    ETH:null,
+
+    SOL:null,
+
+    XTZ:null
+
+};
+
+
+/*
+   CoinGecko provides the crypto market rates.
+
+   The USD → BRL conversion is retrieved from
+   the same public endpoint when available.
+*/
+
+async function loadExchangeRates(){
+
+    try{
+
+        const response = await fetch(
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,tezos&vs_currencies=usd,brl"
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Exchange API unavailable"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        /*
+           Crypto prices are returned as:
+
+           BTC → USD
+           ETH → USD
+           SOL → USD
+           XTZ → USD
+        */
+
+        if(data.bitcoin?.usd){
+
+            rates.BTC =
+                1 / data.bitcoin.usd;
+
+        }
+
+
+        if(data.ethereum?.usd){
+
+            rates.ETH =
+                1 / data.ethereum.usd;
+
+        }
+
+
+        if(data.solana?.usd){
+
+            rates.SOL =
+                1 / data.solana.usd;
+
+        }
+
+
+        if(data.tezos?.usd){
+
+            rates.XTZ =
+                1 / data.tezos.usd;
+
+        }
+
+
+        /*
+           BRL can be taken directly from BTC/BRL
+           to avoid needing another FX service.
+        */
+
+        if(
+            data.bitcoin?.usd &&
+            data.bitcoin?.brl
+        ){
+
+            rates.BRL =
+                data.bitcoin.brl /
+                data.bitcoin.usd;
+
+        }
+
+
+        renderProducts(
+            document
+            .querySelector('.filter.active')
+            ?.dataset.category || 'ALL'
+        );
+
+
+    }catch(error){
+
+        console.warn(
+            "Live exchange rates unavailable.",
+            error
+        );
+
+        /*
+           Store remains fully functional.
+           USD prices continue to display.
+        */
+
+        renderProducts(
+            document
+            .querySelector('.filter.active')
+            ?.dataset.category || 'ALL'
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   FORMAT USD
+============================================================ */
+
+function formatUSD(price){
 
     return new Intl.NumberFormat(
         'en-US',
         {
             style:'currency',
-            currency:'USD'
+            currency:'USD',
+            minimumFractionDigits:0,
+            maximumFractionDigits:2
         }
     ).format(price);
 
@@ -2302,78 +1938,119 @@ function formatPrice(price){
 
 
 /* ============================================================
-   PRODUCT VISUAL
+   FORMAT BRL
 ============================================================ */
 
-function productVisual(product){
+function formatBRL(price){
 
-    if(!product.image){
+    return new Intl.NumberFormat(
+        'pt-BR',
+        {
+            style:'currency',
+            currency:'BRL',
+            minimumFractionDigits:0,
+            maximumFractionDigits:0
+        }
+    ).format(price);
 
-        return `
+}
 
-            <div class="placeholder">
 
-                <div class="placeholder-symbol">
-                    ✦
-                </div>
+/* ============================================================
+   CRYPTO FORMAT
+============================================================ */
 
-                Buda Studio
+function formatCrypto(value, symbol){
 
-            </div>
+    if(
+        value === null ||
+        value === undefined ||
+        !isFinite(value)
+    ){
 
-        `;
+        return "—";
 
     }
 
 
-    const contextButton =
-        product.contextImage
+    let decimals = 2;
 
-        ?
 
-        `
+    if(symbol === "BTC"){
 
-        <div class="image-toggle">
+        decimals = 5;
 
-            <button
-            class="active"
-            onclick="switchProductImage(${product.id},'artwork',this)">
+    }
 
-                ARTWORK
 
-            </button>
+    if(symbol === "ETH"){
 
-            <button
-            onclick="switchProductImage(${product.id},'context',this)">
+        decimals = 4;
 
-                IN SPACE
+    }
 
-            </button>
 
-        </div>
+    if(symbol === "SOL"){
 
-        `
+        decimals = 2;
 
-        :
+    }
 
-        '';
 
+    if(symbol === "XTZ"){
+
+        decimals = 1;
+
+    }
+
+
+    return value.toFixed(decimals);
+
+}
+
+
+/* ============================================================
+   CRYPTO CONVERSION
+============================================================ */
+
+function cryptoValue(
+    usdPrice,
+    crypto
+){
+
+    if(!rates[crypto]){
+
+        return null;
+
+    }
+
+
+    return usdPrice *
+        rates[crypto];
+
+}
+
+
+/* ============================================================
+   PRODUCT IMAGE
+============================================================ */
+
+function productVisual(product){
 
     return `
 
         <img
-        id="product-image-${product.id}"
-        src="${product.image}"
-        alt="${product.name}"
-        loading="lazy"
-        data-artwork="${product.image}"
-        data-context="${product.contextImage || ''}"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-
+            id="productImage-${product.id}"
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy"
+            onerror="handleImageError(this)"
+        >
 
         <div
-        class="placeholder"
-        style="display:none">
+            id="placeholder-${product.id}"
+            class="placeholder"
+            style="display:none">
 
             <div class="placeholder-symbol">
                 ✦
@@ -2383,28 +2060,51 @@ function productVisual(product){
 
         </div>
 
-
-        <div
-        id="image-label-${product.id}"
-        class="image-label">
-
-            ARTWORK
-
-        </div>
-
-
-        ${contextButton}
-
     `;
 
 }
 
 
 /* ============================================================
-   SWITCH IMAGE
+   IMAGE ERROR
 ============================================================ */
 
-function switchProductImage(id,type,button){
+function handleImageError(image){
+
+    image.style.display = 'none';
+
+
+    const id =
+        image.id.replace(
+            'productImage-',
+            ''
+        );
+
+
+    const placeholder =
+        document.getElementById(
+            `placeholder-${id}`
+        );
+
+
+    if(placeholder){
+
+        placeholder.style.display =
+            'flex';
+
+    }
+
+}
+
+
+/* ============================================================
+   SWITCH PRODUCT IMAGE
+============================================================ */
+
+function switchProductImage(
+    id,
+    type
+){
 
     const product =
         products.find(
@@ -2421,13 +2121,25 @@ function switchProductImage(id,type,button){
 
     const image =
         document.getElementById(
-            `product-image-${id}`
+            `productImage-${id}`
         );
 
 
-    const label =
+    const placeholder =
         document.getElementById(
-            `image-label-${id}`
+            `placeholder-${id}`
+        );
+
+
+    const artworkButton =
+        document.getElementById(
+            `artworkBtn-${id}`
+        );
+
+
+    const ambientButton =
+        document.getElementById(
+            `ambientBtn-${id}`
         );
 
 
@@ -2438,40 +2150,229 @@ function switchProductImage(id,type,button){
     }
 
 
-    if(
-        type === 'context' &&
-        product.contextImage
-    ){
+    /*
+       IMPORTANT:
 
-        image.src =
-            product.contextImage;
+       We explicitly restore the image source
+       every time the user selects a mode.
 
-        label.textContent =
-            'IN SPACE';
+       This fixes the issue where returning
+       to ARTWORK did not reload the original.
+    */
+
+
+    let targetImage;
+
+
+    if(type === "ambient"){
+
+        targetImage =
+            product.ambientImage;
 
     }else{
 
-        image.src =
+        targetImage =
             product.image;
-
-        label.textContent =
-            'ARTWORK';
 
     }
 
 
-    const buttons =
-        button
-        .parentElement
-        .querySelectorAll('button');
+    if(!targetImage){
+
+        return;
+
+    }
 
 
-    buttons.forEach(btn =>
-        btn.classList.remove('active')
-    );
+    /*
+       Reset image state.
+    */
+
+    image.style.display =
+        'block';
 
 
-    button.classList.add('active');
+    if(placeholder){
+
+        placeholder.style.display =
+            'none';
+
+    }
+
+
+    /*
+       Force the browser to use the selected
+       image source again.
+    */
+
+    image.src = "";
+
+
+    requestAnimationFrame(() => {
+
+        image.src =
+            targetImage;
+
+    });
+
+
+    /*
+       Update button states.
+    */
+
+    if(artworkButton){
+
+        artworkButton.classList.toggle(
+            'active',
+            type === "artwork"
+        );
+
+    }
+
+
+    if(ambientButton){
+
+        ambientButton.classList.toggle(
+            'active',
+            type === "ambient"
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   RENDER CRYPTO PRICES
+============================================================ */
+
+function cryptoPrices(product){
+
+    const usd =
+        product.price;
+
+
+    const brl =
+        rates.BRL
+        ? usd * rates.BRL
+        : null;
+
+
+    const btc =
+        cryptoValue(
+            usd,
+            "BTC"
+        );
+
+
+    const eth =
+        cryptoValue(
+            usd,
+            "ETH"
+        );
+
+
+    const sol =
+        cryptoValue(
+            usd,
+            "SOL"
+        );
+
+
+    const xtz =
+        cryptoValue(
+            usd,
+            "XTZ"
+        );
+
+
+    return `
+
+        <div class="crypto-prices">
+
+            <div class="crypto-row">
+
+                <span>
+                    <span class="crypto-symbol">R$</span>
+                    BRL
+                </span>
+
+                <strong>
+                    ${
+                        brl !== null
+                        ? formatBRL(brl)
+                        : "—"
+                    }
+                </strong>
+
+            </div>
+
+
+            <div class="crypto-row">
+
+                <span>
+                    <span class="crypto-symbol">₿</span>
+                    BTC
+                </span>
+
+                <strong>
+                    ${formatCrypto(btc,"BTC")}
+                </strong>
+
+            </div>
+
+
+            <div class="crypto-row">
+
+                <span>
+                    <span class="crypto-symbol">Ξ</span>
+                    ETH
+                </span>
+
+                <strong>
+                    ${formatCrypto(eth,"ETH")}
+                </strong>
+
+            </div>
+
+
+            <div class="crypto-row">
+
+                <span>
+                    <span class="crypto-symbol">◎</span>
+                    SOL
+                </span>
+
+                <strong>
+                    ${formatCrypto(sol,"SOL")}
+                </strong>
+
+            </div>
+
+
+            <div class="crypto-row">
+
+                <span>
+                    <span class="crypto-symbol">ꜩ</span>
+                    XTZ
+                </span>
+
+                <strong>
+                    ${formatCrypto(xtz,"XTZ")}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="rate-status">
+
+            Live market reference · USD base price
+
+        </div>
+
+    `;
 
 }
 
@@ -2480,7 +2381,9 @@ function switchProductImage(id,type,button){
    RENDER PRODUCTS
 ============================================================ */
 
-function renderProducts(category='ALL'){
+function renderProducts(
+    category='ALL'
+){
 
     const carousel =
         document.getElementById(
@@ -2510,11 +2413,13 @@ function renderProducts(category='ALL'){
 
 
         const card =
-        document.createElement('article');
+            document.createElement(
+                'article'
+            );
 
 
         card.className =
-        'product';
+            'product';
 
 
         card.innerHTML = `
@@ -2525,97 +2430,143 @@ function renderProducts(category='ALL'){
                     ${product.badge}
                 </div>
 
+
                 ${productVisual(product)}
+
+
+                <div class="image-mode">
+
+                    <button
+                        id="artworkBtn-${product.id}"
+                        class="active"
+                        onclick="
+                            switchProductImage(
+                                ${product.id},
+                                'artwork'
+                            )
+                        "
+                    >
+
+                        ARTWORK
+
+                    </button>
+
+
+                    <button
+                        id="ambientBtn-${product.id}"
+                        onclick="
+                            switchProductImage(
+                                ${product.id},
+                                'ambient'
+                            )
+                        "
+                    >
+
+                        IN SPACE
+
+                    </button>
+
+                </div>
 
             </div>
 
 
             <div class="product-info">
 
+
                 <div class="product-type">
+
                     ${product.category}
+
                 </div>
 
 
                 <h2 class="product-name">
+
                     ${product.name}
+
                 </h2>
 
 
                 <p class="product-description">
+
                     ${product.description}
+
                 </p>
 
 
-                <div class="product-details">
+                <div class="price-label">
 
-                    <div class="detail-row">
+                    ARTWORK PRICE
 
-                        <span class="detail-label">
-                            Technique
-                        </span>
-
-                        <span class="detail-value">
-                            ${product.technique}
-                        </span>
-
-                    </div>
+                </div>
 
 
-                    <div class="detail-row">
+                <div class="price">
 
-                        <span class="detail-label">
-                            Dimensions
-                        </span>
+                    ${formatUSD(product.price)}
 
-                        <span class="detail-value">
-                            ${product.dimensions}
-                        </span>
+                    <span class="price-currency">
+                        USD
+                    </span>
 
-                    </div>
+                </div>
 
 
-                    <div class="detail-row">
-
-                        <span class="detail-label">
-                            Inches
-                        </span>
-
-                        <span class="detail-value">
-                            ${product.dimensionsIn}
-                        </span>
-
-                    </div>
+                ${cryptoPrices(product)}
 
 
-                    <div class="detail-row">
+                <div class="price-note">
 
-                        <span class="detail-label">
-                            Edition
-                        </span>
-
-                        <span class="detail-value">
-                            ${product.status}
-                        </span>
-
-                    </div>
+                    Artwork price: ${formatUSD(product.price)} USD.
+                    Cryptocurrency values are calculated at the current market rate.
 
                 </div>
 
 
                 <div class="product-bottom">
 
-                    <div class="price">
 
-                        ${formatPrice(product.price)}
+                    <div>
+
+                        ${
+                            soldOut
+
+                            ?
+
+                            `<span
+                            style="
+                            color:#666;
+                            font-size:9px;
+                            letter-spacing:1px;
+                            ">
+                                SOLD OUT
+                            </span>`
+
+                            :
+
+                            `<span
+                            style="
+                            color:#666;
+                            font-size:9px;
+                            letter-spacing:1px;
+                            ">
+                                UNIQUE PIECE
+                            </span>`
+                        }
 
                     </div>
 
 
                     <button
-                    class="buy-button"
-                    onclick="addToCart(${product.id})"
-                    ${soldOut ? 'disabled' : ''}>
+                        class="buy-button"
+                        onclick="
+                            addToCart(
+                                ${product.id}
+                            )
+                        "
+                        ${soldOut ? 'disabled' : ''}
+                    >
 
                         ${
                             soldOut
@@ -2627,14 +2578,6 @@ function renderProducts(category='ALL'){
 
                 </div>
 
-
-                <button
-                class="details-button"
-                onclick="openArtworkModal(${product.id})">
-
-                    VIEW FULL DETAILS →
-
-                </button>
 
             </div>
 
@@ -2649,269 +2592,6 @@ function renderProducts(category='ALL'){
 
 
 /* ============================================================
-   ARTWORK MODAL
-============================================================ */
-
-function openArtworkModal(id){
-
-    const product =
-        products.find(
-            item => item.id === id
-        );
-
-
-    if(!product){
-
-        return;
-
-    }
-
-
-    const gallery =
-        document.getElementById(
-            'modalGallery'
-        );
-
-
-    const info =
-        document.getElementById(
-            'modalInfo'
-        );
-
-
-    const artworkHTML =
-        product.image
-
-        ?
-
-        `
-
-        <div class="modal-gallery-item">
-
-            <img
-            src="${product.image}"
-            alt="${product.name} — artwork">
-
-            <div class="modal-gallery-label">
-                Artwork
-            </div>
-
-        </div>
-
-        `
-
-        :
-
-        `
-
-        <div class="modal-gallery-item">
-
-            <div class="placeholder">
-
-                <div class="placeholder-symbol">
-                    ✦
-                </div>
-
-                Artwork
-
-            </div>
-
-        </div>
-
-        `;
-
-
-    const contextHTML =
-        product.contextImage
-
-        ?
-
-        `
-
-        <div class="modal-gallery-item">
-
-            <img
-            src="${product.contextImage}"
-            alt="${product.name} — in space">
-
-            <div class="modal-gallery-label">
-                In Space
-            </div>
-
-        </div>
-
-        `
-
-        :
-
-        `
-
-        <div class="modal-gallery-item">
-
-            <div class="placeholder">
-
-                <div class="placeholder-symbol">
-                    ✦
-                </div>
-
-                In Space
-
-            </div>
-
-        </div>
-
-        `;
-
-
-    gallery.innerHTML =
-        artworkHTML +
-        contextHTML;
-
-
-    info.innerHTML = `
-
-        <div class="modal-kicker">
-
-            ${product.category} ·
-            ${product.status}
-
-        </div>
-
-
-        <h2 class="modal-title">
-
-            ${product.name}
-
-        </h2>
-
-
-        <p class="modal-description">
-
-            ${product.description}
-
-        </p>
-
-
-        <div class="modal-specs">
-
-
-            <div class="modal-spec">
-
-                <div class="modal-spec-label">
-                    Technique
-                </div>
-
-                <div class="modal-spec-value">
-                    ${product.technique}
-                </div>
-
-            </div>
-
-
-            <div class="modal-spec">
-
-                <div class="modal-spec-label">
-                    Dimensions
-                </div>
-
-                <div class="modal-spec-value">
-                    ${product.dimensions}
-                </div>
-
-            </div>
-
-
-            <div class="modal-spec">
-
-                <div class="modal-spec-label">
-                    Inches
-                </div>
-
-                <div class="modal-spec-value">
-                    ${product.dimensionsIn}
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="modal-footer">
-
-            <div class="modal-price">
-
-                ${formatPrice(product.price)}
-
-            </div>
-
-
-            <button
-            class="modal-add"
-            onclick="addToCart(${product.id}); closeArtworkModal();"
-            ${product.stock <= 0 ? 'disabled' : ''}>
-
-                ${
-                    product.stock <= 0
-                    ? 'SOLD OUT'
-                    : 'ADD TO CART'
-                }
-
-            </button>
-
-        </div>
-
-    `;
-
-
-    document
-    .getElementById('artworkModal')
-    .classList.add('open');
-
-
-    document.body.style.overflow =
-        'hidden';
-
-}
-
-
-/* ============================================================
-   CLOSE ARTWORK MODAL
-============================================================ */
-
-function closeArtworkModal(event){
-
-    if(
-        event &&
-        event.target !==
-        document.getElementById('artworkModal')
-    ){
-
-        return;
-
-    }
-
-
-    document
-    .getElementById('artworkModal')
-    .classList.remove('open');
-
-
-    if(
-        !document
-        .getElementById('cartDrawer')
-        .classList.contains('open')
-    ){
-
-        document.body.style.overflow =
-            '';
-
-    }
-
-}
-
-
-/* ============================================================
    FILTERS
 ============================================================ */
 
@@ -2919,18 +2599,24 @@ document
 .querySelectorAll('.filter')
 .forEach(button => {
 
+
     button.addEventListener(
         'click',
         () => {
 
+
             document
             .querySelectorAll('.filter')
             .forEach(btn =>
-                btn.classList.remove('active')
+                btn.classList.remove(
+                    'active'
+                )
             );
 
 
-            button.classList.add('active');
+            button.classList.add(
+                'active'
+            );
 
 
             renderProducts(
@@ -3055,7 +2741,8 @@ function updateCart(){
 
 
     totalElement.textContent =
-        formatPrice(totalPrice);
+        formatUSD(totalPrice) +
+        " USD";
 
 
     checkoutButton.disabled =
@@ -3106,7 +2793,10 @@ function updateCart(){
 
                     `<img
                     src="${item.image}"
-                    alt="${item.name}">`
+                    alt="${item.name}"
+                    onerror="
+                    this.style.display='none'
+                    ">`
 
                     :
 
@@ -3132,7 +2822,7 @@ function updateCart(){
 
                 <div class="cart-item-price">
 
-                    ${formatPrice(item.price)}
+                    ${formatUSD(item.price)} USD
 
                 </div>
 
@@ -3140,7 +2830,12 @@ function updateCart(){
                 <div class="quantity">
 
                     <button
-                    onclick="changeQuantity(${item.id},-1)">
+                    onclick="
+                    changeQuantity(
+                        ${item.id},
+                        -1
+                    )
+                    ">
 
                         −
 
@@ -3155,7 +2850,12 @@ function updateCart(){
 
 
                     <button
-                    onclick="changeQuantity(${item.id},1)">
+                    onclick="
+                    changeQuantity(
+                        ${item.id},
+                        1
+                    )
+                    ">
 
                         +
 
@@ -3168,7 +2868,11 @@ function updateCart(){
 
             <button
             class="remove"
-            onclick="removeFromCart(${item.id})">
+            onclick="
+            removeFromCart(
+                ${item.id}
+            )
+            ">
 
                 REMOVE
 
@@ -3177,7 +2881,9 @@ function updateCart(){
         `;
 
 
-        container.appendChild(element);
+        container.appendChild(
+            element
+        );
 
     });
 
@@ -3188,11 +2894,15 @@ function updateCart(){
    CHANGE QUANTITY
 ============================================================ */
 
-function changeQuantity(id,amount){
+function changeQuantity(
+    id,
+    amount
+){
 
     const item =
         cart.find(
-            product => product.id === id
+            product =>
+            product.id === id
         );
 
 
@@ -3205,7 +2915,8 @@ function changeQuantity(id,amount){
 
     const product =
         products.find(
-            product => product.id === id
+            product =>
+            product.id === id
         );
 
 
@@ -3265,13 +2976,21 @@ function removeFromCart(id){
 function openCart(){
 
     document
-    .getElementById('cartDrawer')
-    .classList.add('open');
+    .getElementById(
+        'cartDrawer'
+    )
+    .classList.add(
+        'open'
+    );
 
 
     document
-    .getElementById('overlay')
-    .classList.add('open');
+    .getElementById(
+        'overlay'
+    )
+    .classList.add(
+        'open'
+    );
 
 
     document.body.style.overflow =
@@ -3287,13 +3006,21 @@ function openCart(){
 function closeCart(){
 
     document
-    .getElementById('cartDrawer')
-    .classList.remove('open');
+    .getElementById(
+        'cartDrawer'
+    )
+    .classList.remove(
+        'open'
+    );
 
 
     document
-    .getElementById('overlay')
-    .classList.remove('open');
+    .getElementById(
+        'overlay'
+    )
+    .classList.remove(
+        'open'
+    );
 
 
     document.body.style.overflow =
@@ -3306,7 +3033,9 @@ function closeCart(){
    CAROUSEL
 ============================================================ */
 
-function moveCarousel(direction){
+function moveCarousel(
+    direction
+){
 
     const carousel =
         document.getElementById(
@@ -3317,33 +3046,13 @@ function moveCarousel(direction){
     carousel.scrollBy({
 
         left:
-            direction * 345,
+            direction * 365,
 
         behavior:'smooth'
 
     });
 
 }
-
-
-/* ============================================================
-   ESC KEY
-============================================================ */
-
-document.addEventListener(
-    'keydown',
-    event => {
-
-        if(event.key === 'Escape'){
-
-            closeArtworkModal();
-
-            closeCart();
-
-        }
-
-    }
-);
 
 
 /* ============================================================
@@ -3363,11 +3072,7 @@ function checkout(){
 
         "PayPal checkout will be connected here.\n\n" +
 
-        "Your cart is ready with " +
-
-        cart.length +
-
-        " product(s)."
+        "Official artwork prices are displayed in USD."
 
     );
 
@@ -3382,8 +3087,15 @@ renderProducts();
 
 updateCart();
 
-</script>
+/*
+   Load live market rates after
+   the Store has already rendered.
+*/
 
+loadExchangeRates();
+
+
+</script>
 
 </body>
 </html>
