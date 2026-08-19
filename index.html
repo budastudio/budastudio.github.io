@@ -3,12 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Buda Studio</title>
+
+<!-- ==========================================================
+     GOOGLE ANALYTICS — Buda Studio
+     ========================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKQY2568Q3"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-DKQY2568Q3');
+</script>
 
 <!-- FUENTE INTER -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 /* ==========================================================================
    ESTILOS BASE
    ========================================================================== */
@@ -25,7 +43,7 @@ body{
     color:#ffffff;
     overflow-x:hidden;
     line-height:1.6;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing:antialiased;
 }
 
 canvas{
@@ -40,6 +58,7 @@ canvas{
     z-index:1;
     width:100%;
 }
+
 
 /* ==========================================================================
    MENÚ
@@ -95,6 +114,7 @@ nav{
     color:#d4af37;
 }
 
+
 /* LAST DROP */
 
 .nav-links a.last-drop{
@@ -105,6 +125,7 @@ nav{
     color:#fff;
     text-shadow:0 0 12px rgba(212,175,55,.6);
 }
+
 
 /* STORE */
 
@@ -119,6 +140,47 @@ nav{
     height:15px;
 }
 
+
+/* STORE LIVE */
+
+.store-live{
+    color:#63e68a !important;
+}
+
+.store-live:hover{
+    color:#8ff0aa !important;
+}
+
+.live-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#63e68a;
+
+    box-shadow:
+        0 0 6px rgba(99,230,138,.9),
+        0 0 12px rgba(99,230,138,.4);
+
+    animation:livePulse 1.8s infinite;
+}
+
+@keyframes livePulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.35;
+        transform:scale(.65);
+    }
+
+}
+
+
 /* ==========================================================================
    HERO
    ========================================================================== */
@@ -126,7 +188,7 @@ nav{
 .hero{
     min-height:100vh;
 
-    padding:120px 20px 60px;
+    padding:120px 20px 80px;
 
     display:flex;
     flex-direction:column;
@@ -185,8 +247,182 @@ h1{
 
     line-height:1.7;
 
-    margin:0 auto 40px;
+    margin:0 auto 42px;
 }
+
+
+/* ==========================================================================
+   STORE LIVE FEATURE SLIDE
+   ========================================================================== */
+
+.store-feature{
+    position:relative;
+
+    width:100%;
+    max-width:1100px;
+
+    height:310px;
+
+    margin:0 auto 45px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(99,230,138,.28);
+
+    background:#0d0d0d;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+}
+
+.store-slide{
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transition:opacity 1.5s ease;
+}
+
+.store-slide.active{
+    opacity:1;
+}
+
+.store-slide img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+        brightness(.42)
+        saturate(.8);
+
+    transform:scale(1.02);
+
+    transition:transform 8s ease;
+}
+
+.store-slide.active img{
+    transform:scale(1.08);
+}
+
+.store-feature-overlay{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.42),
+            rgba(0,0,0,.75)
+        );
+
+    z-index:2;
+}
+
+.store-feature-content{
+    position:absolute;
+
+    z-index:4;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.store-live-label{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#63e68a;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.store-feature-title{
+    font-size:clamp(30px,5vw,54px);
+
+    font-weight:200;
+
+    letter-spacing:7px;
+
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.store-feature-subtitle{
+    color:rgba(255,255,255,.72);
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:24px;
+}
+
+.store-feature-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 22px;
+
+    border:1px solid #63e68a;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    transition:.35s;
+
+    background:rgba(0,0,0,.25);
+}
+
+.store-feature-button:hover{
+    background:#63e68a;
+
+    color:#050505;
+
+    box-shadow:
+        0 0 25px rgba(99,230,138,.22);
+}
+
 
 /* ==========================================================================
    CARDS
@@ -251,6 +487,7 @@ h1{
 
 .content{
     padding:25px;
+
     width:100%;
 }
 
@@ -274,7 +511,55 @@ h1{
     margin-bottom:15px;
 }
 
-/* BOTONES */
+
+/* STORE CARD */
+
+.store-card{
+    border-color:rgba(99,230,138,.20);
+}
+
+.store-card:hover{
+    border-color:#63e68a;
+
+    box-shadow:
+        0 0 35px rgba(99,230,138,.14);
+}
+
+.store-card .live-mini{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#63e68a;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+    text-transform:uppercase;
+}
+
+.store-card .live-mini-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#63e68a;
+
+    box-shadow:0 0 8px rgba(99,230,138,.8);
+
+    animation:livePulse 1.8s infinite;
+}
+
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
 
 .button{
     display:inline-flex;
@@ -305,6 +590,17 @@ h1{
 
     color:#000;
 }
+
+.store-button{
+    border-color:#63e68a;
+}
+
+.store-button:hover{
+    background:#63e68a;
+
+    color:#000;
+}
+
 
 /* ==========================================================================
    FOOTER
@@ -362,6 +658,7 @@ footer{
     letter-spacing:1px;
 }
 
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
@@ -391,6 +688,26 @@ footer{
         letter-spacing:2px;
     }
 
+    .store-feature{
+        height:300px;
+
+        border-radius:22px;
+
+        margin-bottom:35px;
+    }
+
+    .store-feature-title{
+        font-size:30px;
+
+        letter-spacing:4px;
+    }
+
+    .store-feature-subtitle{
+        font-size:10px;
+
+        letter-spacing:1.5px;
+    }
+
     .cards{
         flex-direction:column;
 
@@ -415,12 +732,14 @@ footer{
 </style>
 </head>
 
+
 <body>
 
 <!-- CANVAS -->
 <canvas id="bg"></canvas>
 
 <div class="page-wrapper">
+
 
 <!-- ==========================================================================
      NAVIGATION
@@ -436,7 +755,9 @@ BUDA STUDIO
 
 </a>
 
+
 <ul class="nav-links">
+
 
 <li>
 
@@ -479,7 +800,8 @@ Collective
 
 <a
 href="https://budastudio.github.io/store.html"
-class="store-link">
+class="store-link store-live"
+onclick="trackStoreClick('navigation')">
 
 <svg
 class="store-icon"
@@ -495,6 +817,8 @@ aria-hidden="true">
 
 </svg>
 
+<span class="live-dot"></span>
+
 Store
 
 </a>
@@ -502,15 +826,7 @@ Store
 </li>
 
 
-<li>
-
-<a href="https://budastudio.github.io/brief.html">
-
-Start a project
-
-</a>
-
-</li>
+<!-- START A PROJECT REMOVED -->
 
 
 <li>
@@ -523,6 +839,7 @@ Contact
 
 </li>
 
+
 </ul>
 
 </nav>
@@ -533,6 +850,7 @@ Contact
      ========================================================================== -->
 
 <section class="hero">
+
 
 <img
 src="logogold26_trans.png"
@@ -561,6 +879,104 @@ More than an Art community. A curated collective connecting artists, collectors,
 </p>
 
 
+<!-- ==========================================================================
+     STORE LIVE SLIDE
+     ========================================================================== -->
+
+<section class="store-feature">
+
+
+<div id="storeSlides">
+
+
+<div class="store-slide active">
+
+<img
+src="painting1_ambient.jpg"
+alt="Buda Studio Store">
+
+</div>
+
+
+<div class="store-slide">
+
+<img
+src="painting2_ambient.jpg"
+alt="Buda Studio Store">
+
+</div>
+
+
+<div class="store-slide">
+
+<img
+src="painting3_ambient.jpg"
+alt="Buda Studio Store">
+
+</div>
+
+
+<div class="store-slide">
+
+<img
+src="painting5_ambient.jpg"
+alt="Buda Studio Store">
+
+</div>
+
+
+</div>
+
+
+<div class="store-feature-overlay"></div>
+
+
+<div class="store-feature-content">
+
+
+<div class="store-live-label">
+
+<span class="live-dot"></span>
+
+STORE / LIVE
+
+</div>
+
+
+<div class="store-feature-title">
+
+LAST DROPS
+
+</div>
+
+
+<div class="store-feature-subtitle">
+
+Original artworks · Physical pieces · Selected editions
+
+</div>
+
+
+<a
+href="https://budastudio.github.io/store.html"
+class="store-feature-button"
+onclick="trackStoreClick('hero_slide')">
+
+ENTER STORE →
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+<!-- ==========================================================================
+     FOUR CARDS
+     ========================================================================== -->
+
 <div class="cards">
 
 
@@ -574,12 +990,16 @@ onclick="location.href='https://budastudio.github.io/buda-collective-artist/'">
 <div class="content">
 
 <h2>
+
 JOIN THE<br>
 COLLECTIVE
+
 </h2>
 
 <p>
+
 Become part of our curated community of artists.
+
 </p>
 
 <a
@@ -605,12 +1025,16 @@ onclick="location.href='https://budastudio.github.io/buda-collective-artist/welc
 <div class="content">
 
 <h2>
+
 EXPLORE<br>
 GALLERY
+
 </h2>
 
 <p>
+
 Experience the evolving exhibition of digital artists.
+
 </p>
 
 <a
@@ -631,17 +1055,21 @@ ENTER →
 <div
 class="card"
 style="--bg:url('bg-work.jpg')"
-onclick="location.href='https://budastudio.github.io/'">
+onclick="location.href='https://budastudio.github.io/portfolio/'">
 
 <div class="content">
 
 <h2>
+
 BUDA<br>
 STUDIO
+
 </h2>
 
 <p>
+
 25+ years bridging visual art, design, and technology.
+
 </p>
 
 <a
@@ -657,7 +1085,57 @@ VISIT →
 </div>
 
 
+<!-- STORE -->
+
+<div
+class="card store-card"
+style="--bg:url('painting1_ambient.jpg')"
+onclick="trackStoreClick('card');location.href='https://budastudio.github.io/store.html'">
+
+<div class="content">
+
+
+<div class="live-mini">
+
+<span class="live-mini-dot"></span>
+
+STORE / LIVE
+
 </div>
+
+
+<h2>
+
+BUDA<br>
+STORE
+
+</h2>
+
+
+<p>
+
+Original artworks, physical pieces and selected drops available now.
+
+</p>
+
+
+<a
+href="https://budastudio.github.io/store.html"
+class="button store-button"
+onclick="event.stopPropagation();trackStoreClick('card_button')">
+
+SHOP →
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
 
 </section>
 
@@ -668,9 +1146,12 @@ VISIT →
 
 <footer>
 
+
 <ul class="social-links">
 
+
 <li>
+
 <a
 href="https://x.com/budastudio_nft"
 target="_blank">
@@ -678,10 +1159,12 @@ target="_blank">
 X Twitter
 
 </a>
+
 </li>
 
 
 <li>
+
 <a
 href="https://linktr.ee/budastudio"
 target="_blank">
@@ -689,10 +1172,12 @@ target="_blank">
 Linktree
 
 </a>
+
 </li>
 
 
 <li>
+
 <a
 href="https://instagram.com/budastudio_art"
 target="_blank">
@@ -700,10 +1185,12 @@ target="_blank">
 Instagram
 
 </a>
+
 </li>
 
 
 <li>
+
 <a
 href="https://discord.com/users/872909014067978273"
 target="_blank">
@@ -711,16 +1198,20 @@ target="_blank">
 Discord
 
 </a>
+
 </li>
 
 
 <li>
+
 <a href="mailto:budastudiomkt@gmail.com">
 
 Contact
 
 </a>
+
 </li>
+
 
 </ul>
 
@@ -731,9 +1222,77 @@ Contact
 
 </p>
 
+
 </footer>
 
+
 </div>
+
+
+<!-- ==========================================================================
+     STORE ANALYTICS
+     ========================================================================== -->
+
+<script>
+
+function trackStoreClick(location){
+
+    if(typeof gtag === 'function'){
+
+        gtag(
+            'event',
+            'store_click',
+            {
+                event_category:'navigation',
+                event_label:location
+            }
+        );
+
+    }
+
+}
+
+</script>
+
+
+<!-- ==========================================================================
+     STORE SLIDE
+     ========================================================================== -->
+
+<script>
+
+const storeSlides =
+document.querySelectorAll('.store-slide');
+
+let currentStoreSlide = 0;
+
+
+function changeStoreSlide(){
+
+    if(!storeSlides.length){
+        return;
+    }
+
+    storeSlides.forEach(
+        slide => slide.classList.remove('active')
+    );
+
+    currentStoreSlide =
+        (currentStoreSlide + 1) % storeSlides.length;
+
+    storeSlides[
+        currentStoreSlide
+    ].classList.add('active');
+
+}
+
+
+setInterval(
+    changeStoreSlide,
+    5000
+);
+
+</script>
 
 
 <!-- ==========================================================================
@@ -742,24 +1301,36 @@ Contact
 
 <script>
 
-const canvas = document.getElementById('bg');
+const canvas =
+document.getElementById('bg');
 
-const ctx = canvas.getContext('2d');
+const ctx =
+canvas.getContext('2d');
 
 let particles = [];
 
 const particleCount = 60;
 
-let width = canvas.width = window.innerWidth;
+let width =
+canvas.width =
+window.innerWidth;
 
-let height = canvas.height = window.innerHeight;
+let height =
+canvas.height =
+window.innerHeight;
 
 
-window.addEventListener('resize', () => {
+window.addEventListener(
+'resize',
+() => {
 
-    width = canvas.width = window.innerWidth;
+    width =
+    canvas.width =
+    window.innerWidth;
 
-    height = canvas.height = window.innerHeight;
+    height =
+    canvas.height =
+    window.innerHeight;
 
 });
 
@@ -770,33 +1341,44 @@ class Particle{
 
         this.reset();
 
-        this.y = Math.random() * height;
+        this.y =
+        Math.random() *
+        height;
 
     }
 
 
     reset(){
 
-        this.x = Math.random() * width;
+        this.x =
+        Math.random() *
+        width;
 
-        this.y = height + 10;
+        this.y =
+        height + 10;
 
-        this.size = Math.random() * 1.5 + .5;
+        this.size =
+        Math.random() * 1.5 + .5;
 
-        this.speedY = -(Math.random() * .4 + .1);
+        this.speedY =
+        -(Math.random() * .4 + .1);
 
-        this.speedX = (Math.random() - .5) * .2;
+        this.speedX =
+        (Math.random() - .5) * .2;
 
-        this.alpha = Math.random() * .5 + .1;
+        this.alpha =
+        Math.random() * .5 + .1;
 
     }
 
 
     update(){
 
-        this.y += this.speedY;
+        this.y +=
+        this.speedY;
 
-        this.x += this.speedX;
+        this.x +=
+        this.speedX;
 
 
         if(
@@ -816,7 +1398,8 @@ class Particle{
 
         ctx.save();
 
-        ctx.globalAlpha = this.alpha;
+        ctx.globalAlpha =
+        this.alpha;
 
         ctx.beginPath();
 
@@ -828,11 +1411,14 @@ class Particle{
             Math.PI * 2
         );
 
-        ctx.fillStyle = '#d4af37';
+        ctx.fillStyle =
+        '#d4af37';
 
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur =
+        8;
 
-        ctx.shadowColor = '#d4af37';
+        ctx.shadowColor =
+        '#d4af37';
 
         ctx.fill();
 
@@ -866,13 +1452,15 @@ function animate(){
     );
 
 
-    particles.forEach(p => {
+    particles.forEach(
+        p => {
 
-        p.update();
+            p.update();
 
-        p.draw();
+            p.draw();
 
-    });
+        }
+    );
 
 
     requestAnimationFrame(
@@ -885,6 +1473,7 @@ function animate(){
 animate();
 
 </script>
+
 
 </body>
 </html>
