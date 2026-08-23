@@ -27,7 +27,7 @@ footer{padding:45px 20px;border-top:1px solid #ffffff0f;text-align:center}.socia
 <section class="ambient-hero"><div id="ambientSlides"></div><div class="ambient-overlay"></div><div class="ambient-content"><div class="ambient-kicker">BUDA STUDIO / ARTWORKS IN SPACE</div><div id="ambientTitle" class="ambient-title">TAKE HOME A PIECE OF THE STORY</div><div id="ambientSubtitle" class="ambient-subtitle">Explore available Fine Art, Canvas and framed editions.</div></div><div id="ambientDots" class="ambient-dots"></div></section>
 <header class="hero"><div class="kicker">BUDA STUDIO / STORE</div><h1>STORE</h1><p class="hero-text">Original artworks, limited editions, physical objects, wearables and digital pieces created and curated by Buda Studio.</p></header>
 <div class="filters"><button class="filter active" data-category="ALL">ALL</button><button class="filter" data-category="PAINTING">PAINTINGS</button><button class="filter" data-category="PRINT">PRINTS</button><button class="filter" data-category="T-SHIRT">T-SHIRTS</button><button class="filter" data-category="PHYSICAL">PHYSICAL</button><button class="filter" data-category="OBJKT">OBJKT</button></div>
-<main class="store"><div class="carousel-wrapper"><button class="carousel-arrow arrow-left" onclick="moveCarousel(-1)">‹</button><div id="productCarousel" class="carousel"></div><button class="carousel-arrow arrow-right" onclick="moveCarousel(1)">›</button></div><div class="store-note"><span class="store-note-title">FORMAT / EDITION</span>Every artwork can become something you keep close: a piece of an image, a memory, a feeling you choose to live with. <strong>Choose the format that feels right for you.</strong><br><br>Each work is available in carefully selected proportions as Fine Art print, Hahnemühle Canvas, framed edition and, when applicable, NFT Certificate or Original. <strong>Prices are estimated from Brazilian Fine Art printing and framing references and do not include shipping.</strong><br><br><strong>WAVES — TRIPTYCH</strong> remains the pilot work with the complete format selection.</div></main>
+<main class="store"><div class="carousel-wrapper"><button class="carousel-arrow arrow-left" onclick="moveCarousel(-1)">‹</button><div id="productCarousel" class="carousel"></div><button class="carousel-arrow arrow-right" onclick="moveCarousel(1)">›</button></div><div class="store-note"><span class="store-note-title">FORMAT / EDITION</span>Every artwork can become something you keep close: a piece of an image, a memory, a feeling you choose to live with. <strong>Choose the format that feels right for you.</strong><br><br>Each work is available in carefully selected proportions as Fine Art print, Hahnemühle Canvas, framed edition and, when applicable, NFT Certificate or Original. <strong>Prices are estimated from Brazilian Fine Art printing and framing references and do not include shipping.</strong><br><br><strong>All 10 artworks now use the same five collector formats. <strong>WAVES — TRIPTYCH</strong> is presented as a triptych edition.</div></main>
 <footer><ul class="social-links"><li><a href="https://x.com/budastudio_nft" target="_blank" rel="noopener">X</a></li><li><a href="https://instagram.com/budastudio_art" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://linktr.ee/budastudio" target="_blank" rel="noopener">Linktree</a></li><li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li></ul><p class="copyright">© Buda Studio — Art, Design & Technology</p></footer>
 <script>
 const products=[
@@ -44,14 +44,14 @@ const products=[
 ];
 
 const formatTemplates=[
-{key:"fineart",name:"FINE ART / HAHNEMÜHLE",desc:"Galeria Fine Art em papel artístico, sem moldura.",field:"fa"},
-{key:"canvas-smooth",name:"CANVAS / SMOOTH 370 GSM",desc:"Hahnemühle Art Canvas Smooth 370 gsm, sem chassi.",field:"canvas"},
-{key:"canvas-cezanne",name:"CANVAS PREMIUM / CÉZANNE 430 GSM",desc:"Hahnemühle Cézanne Canvas 430 gsm, acabamento Fine Art premium.",field:"canvasPremium"},
-{key:"canvas-chassi",name:"CANVAS + CHASSI",desc:"Canvas esticado em chassi, pronto para parede.",field:"chassi"},
-{key:"fineart-frame",name:"FINE ART + MOLDURA",desc:"Fine Art montado com moldura de galeria, sem flete.",field:"frame"},
-{key:"canvas-frame",name:"CANVAS + CHASSI + MOLDURA",desc:"Canvas esticado em chassi e acabado com moldura.",field:"canvasFrame"},
-{key:"nft",name:"NFT CERTIFIED",desc:"Edição física acompanhada de NFT Certificate e registro digital da obra.",field:"nft"}
+{key:"fineart",name:"FINE ART",desc:"Impressão Fine Art Hahnemühle, sem moldura.",field:"fa"},
+{key:"canvas",name:"CANVAS",desc:"Hahnemühle Art Canvas, sem chassi.",field:"canvas"},
+{key:"canvas-chassi",name:"CANVAS + CHASSI",desc:"Canvas esticado em chassi de madeira, pronto para parede.",field:"chassi"},
+{key:"fineart-frame",name:"FINE ART + MOLDURA",desc:"Fine Art Hahnemühle com moldura de galeria.",field:"frame"},
+{key:"original-nft-frame",name:"ORIGINAL + NFT + FRAME",desc:"Obra original com moldura, certificado físico e NFT Certificate.",field:"original"}
 ];
+
+const originalCollectorPrices={1:1800,2:1800,3:700,4:650,5:700,6:1650,7:1100,8:800,9:1500,10:1400};
 
 let currentCurrency="BRL",currentCountry="BR",currentAmbient=0,currentCategory="ALL";
 function trackEvent(n,p={}){if(typeof gtag==="function")gtag("event",n,p)}
@@ -79,7 +79,7 @@ function showAmbient(i){const s=document.querySelectorAll(".ambient-slide"),d=do
 function updateAmbientText(){
  if(currentAmbient===0){document.getElementById("ambientTitle").textContent=ambientFeature.title;document.getElementById("ambientSubtitle").textContent=ambientFeature.subtitle;return}
  const wavesProduct=products.find(p=>p.name.toLowerCase().includes("waves"));const otherProducts=products.filter(p=>p.ambientImage&&(!wavesProduct||p.id!==wavesProduct.id));const ordered=[...(wavesProduct?[wavesProduct]:[]),...otherProducts];const p=ordered[currentAmbient-1];
- if(p){if(p.id===wavesProduct?.id){document.getElementById("ambientTitle").textContent="WAVES — TRIPTYCH";document.getElementById("ambientSubtitle").textContent="Explore the complete range of Fine Art, Canvas, framing, NFT Certificate and Original editions."}else{document.getElementById("ambientTitle").textContent=p.name;document.getElementById("ambientSubtitle").textContent=p.technique}}
+ if(p){if(p.id===wavesProduct?.id){document.getElementById("ambientTitle").textContent="WAVES — TRIPTYCH";document.getElementById("ambientSubtitle").textContent="Explore the five collector formats: Fine Art, Canvas, Canvas + Chassi, Fine Art + Moldura and Original + NFT + Frame."}else{document.getElementById("ambientTitle").textContent=p.name;document.getElementById("ambientSubtitle").textContent=p.technique}}
 }
 setInterval(()=>showAmbient(currentAmbient+1),5500);
 
@@ -87,18 +87,24 @@ function productVisual(p){return `<div class="visual-layer" id="visual-${p.id}">
 function showArtwork(id){const p=products.find(x=>x.id===id),v=document.getElementById("visual-"+id);v.innerHTML=`<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="placeholder" style="display:none"><div class="placeholder-symbol">✦</div>ARTWORK</div>`;document.getElementById("artwork-button-"+id).classList.add("active");document.getElementById("space-button-"+id).classList.remove("active");trackEvent("view_artwork",{item_id:String(p.id),item_name:p.name})}
 function showAmbientProduct(id){const p=products.find(x=>x.id===id),v=document.getElementById("visual-"+id);v.innerHTML=`<img src="${p.ambientImage}" alt="${p.name} in space" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="placeholder" style="display:none"><div class="placeholder-symbol">✦</div>IN SPACE</div>`;document.getElementById("artwork-button-"+id).classList.remove("active");document.getElementById("space-button-"+id).classList.add("active");trackEvent("view_in_space",{item_id:String(p.id),item_name:p.name})}
 
-function getFormats(p){
- const base=formatTemplates.map(f=>{let extra={};if(f.field==="canvasPremium")extra={priceBRL:Math.round((p.sizes[0].canvas||0)*1.2)};return {...f,...extra}});
- return base;
-}
-function priceFor(p,format,size){
- if(format.field==="nft")return Math.round((size.fa||0)+150);
- if(format.field==="canvasPremium")return Math.round((size.canvas||0)*1.2);
+function getFormats(p){return formatTemplates;}
+function originalSizeIndex(p){return p.pilot?0:p.sizes.length-1;}
+function priceFor(p,format,sizeIndex){
+ const size=p.sizes[sizeIndex];
+ if(format.field==="original")return originalCollectorPrices[p.id]||Math.round((p.original||0)*5);
  return size[format.field]||0;
 }
 function formatOptionsMarkup(p){
  let html="<option value=\"\">Choose size / format</option>";
- p.sizes.forEach((s,si)=>{html+=`<optgroup label="${s.label}">`;formatTemplates.forEach(f=>{const price=priceFor(p,f,s);html+=`<option value="${si}|${f.key}">${f.name} — ${displayPrice(price)}</option>`});html+="</optgroup>"});
+ p.sizes.forEach((s,si)=>{
+  html+=`<optgroup label="${s.label}">`;
+  formatTemplates.forEach(f=>{
+   if(f.field==="original" && si!==originalSizeIndex(p))return;
+   const price=priceFor(p,f,si);
+   html+=`<option value="${si}|${f.key}">${f.name} — ${displayPrice(price)}</option>`;
+  });
+  html+="</optgroup>";
+ });
  return html;
 }
 function priceMarkup(){return `<div class="price-confirm">SELECT A SIZE + FORMAT</div><div class="price-brl">Choose an edition above</div><div class="price-usd">Prices exclude shipping</div>`}
@@ -116,7 +122,7 @@ function selectCardFormat(productId,value){
  const p=products.find(x=>x.id===productId);if(!p)return;const panel=document.getElementById(`price-panel-${productId}`),button=document.getElementById(`buy-button-${productId}`),status=document.getElementById(`format-status-${productId}`);
  if(!value){panel.innerHTML=priceMarkup();button.classList.add("disabled");status.textContent="SELECT SIZE + FORMAT";return}
  const [si,key]=value.split("|");const size=p.sizes[Number(si)],format=formatTemplates.find(f=>f.key===key);if(!size||!format)return;
- const price=priceFor(p,format,size),usd=usdFromBRL(price);
+ const price=priceFor(p,format,Number(si)),usd=usdFromBRL(price);
  panel.innerHTML=`<div class="price-brl">${formatBRL(price)}</div><div class="price-usd">${formatUSD(usd)}</div><div class="currency-note">${size.label} · ${format.name} · BRL / USD · shipping not included</div>`;
  button.classList.remove("disabled");button.dataset.format=key;button.dataset.size=size.label;button.dataset.priceBrl=String(price);button.dataset.priceUsd=String(usd);status.textContent="FORMAT SELECTED · READY FOR KO-FI";
  trackEvent("select_format",{item_id:String(p.id),item_name:p.name,format:key,size:size.label,value_brl:price,value_usd:usd})
