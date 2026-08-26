@@ -1,12 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>BrandAnima | Creative Brief</title>
 
 <style>
+
+/* =========================================================
+   BRANDANIMA — CREATIVE BRIEF
+   Visual layer redesigned.
+   Supabase / Form IDs / field names preserved.
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -25,63 +34,63 @@ body{
     overflow-x:hidden;
 }
 
+/* subtle grain */
+
 body:before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
     opacity:.035;
+    z-index:50;
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-    z-index:20;
 }
 
 .wrap{
     width:min(1120px,calc(100% - 48px));
     margin:auto;
-    padding:28px 0 70px;
+    padding:28px 0 90px;
 }
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    min-height:74px;
-    padding:0 0 28px;
+    min-height:72px;
+    padding-bottom:26px;
     border-bottom:1px solid #222;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:17px;
 }
 
 .brand-name{
     font-size:15px;
-    letter-spacing:.18em;
     font-weight:bold;
+    letter-spacing:.18em;
 }
 
 .brand-line{
-    width:42px;
+    width:40px;
     height:1px;
     background:#d4b06a;
 }
 
 .brand-project{
-    color:#888;
-    font-size:11px;
-    letter-spacing:.14em;
+    color:#777;
+    font-size:10px;
+    letter-spacing:.15em;
     text-transform:uppercase;
 }
 
-/* =========================
-   LANGUAGE SELECTOR
-========================= */
+/* LANGUAGE */
 
 .language{
     position:relative;
@@ -90,62 +99,54 @@ body:before{
 #lang{
     appearance:none;
     -webkit-appearance:none;
-    width:auto;
     min-width:155px;
     padding:13px 42px 13px 17px;
-    border:1px solid #3a3a3a;
-    border-radius:2px;
     background:#101010;
     color:#f2eee6;
-    font-size:11px;
-    letter-spacing:.08em;
-    cursor:pointer;
+    border:1px solid #333;
+    border-radius:2px;
     outline:none;
+    font-size:10px;
+    letter-spacing:.1em;
+    cursor:pointer;
     transition:.25s ease;
 }
 
-#lang:hover{
-    border-color:#d4b06a;
-    background:#151515;
-}
-
+#lang:hover,
 #lang:focus{
     border-color:#d4b06a;
-    box-shadow:0 0 0 3px rgba(212,176,106,.08);
 }
 
 .language:after{
     content:"⌄";
     position:absolute;
     right:16px;
-    top:10px;
+    top:9px;
     color:#d4b06a;
     font-size:17px;
     pointer-events:none;
 }
 
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   INTRO
+========================================================= */
 
 .hero{
-    padding:90px 0 72px;
-    max-width:920px;
+    padding:85px 0 55px;
 }
 
 .eyebrow{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:13px;
     margin-bottom:26px;
-    color:#8e8e8e;
+    color:#777;
     font-size:10px;
     letter-spacing:.2em;
     text-transform:uppercase;
 }
 
 .eyebrow span{
-    display:inline-block;
     width:28px;
     height:1px;
     background:#d4b06a;
@@ -154,30 +155,34 @@ body:before{
 h1{
     margin:0;
     max-width:900px;
-    font-size:clamp(52px,8vw,105px);
-    line-height:.9;
+    font-size:clamp(54px,8vw,105px);
+    line-height:.88;
     letter-spacing:-.065em;
-    font-weight:600;
+    font-weight:500;
 }
 
 h1 span{
-    color:#d4b06a;
     display:block;
+    color:#d4b06a;
 }
 
 #subtitle{
-    max-width:560px;
-    margin:32px 0 0;
-    color:#999;
-    font-size:17px;
+    max-width:520px;
+    margin:30px 0 0;
+    color:#888;
+    font-size:16px;
     line-height:1.7;
 }
 
-/* =========================
-   FORM
-========================= */
+/* =========================================================
+   PROJECT SELECTOR
+========================================================= */
 
-.form-intro{
+.project-selector{
+    padding:25px 0 100px;
+}
+
+.selector-head{
     display:flex;
     justify-content:space-between;
     align-items:end;
@@ -186,17 +191,158 @@ h1 span{
     border-bottom:1px solid #222;
 }
 
-.form-intro-title{
-    font-size:11px;
+.selector-title{
     color:#d4b06a;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+.selector-number{
+    color:#555;
+    font-size:10px;
+    letter-spacing:.15em;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    border-top:1px solid #292929;
+    border-left:1px solid #292929;
+}
+
+/* CARD */
+
+.project-card{
+    position:relative;
+    min-height:265px;
+    padding:27px;
+    background:#080808;
+    border-right:1px solid #292929;
+    border-bottom:1px solid #292929;
+    overflow:hidden;
+    cursor:pointer;
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        background .35s ease;
+}
+
+/* gold glow */
+
+.project-card:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    top:-100px;
+    right:-100px;
+    border-radius:50%;
+    background:rgba(212,176,106,.09);
+    filter:blur(20px);
+    opacity:0;
+    transition:.5s ease;
+}
+
+/* animated line */
+
+.project-card:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:#d4b06a;
+    transition:width .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.project-card:hover{
+    background:#0d0d0d;
+    transform:translateY(-7px);
+    z-index:3;
+}
+
+.project-card:hover:before{
+    opacity:1;
+}
+
+.project-card:hover:after{
+    width:100%;
+}
+
+.project-number{
+    display:block;
+    color:#d4b06a;
+    font-size:10px;
+    letter-spacing:.16em;
+    margin-bottom:55px;
+}
+
+.project-card h2{
+    margin:0 0 12px;
+    max-width:330px;
+    font-size:clamp(27px,3vw,42px);
+    line-height:.95;
+    letter-spacing:-.04em;
+    font-weight:500;
+}
+
+.project-card p{
+    max-width:300px;
+    margin:0;
+    color:#707070;
+    font-size:11px;
+    line-height:1.6;
+}
+
+.project-action{
+    position:absolute;
+    right:25px;
+    bottom:24px;
+    color:#555;
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    transition:.35s ease;
+}
+
+.project-card:hover .project-action{
+    color:#d4b06a;
+    transform:translateX(-5px);
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#projectForm{
+    scroll-margin-top:35px;
+}
+
+.form-section{
+    padding-top:20px;
+}
+
+.form-intro{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:30px;
+    padding-bottom:17px;
+    border-bottom:1px solid #222;
+}
+
+.form-intro-title{
+    color:#d4b06a;
+    font-size:10px;
     letter-spacing:.18em;
     text-transform:uppercase;
 }
 
 .form-intro-number{
     color:#555;
-    font-size:11px;
-    letter-spacing:.12em;
+    font-size:10px;
+    letter-spacing:.15em;
 }
 
 .form-grid{
@@ -206,17 +352,17 @@ h1 span{
 }
 
 .field{
-    margin-bottom:25px;
+    margin-bottom:26px;
 }
 
 .field.full{
-    grid-column:1 / -1;
+    grid-column:1/-1;
 }
 
 label{
     display:block;
-    margin:0 0 9px;
-    color:#aaa;
+    margin-bottom:9px;
+    color:#999;
     font-size:10px;
     letter-spacing:.14em;
     text-transform:uppercase;
@@ -248,7 +394,7 @@ textarea:focus,
 select:focus{
     border-color:#d4b06a;
     background:#121212;
-    box-shadow:0 0 0 3px rgba(212,176,106,.055);
+    box-shadow:0 0 0 3px rgba(212,176,106,.05);
 }
 
 textarea{
@@ -257,52 +403,61 @@ textarea{
     line-height:1.6;
 }
 
+.form-break{
+    height:1px;
+    margin:5px 0 30px;
+    background:#1d1d1d;
+}
+
+/* SELECTS */
+
 select{
     appearance:none;
     -webkit-appearance:none;
     cursor:pointer;
+
     background-image:
         linear-gradient(45deg,transparent 50%,#d4b06a 50%),
         linear-gradient(135deg,#d4b06a 50%,transparent 50%);
+
     background-position:
         calc(100% - 18px) 50%,
         calc(100% - 13px) 50%;
-    background-size:5px 5px,5px 5px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
     background-repeat:no-repeat;
+
     padding-right:45px;
 }
 
-.form-break{
-    height:1px;
-    background:#1d1d1d;
-    margin:10px 0 30px;
-}
-
-/* =========================
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 button{
-    margin-top:12px;
     width:100%;
-    padding:20px 22px;
+    margin-top:10px;
+    padding:20px;
     border:1px solid #d4b06a;
     border-radius:1px;
     background:#d4b06a;
     color:#070707;
     font-size:11px;
+    font-weight:bold;
     letter-spacing:.15em;
     text-transform:uppercase;
-    font-weight:bold;
     cursor:pointer;
     transition:.3s ease;
 }
 
 button:hover{
-    background:#f0d08a;
-    border-color:#f0d08a;
+    background:#efd08d;
+    border-color:#efd08d;
     transform:translateY(-2px);
-    box-shadow:0 10px 35px rgba(212,176,106,.12);
+    box-shadow:0 14px 40px rgba(212,176,106,.12);
 }
 
 button:active{
@@ -318,12 +473,12 @@ button:active{
     letter-spacing:.08em;
 }
 
-/* =========================
-   SERVICES
-========================= */
+/* =========================================================
+   SERVICES / PROMO
+========================================================= */
 
 .services{
-    margin-top:105px;
+    margin-top:110px;
     padding-top:38px;
     border-top:1px solid #222;
 }
@@ -331,15 +486,15 @@ button:active{
 .services-head{
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:end;
     margin-bottom:30px;
 }
 
 .services-title{
     margin:0;
-    font-size:clamp(32px,5vw,58px);
-    line-height:.95;
-    letter-spacing:-.045em;
+    font-size:clamp(34px,5vw,60px);
+    line-height:.9;
+    letter-spacing:-.05em;
     font-weight:500;
 }
 
@@ -348,11 +503,11 @@ button:active{
 }
 
 .services-description{
-    max-width:330px;
+    max-width:340px;
     margin:0;
     color:#777;
-    font-size:12px;
-    line-height:1.6;
+    font-size:11px;
+    line-height:1.7;
 }
 
 .service-grid{
@@ -363,7 +518,7 @@ button:active{
 }
 
 .service-card{
-    min-height:190px;
+    min-height:185px;
     padding:24px;
     border-right:1px solid #252525;
     border-bottom:1px solid #252525;
@@ -376,7 +531,7 @@ button:active{
 
 .service-number{
     display:block;
-    margin-bottom:55px;
+    margin-bottom:48px;
     color:#d4b06a;
     font-size:10px;
     letter-spacing:.15em;
@@ -384,21 +539,21 @@ button:active{
 
 .service-card h3{
     margin:0 0 9px;
-    font-size:14px;
-    letter-spacing:.08em;
+    font-size:13px;
     font-weight:500;
+    letter-spacing:.08em;
 }
 
 .service-card p{
     margin:0;
-    color:#777;
-    font-size:11px;
+    color:#707070;
+    font-size:10px;
     line-height:1.6;
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
     display:flex;
@@ -421,9 +576,9 @@ button:active{
     letter-spacing:.15em;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:800px){
 
@@ -434,12 +589,12 @@ button:active{
 
     .top{
         align-items:flex-start;
-        gap:25px;
+        gap:22px;
     }
 
     .brand{
         flex-wrap:wrap;
-        gap:9px 12px;
+        gap:8px 12px;
     }
 
     .brand-line{
@@ -451,12 +606,15 @@ button:active{
     }
 
     .hero{
-        padding:65px 0 55px;
+        padding:65px 0 45px;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
     }
 
     .form-grid{
         grid-template-columns:1fr;
-        gap:0;
     }
 
     .field.full{
@@ -484,8 +642,8 @@ button:active{
     }
 
     .language{
-        margin-top:22px;
         width:100%;
+        margin-top:22px;
     }
 
     #lang{
@@ -497,19 +655,15 @@ button:active{
     }
 
     #subtitle{
-        font-size:15px;
+        font-size:14px;
+    }
+
+    .project-card{
+        min-height:225px;
     }
 
     .service-grid{
         grid-template-columns:1fr;
-    }
-
-    .service-card{
-        min-height:150px;
-    }
-
-    .service-number{
-        margin-bottom:35px;
     }
 
     .footer{
@@ -524,83 +678,259 @@ button:active{
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="wrap">
 
-    <!-- HEADER -->
 
-    <div class="top">
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
-        <div class="brand">
+<header class="top">
 
-            <div class="brand-name">
-                BRANDANIMATION
-            </div>
+    <div class="brand">
 
-            <div class="brand-line"></div>
-
-            <div class="brand-project">
-                Start a Project
-            </div>
-
+        <div class="brand-name">
+            BRANDANIMATION
         </div>
 
-        <div class="language">
+        <div class="brand-line"></div>
 
-            <select id="lang">
-
-                <option value="pt">🇧🇷 Português</option>
-                <option value="en">🇺🇸 English</option>
-                <option value="es">🇪🇸 Español</option>
-
-            </select>
-
+        <div class="brand-project">
+            Start a Project
         </div>
 
     </div>
 
 
-    <!-- HERO -->
+    <div class="language">
 
-    <section class="hero">
+        <select id="lang">
 
-        <div class="eyebrow">
-            <span></span>
-            01 — Creative Project Brief
+            <option value="pt">🇧🇷 Português</option>
+
+            <option value="en">🇺🇸 English</option>
+
+            <option value="es">🇪🇸 Español</option>
+
+        </select>
+
+    </div>
+
+</header>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+
+        <span></span>
+
+        01 — Creative Project Brief
+
+    </div>
+
+
+    <h1 id="title">
+
+        Create your <span>visual story</span>
+
+    </h1>
+
+
+    <p id="subtitle">
+
+        Tell us about your project.
+
+    </p>
+
+</section>
+
+
+
+<!-- =======================================================
+     PROJECT SELECTOR
+======================================================= -->
+
+<section class="project-selector" id="projectSelector">
+
+
+    <div class="selector-head">
+
+        <div class="selector-title" id="chooseTitle">
+            Choose your project
         </div>
 
-        <h1 id="title">
-            Create your <span>visual story</span>
-        </h1>
+        <div class="selector-number">
+            SELECT / 01
+        </div>
 
-        <p id="subtitle">
-            Tell us about your project.
-        </p>
-
-    </section>
+    </div>
 
 
-    <!-- FORM -->
+    <div class="project-grid">
+
+
+        <!-- LANDING -->
+
+        <div
+            class="project-card"
+            data-type="Website"
+            tabindex="0"
+        >
+
+            <span class="project-number">
+                01
+            </span>
+
+            <h2 id="cardLanding">
+                LANDING<br>PAGE
+            </h2>
+
+            <p id="cardLandingText">
+                A focused digital experience for
+                products, services, launches and campaigns.
+            </p>
+
+            <div class="project-action">
+                Start →
+            </div>
+
+        </div>
+
+
+
+        <!-- PROMO -->
+
+        <div
+            class="project-card"
+            data-type="Creative Direction"
+            tabindex="0"
+        >
+
+            <span class="project-number">
+                02
+            </span>
+
+            <h2 id="cardPromo">
+                PROMO<br>CAMPAIGN
+            </h2>
+
+            <p id="cardPromoText">
+                Visual concepts, motion and digital
+                assets built around a strong campaign idea.
+            </p>
+
+            <div class="project-action">
+                Start →
+            </div>
+
+        </div>
+
+
+
+        <!-- MOTION -->
+
+        <div
+            class="project-card"
+            data-type="Motion Design"
+            tabindex="0"
+        >
+
+            <span class="project-number">
+                03
+            </span>
+
+            <h2 id="cardMotion">
+                MOTION<br>& 3D
+            </h2>
+
+            <p id="cardMotionText">
+                Animation, motion graphics and
+                3D visuals that bring ideas to life.
+            </p>
+
+            <div class="project-action">
+                Start →
+            </div>
+
+        </div>
+
+
+
+        <!-- BRAND -->
+
+        <div
+            class="project-card"
+            data-type="Brand Identity"
+            tabindex="0"
+        >
+
+            <span class="project-number">
+                04
+            </span>
+
+            <h2 id="cardBrand">
+                BRAND<br>EXPERIENCE
+            </h2>
+
+            <p id="cardBrandText">
+                Creative direction connecting identity,
+                storytelling, digital and visual culture.
+            </p>
+
+            <div class="project-action">
+                Start →
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FORM
+======================================================= -->
+
+<section class="form-section">
 
     <form id="projectForm">
 
+
         <div class="form-intro">
 
-            <div class="form-intro-title">
-                Project Information
+            <div
+                class="form-intro-title"
+                id="formTitle"
+            >
+                Tell us about it
             </div>
 
             <div class="form-intro-number">
-                01 / 04
+                02 / 04
             </div>
 
         </div>
 
 
+
         <div class="form-grid">
+
 
             <div class="field">
 
@@ -608,9 +938,13 @@ button:active{
                     Name
                 </label>
 
-                <input name="name" required>
+                <input
+                    name="name"
+                    required
+                >
 
             </div>
+
 
 
             <div class="field">
@@ -619,9 +953,12 @@ button:active{
                     Company
                 </label>
 
-                <input name="company">
+                <input
+                    name="company"
+                >
 
             </div>
+
 
 
             <div class="field">
@@ -630,9 +967,14 @@ button:active{
                     Email
                 </label>
 
-                <input type="email" name="email" required>
+                <input
+                    type="email"
+                    name="email"
+                    required
+                >
 
             </div>
+
 
 
             <div class="field">
@@ -641,9 +983,12 @@ button:active{
                     Website / Instagram
                 </label>
 
-                <input name="website">
+                <input
+                    name="website"
+                >
 
             </div>
+
 
 
             <div class="field full">
@@ -656,15 +1001,30 @@ button:active{
 
                 <select name="project_type">
 
-                    <option>Brand Identity</option>
-                    <option>Motion Design</option>
-                    <option>3D Animation</option>
-                    <option>Website</option>
-                    <option>Creative Direction</option>
+                    <option>
+                        Brand Identity
+                    </option>
+
+                    <option>
+                        Motion Design
+                    </option>
+
+                    <option>
+                        3D Animation
+                    </option>
+
+                    <option>
+                        Website
+                    </option>
+
+                    <option>
+                        Creative Direction
+                    </option>
 
                 </select>
 
             </div>
+
 
 
             <div class="field full">
@@ -673,9 +1033,12 @@ button:active{
                     Project description
                 </label>
 
-                <textarea name="description"></textarea>
+                <textarea
+                    name="description"
+                ></textarea>
 
             </div>
+
 
 
             <div class="field full">
@@ -684,9 +1047,12 @@ button:active{
                     Main goal
                 </label>
 
-                <textarea name="goals"></textarea>
+                <textarea
+                    name="goals"
+                ></textarea>
 
             </div>
+
 
 
             <div class="field full">
@@ -695,9 +1061,12 @@ button:active{
                     Visual references
                 </label>
 
-                <textarea name="visual_references"></textarea>
+                <textarea
+                    name="visual_references"
+                ></textarea>
 
             </div>
+
 
 
             <div class="field">
@@ -706,9 +1075,12 @@ button:active{
                     Style
                 </label>
 
-                <input name="style">
+                <input
+                    name="style"
+                >
 
             </div>
+
 
 
             <div class="field">
@@ -719,141 +1091,190 @@ button:active{
 
                 <select name="budget">
 
-                    <option>USD 300–600</option>
-                    <option>USD 600–1500</option>
-                    <option>USD 1500+</option>
-                    <option>I need guidance</option>
+                    <option>
+                        USD 300–600
+                    </option>
+
+                    <option>
+                        USD 600–1500
+                    </option>
+
+                    <option>
+                        USD 1500+
+                    </option>
+
+                    <option>
+                        I need guidance
+                    </option>
 
                 </select>
 
             </div>
 
+
         </div>
+
 
 
         <button id="sendBtn">
             Start my project ✦
         </button>
 
-        <p id="result" class="small"></p>
+
+        <p
+            id="result"
+            class="small"
+        ></p>
+
 
     </form>
 
+</section>
 
-    <!-- SERVICES -->
 
-    <section class="services">
 
-        <div class="services-head">
+<!-- =======================================================
+     SERVICES
+======================================================= -->
 
-            <h2 class="services-title">
-                What can we<br>
-                <span>create?</span>
-            </h2>
+<section class="services">
 
-            <p class="services-description">
-                From a single visual piece to a complete digital
-                experience, we transform ideas into visual stories
-                designed to connect, communicate and stand out.
+
+    <div class="services-head">
+
+        <h2 class="services-title">
+
+            What can we<br>
+
+            <span>create?</span>
+
+        </h2>
+
+
+        <p
+            class="services-description"
+            id="servicesDescription"
+        >
+
+            From a single visual piece to a complete
+            digital experience, we transform ideas
+            into visual stories designed to connect,
+            communicate and stand out.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="service-grid">
+
+
+        <div class="service-card">
+
+            <span class="service-number">
+                01
+            </span>
+
+            <h3>
+                LANDING PAGES
+            </h3>
+
+            <p id="serviceLanding">
+                Focused digital experiences for
+                products, services, launches and campaigns.
             </p>
 
         </div>
 
 
-        <div class="service-grid">
 
-            <div class="service-card">
+        <div class="service-card">
 
-                <span class="service-number">
-                    01
-                </span>
+            <span class="service-number">
+                02
+            </span>
 
-                <h3>
-                    LANDING PAGES
-                </h3>
+            <h3>
+                PROMO CAMPAIGNS
+            </h3>
 
-                <p>
-                    Focused digital experiences for products,
-                    services, launches and campaigns.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <span class="service-number">
-                    02
-                </span>
-
-                <h3>
-                    PROMO CAMPAIGNS
-                </h3>
-
-                <p>
-                    Visual concepts, motion and digital assets
-                    designed around a strong campaign idea.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <span class="service-number">
-                    03
-                </span>
-
-                <h3>
-                    MOTION & 3D
-                </h3>
-
-                <p>
-                    Animation, motion graphics and 3D visuals
-                    that bring brands and ideas to life.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <span class="service-number">
-                    04
-                </span>
-
-                <h3>
-                    BRAND EXPERIENCE
-                </h3>
-
-                <p>
-                    Creative direction connecting identity,
-                    storytelling, digital and visual culture.
-                </p>
-
-            </div>
+            <p id="servicePromo">
+                Visual concepts, motion and digital
+                assets designed around a strong campaign idea.
+            </p>
 
         </div>
 
-    </section>
 
 
-    <!-- FOOTER -->
+        <div class="service-card">
 
-    <footer class="footer">
+            <span class="service-number">
+                03
+            </span>
 
-        <p class="small">
-            BrandAnima · A creative division by Buda Studio
-        </p>
+            <h3>
+                MOTION & 3D
+            </h3>
 
-        <span class="footer-mark">
-            VISUAL STORIES / DIGITAL EXPERIENCES
-        </span>
+            <p id="serviceMotion">
+                Animation, motion graphics and 3D visuals
+                that bring brands and ideas to life.
+            </p>
 
-    </footer>
+        </div>
+
+
+
+        <div class="service-card">
+
+            <span class="service-number">
+                04
+            </span>
+
+            <h3>
+                BRAND EXPERIENCE
+            </h3>
+
+            <p id="serviceBrand">
+                Creative direction connecting identity,
+                storytelling, digital and visual culture.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer class="footer">
+
+    <p class="small">
+        BrandAnima · A creative division by Buda Studio
+    </p>
+
+    <span class="footer-mark">
+        VISUAL STORIES / DIGITAL EXPERIENCES
+    </span>
+
+</footer>
+
 
 </div>
 
+
+
+<!-- =======================================================
+     SUPABASE + APPLICATION LOGIC
+======================================================= -->
 
 <script type="module">
 
@@ -869,52 +1290,165 @@ const supabase=createClient(
 );
 
 
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
+
 const t={
 
     en:{
+
         title:'Create your <span>visual story</span>',
+
         sub:'Tell us about your project.',
+
         name:'Name',
+
         company:'Company',
+
         type:'Project type',
+
         desc:'Project description',
+
         goal:'Main goal',
+
         refs:'Visual references',
+
         style:'Style',
+
         budget:'Budget',
-        btn:'Start my project ✦'
+
+        btn:'Start my project ✦',
+
+        choose:'Choose your project',
+
+        formTitle:'Tell us about it',
+
+        landingText:'A focused digital experience for products, services, launches and campaigns.',
+
+        promoText:'Visual concepts, motion and digital assets built around a strong campaign idea.',
+
+        motionText:'Animation, motion graphics and 3D visuals that bring ideas to life.',
+
+        brandText:'Creative direction connecting identity, storytelling, digital and visual culture.',
+
+        servicesDescription:'From a single visual piece to a complete digital experience, we transform ideas into visual stories designed to connect, communicate and stand out.',
+
+        serviceLanding:'Focused digital experiences for products, services, launches and campaigns.',
+
+        servicePromo:'Visual concepts, motion and digital assets designed around a strong campaign idea.',
+
+        serviceMotion:'Animation, motion graphics and 3D visuals that bring brands and ideas to life.',
+
+        serviceBrand:'Creative direction connecting identity, storytelling, digital and visual culture.'
+
     },
+
 
     pt:{
+
         title:'Crie a <span>história visual</span>',
+
         sub:'Conte-nos sobre seu projeto.',
+
         name:'Nome',
+
         company:'Empresa',
+
         type:'Tipo de projeto',
+
         desc:'Descrição',
+
         goal:'Objetivo',
+
         refs:'Referências',
+
         style:'Estilo',
+
         budget:'Investimento',
-        btn:'Começar meu projeto ✦'
+
+        btn:'Começar meu projeto ✦',
+
+        choose:'Escolha seu projeto',
+
+        formTitle:'Conte-nos sobre ele',
+
+        landingText:'Uma experiência digital focada em produtos, serviços, lançamentos e campanhas.',
+
+        promoText:'Conceitos visuais, motion e peças digitais construídos em torno de uma forte ideia de campanha.',
+
+        motionText:'Animação, motion graphics e visuais 3D que dão vida às ideias.',
+
+        brandText:'Direção criativa conectando identidade, storytelling, digital e cultura visual.',
+
+        servicesDescription:'De uma única peça visual a uma experiência digital completa, transformamos ideias em histórias visuais feitas para conectar, comunicar e se destacar.',
+
+        serviceLanding:'Experiências digitais focadas em produtos, serviços, lançamentos e campanhas.',
+
+        servicePromo:'Conceitos visuais, motion e peças digitais desenvolvidos em torno de uma forte ideia de campanha.',
+
+        serviceMotion:'Animação, motion graphics e visuais 3D que dão vida às marcas e ideias.',
+
+        serviceBrand:'Direção criativa conectando identidade, storytelling, digital e cultura visual.'
+
     },
 
+
     es:{
+
         title:'Crea tu <span>historia visual</span>',
+
         sub:'Cuéntanos sobre tu proyecto.',
+
         name:'Nombre',
+
         company:'Empresa',
+
         type:'Tipo de proyecto',
+
         desc:'Descripción',
+
         goal:'Objetivo',
+
         refs:'Referencias',
+
         style:'Estilo',
+
         budget:'Presupuesto',
-        btn:'Iniciar mi proyecto ✦'
+
+        btn:'Iniciar mi proyecto ✦',
+
+        choose:'Elige tu proyecto',
+
+        formTitle:'Cuéntanos sobre él',
+
+        landingText:'Una experiencia digital enfocada en productos, servicios, lanzamientos y campañas.',
+
+        promoText:'Conceptos visuales, motion y piezas digitales construidos alrededor de una idea de campaña potente.',
+
+        motionText:'Animación, motion graphics y visuales 3D que dan vida a las ideas.',
+
+        brandText:'Dirección creativa conectando identidad, storytelling, digital y cultura visual.',
+
+        servicesDescription:'Desde una pieza visual hasta una experiencia digital completa, transformamos ideas en historias visuales diseñadas para conectar, comunicar y destacar.',
+
+        serviceLanding:'Experiencias digitales enfocadas en productos, servicios, lanzamientos y campañas.',
+
+        servicePromo:'Conceptos visuales, motion y piezas digitales desarrollados alrededor de una idea de campaña potente.',
+
+        serviceMotion:'Animación, motion graphics y visuales 3D que dan vida a marcas e ideas.',
+
+        serviceBrand:'Dirección creativa conectando identidad, storytelling, digital y cultura visual.'
+
     }
 
 };
 
+
+
+/* =========================================================
+   LANGUAGE SWITCH
+========================================================= */
 
 lang.onchange=e=>{
 
@@ -942,8 +1476,140 @@ lang.onchange=e=>{
 
     sendBtn.textContent=x.btn;
 
+    chooseTitle.textContent=x.choose;
+
+    formTitle.textContent=x.formTitle;
+
+    cardLandingText.textContent=x.landingText;
+
+    cardPromoText.textContent=x.promoText;
+
+    cardMotionText.textContent=x.motionText;
+
+    cardBrandText.textContent=x.brandText;
+
+    servicesDescription.textContent=x.servicesDescription;
+
+    serviceLanding.textContent=x.serviceLanding;
+
+    servicePromo.textContent=x.servicePromo;
+
+    serviceMotion.textContent=x.serviceMotion;
+
+    serviceBrand.textContent=x.serviceBrand;
+
 };
 
+
+
+/* =========================================================
+   PROJECT CARDS
+   Selects existing project_type automatically.
+========================================================= */
+
+const projectCards=document.querySelectorAll('.project-card');
+
+const projectTypeSelect=document.querySelector(
+    'select[name="project_type"]'
+);
+
+
+function selectProject(card){
+
+    const selectedType=card.dataset.type;
+
+    /* select existing option */
+
+    projectTypeSelect.value=selectedType;
+
+
+    /* visual feedback */
+
+    projectCards.forEach(item=>{
+        item.classList.remove('selected');
+    });
+
+    card.classList.add('selected');
+
+
+    /* small FX */
+
+    card.animate(
+
+        [
+            {
+                transform:'translateY(-7px) scale(1)'
+            },
+            {
+                transform:'translateY(-7px) scale(.985)'
+            },
+            {
+                transform:'translateY(-7px) scale(1)'
+            }
+        ],
+
+        {
+            duration:320,
+            easing:'ease-out'
+        }
+
+    );
+
+
+    /* smooth anchor */
+
+    setTimeout(()=>{
+
+        document.getElementById(
+            'projectForm'
+        ).scrollIntoView({
+
+            behavior:'smooth',
+
+            block:'start'
+
+        });
+
+    },180);
+
+}
+
+
+
+/* mouse / touch */
+
+projectCards.forEach(card=>{
+
+    card.addEventListener(
+        'click',
+        ()=>selectProject(card)
+    );
+
+
+    /* keyboard accessibility */
+
+    card.addEventListener(
+        'keydown',
+        e=>{
+
+            if(e.key==='Enter' || e.key===' '){
+
+                e.preventDefault();
+
+                selectProject(card);
+
+            }
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   FORM SUBMIT
+========================================================= */
 
 projectForm.onsubmit=async(e)=>{
 
@@ -978,17 +1644,26 @@ projectForm.onsubmit=async(e)=>{
             'resend-email',
 
             {
+
                 body:data
+
             }
 
         );
 
-        console.log("FUNCTION RESPONSE:", response);
+
+        console.log(
+            "FUNCTION RESPONSE:",
+            response
+        );
 
 
     } catch(e){
 
-        console.log("FUNCTION ERROR:", e);
+        console.log(
+            "FUNCTION ERROR:",
+            e
+        );
 
     }
 
@@ -1001,5 +1676,7 @@ projectForm.onsubmit=async(e)=>{
 
 </script>
 
+
 </body>
 </html>
+```
