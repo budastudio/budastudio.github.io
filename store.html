@@ -35,9 +35,40 @@ background:radial-gradient(circle at 50% 0%,rgba(212,175,55,.08),transparent 40%
 z-index:-1
 }
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* LANGUAGE SELECTOR */
+.language-selector{
+position:fixed;
+top:72px;
+left:50%;
+transform:translateX(-50%);
+z-index:2000;
+display:flex;
+align-items:center;
+gap:2px;
+padding:3px;
+border:1px solid #ffffff18;
+border-radius:999px;
+background:#090909e8;
+backdrop-filter:blur(12px);
+box-shadow:0 5px 25px #0008
+}
+.language-selector button{
+border:0;
+background:transparent;
+color:#ffffff70;
+padding:6px 10px;
+border-radius:999px;
+font-family:Inter,sans-serif;
+font-size:8px;
+letter-spacing:1.5px;
+cursor:pointer;
+transition:.25s
+}
+.language-selector button:hover{color:#fff}
+.language-selector button.active{
+background:#d4af37;
+color:#000
+}
 
 nav{
 position:fixed;
@@ -58,16 +89,13 @@ border-bottom:1px solid #ffffff10
 font-size:13px;
 letter-spacing:4px;
 text-decoration:none;
-font-weight:300;
-flex-shrink:0
+font-weight:300
 }
 
 .nav-links{
 display:flex;
 gap:25px;
-list-style:none;
-margin-left:auto;
-margin-right:25px
+list-style:none
 }
 
 .nav-links a{
@@ -79,46 +107,7 @@ text-transform:uppercase
 }
 
 .nav-links a:hover,
-.store-active{
-color:#d4af37!important
-}
-
-/* LANGUAGE SELECTOR — DENTRO DEL MENU */
-.language-selector{
-display:flex;
-align-items:center;
-gap:2px;
-padding:3px;
-border:1px solid #ffffff18;
-border-radius:999px;
-background:#090909e8;
-backdrop-filter:blur(12px);
-box-shadow:0 5px 25px #0008;
-flex-shrink:0;
-margin-right:14px
-}
-
-.language-selector button{
-border:0;
-background:transparent;
-color:#ffffff70;
-padding:6px 9px;
-border-radius:999px;
-font-family:Inter,sans-serif;
-font-size:8px;
-letter-spacing:1.5px;
-cursor:pointer;
-transition:.25s
-}
-
-.language-selector button:hover{
-color:#fff
-}
-
-.language-selector button.active{
-background:#d4af37;
-color:#000
-}
+.store-active{color:#d4af37!important}
 
 .shop-button,
 .buy-button{
@@ -133,8 +122,7 @@ transition:.3s
 .shop-button{
 padding:9px 15px;
 font-size:10px;
-letter-spacing:1px;
-flex-shrink:0
+letter-spacing:1px
 }
 
 .shop-button:hover,
@@ -210,14 +198,14 @@ animation:statusPulse 2s infinite
 }
 
 /* =========================================================
-   HERO
+   AMBIENT HERO
 ========================================================= */
 
 .ambient-hero{
 position:relative;
 height:78vh;
 min-height:560px;
-margin-top:68px;
+margin-top:100px;
 overflow:hidden;
 background:#080808
 }
@@ -229,9 +217,7 @@ opacity:0;
 transition:opacity 1.8s
 }
 
-.ambient-slide.active{
-opacity:1
-}
+.ambient-slide.active{opacity:1}
 
 .ambient-slide img{
 width:100%;
@@ -242,9 +228,7 @@ transform:scale(1.02);
 transition:transform 8s
 }
 
-.ambient-slide.active img{
-transform:scale(1.08)
-}
+.ambient-slide.active img{transform:scale(1.08)}
 
 .ambient-overlay{
 position:absolute;
@@ -271,9 +255,7 @@ letter-spacing:4px;
 text-transform:uppercase
 }
 
-.ambient-kicker{
-margin-bottom:15px
-}
+.ambient-kicker{margin-bottom:15px}
 
 .ambient-title{
 font-size:clamp(30px,5vw,58px);
@@ -309,9 +291,9 @@ border-radius:50%;
 border:1px solid #d4af37b3
 }
 
-.ambient-dot.active{
-background:#d4af37
-}
+.ambient-dot.active{background:#d4af37}
+
+/* HERO */
 
 .hero{
 padding:90px 25px 55px;
@@ -320,9 +302,7 @@ max-width:1000px;
 margin:auto
 }
 
-.kicker{
-margin-bottom:18px
-}
+.kicker{margin-bottom:18px}
 
 h1{
 font-size:48px;
@@ -340,9 +320,7 @@ font-weight:300;
 line-height:1.8
 }
 
-/* =========================================================
-   FILTERS
-========================================================= */
+/* FILTERS */
 
 .filters{
 display:flex;
@@ -371,9 +349,7 @@ color:#000;
 border-color:#d4af37
 }
 
-/* =========================================================
-   STORE
-========================================================= */
+/* STORE */
 
 .store{
 max-width:1250px;
@@ -381,9 +357,7 @@ margin:auto;
 padding:0 25px 100px
 }
 
-.carousel-wrapper{
-position:relative
-}
+.carousel-wrapper{position:relative}
 
 .carousel{
 display:flex;
@@ -394,9 +368,7 @@ scrollbar-width:none;
 padding:5px 4px 25px
 }
 
-.carousel::-webkit-scrollbar{
-display:none
-}
+.carousel::-webkit-scrollbar{display:none}
 
 .product{
 flex:0 0 320px;
@@ -433,9 +405,7 @@ display:block;
 transition:.6s
 }
 
-.product:hover .visual-layer img{
-transform:scale(1.04)
-}
+.product:hover .visual-layer img{transform:scale(1.04)}
 
 .badge{
 position:absolute;
@@ -498,9 +468,7 @@ color:#d4af37;
 margin-bottom:10px
 }
 
-.product-info{
-padding:22px
-}
+.product-info{padding:22px}
 
 .product-type{
 font-size:9px;
@@ -542,97 +510,6 @@ color:#aaa;
 font-weight:400
 }
 
-.product-bottom{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px
-}
-
-.price-usd{
-font-size:17px;
-font-weight:300
-}
-
-.price-brl{
-font-size:11px;
-color:#d4af37
-}
-
-.buy-button{
-padding:9px 14px;
-font-size:10px;
-letter-spacing:1px;
-white-space:nowrap
-}
-
-/* =========================================================
-   CAROUSEL
-========================================================= */
-
-.carousel-arrow{
-position:absolute;
-top:45%;
-transform:translateY(-50%);
-width:42px;
-height:42px;
-border-radius:50%;
-border:1px solid #d4af37b3;
-background:#0909;
-color:#fff;
-cursor:pointer;
-z-index:20;
-font-size:18px
-}
-
-.carousel-arrow:hover{
-background:#d4af37;
-color:#000
-}
-
-.arrow-left{
-left:5px
-}
-
-.arrow-right{
-right:5px
-}
-
-/* =========================================================
-   STORE NOTE
-========================================================= */
-
-.store-note{
-max-width:850px;
-margin:55px auto 0;
-padding:24px 28px;
-text-align:center;
-color:#777;
-font-size:11px;
-line-height:1.8;
-letter-spacing:.4px;
-border:1px solid #d4af3747;
-border-radius:18px;
-background:#d4af3708
-}
-
-.store-note-title{
-display:block;
-color:#d4af37;
-font-size:10px;
-letter-spacing:3px;
-margin-bottom:10px
-}
-
-.store-note strong{
-color:#aaa;
-font-weight:400
-}
-
-/* =========================================================
-   FORMAT SELECTOR
-========================================================= */
-
 .format-select-wrap{
 display:flex;
 flex-direction:column;
@@ -660,9 +537,7 @@ cursor:pointer;
 outline:none
 }
 
-.format-select:focus{
-border-color:#d4af37
-}
+.format-select:focus{border-color:#d4af37}
 
 .format-select option{
 background:#151515;
@@ -748,17 +623,62 @@ margin-top:7px;
 letter-spacing:.7px
 }
 
-.format-section-title{
-font-size:9px;
-letter-spacing:2px;
-color:#777;
-text-transform:uppercase;
-padding:4px 0 2px
+.carousel-arrow{
+position:absolute;
+top:45%;
+transform:translateY(-50%);
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid #d4af37b3;
+background:#0909;
+color:#fff;
+cursor:pointer;
+z-index:20;
+font-size:18px
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.carousel-arrow:hover{
+background:#d4af37;
+color:#000
+}
+
+.arrow-left{left:5px}
+.arrow-right{right:5px}
+
+.store-note{
+max-width:850px;
+margin:55px auto 0;
+padding:24px 28px;
+text-align:center;
+color:#777;
+font-size:11px;
+line-height:1.8;
+letter-spacing:.4px;
+border:1px solid #d4af3747;
+border-radius:18px;
+background:#d4af3708
+}
+
+.store-note-title{
+display:block;
+color:#d4af37;
+font-size:10px;
+letter-spacing:3px;
+margin-bottom:10px
+}
+
+.store-note strong{
+color:#aaa;
+font-weight:400
+}
+
+.tshirt-note{
+color:#d4af37;
+font-size:9px;
+letter-spacing:1px;
+margin-top:8px
+}
 
 footer{
 padding:45px 20px;
@@ -788,52 +708,22 @@ font-size:10px;
 letter-spacing:1px
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:768px){
 
-nav{
-padding:15px 20px;
-}
-
-.nav-brand{
-font-size:11px;
-letter-spacing:3px;
-}
-
-.nav-links{
-display:none;
-}
-
-/* Selector remains INSIDE nav and never overlays it */
 .language-selector{
-position:absolute;
-right:115px;
-top:50%;
-transform:translateY(-50%);
-margin:0;
-padding:2px;
+top:62px
 }
 
-.language-selector button{
-padding:5px 7px;
-font-size:7px;
+nav{
+padding:15px 20px
 }
 
-.store-live-button{
-padding:8px 10px;
-font-size:8px;
-}
-
-.store-live-button span:last-child{
-display:none;
-}
+.nav-links{display:none}
 
 .ambient-hero{
 height:70vh;
-min-height:500px
+min-height:500px;
+margin-top:88px
 }
 
 .ambient-title{
@@ -841,26 +731,18 @@ font-size:30px;
 letter-spacing:4px
 }
 
-.hero{
-padding-top:80px
-}
+.hero{padding-top:80px}
 
 h1{
 font-size:34px;
 letter-spacing:5px
 }
 
-.product{
-flex-basis:82vw
-}
+.product{flex-basis:82vw}
 
-.product-image{
-height:300px
-}
+.product-image{height:300px}
 
-.carousel-arrow{
-display:none
-}
+.carousel-arrow{display:none}
 
 .filters{
 justify-content:flex-start;
@@ -869,17 +751,17 @@ flex-wrap:nowrap;
 scrollbar-width:none
 }
 
-.filter{
-flex-shrink:0
-}
+.filter{flex-shrink:0}
 
-.store-note{
-padding:22px 18px
-}
+.store-note{padding:22px 18px}
 
 .store-status{
 right:12px;
 bottom:12px
+}
+
+.store-live-button{
+padding:8px 12px
 }
 
 .format-select{
@@ -887,15 +769,20 @@ font-size:8.5px;
 padding-right:28px
 }
 
-.price-usd{
-font-size:14px
-}
+.price-usd{font-size:14px}
 
 }
 </style>
 </head>
 
 <body>
+
+<!-- LANGUAGE SELECTOR: ENGLISH / PORTUGUÊS / ESPAÑOL -->
+<div class="language-selector" aria-label="Language selector">
+<button id="langEN" onclick="setLanguage('en')">EN</button>
+<button id="langPT" onclick="setLanguage('pt')">PT</button>
+<button id="langES" class="active" onclick="setLanguage('es')">ES</button>
+</div>
 
 <nav>
 
@@ -925,38 +812,13 @@ Store
 
 <li>
 <a href="mailto:budastudiomkt@gmail.com" data-i18n="navContact">
-Contact
+Contacto
 </a>
 </li>
 
 </ul>
 
-<!-- LANGUAGE SELECTOR -->
-<div class="language-selector" aria-label="Language selector">
-
-<button
-id="langEN"
-onclick="setLanguage('en')">
-EN
-</button>
-
-<button
-id="langPT"
-onclick="setLanguage('pt')">
-PT
-</button>
-
-<button
-id="langES"
-class="active"
-onclick="setLanguage('es')">
-ES
-</button>
-
-</div>
-
-<a
-class="shop-button store-live-button"
+<a class="shop-button store-live-button"
 href="https://budastudio.github.io/store.html">
 
 <span class="live-dot"></span>
@@ -979,6 +841,16 @@ STORE / LIVE
 
 </div>
 
+
+<!-- =========================================================
+     MAIN HERO SLIDES
+     
+     1. obrasassignadas.jpg
+     2. camiseta.jpg
+     3. WAVES
+     4+. OTHER ARTWORKS
+========================================================= -->
+
 <section class="ambient-hero">
 
 <div id="ambientSlides"></div>
@@ -987,38 +859,29 @@ STORE / LIVE
 
 <div class="ambient-content">
 
-<div
-class="ambient-kicker"
+<div class="ambient-kicker"
 data-i18n="ambientKicker">
-BUDA STUDIO / OBRAS EN EL ESPACIO
+BUDA STUDIO / ARTWORKS IN SPACE
 </div>
 
-<div
-id="ambientTitle"
-class="ambient-title">
-LLEVA A CASA UNA PARTE DE LA HISTORIA
+<div id="ambientTitle" class="ambient-title">
+TAKE HOME A PIECE OF THE STORY
 </div>
 
-<div
-id="ambientSubtitle"
-class="ambient-subtitle">
-Una obra de arte es más que una imagen en una pared.
+<div id="ambientSubtitle" class="ambient-subtitle">
+Explore available Fine Art, Canvas and framed editions.
 </div>
 
 </div>
 
-<div
-id="ambientDots"
-class="ambient-dots">
-</div>
+<div id="ambientDots" class="ambient-dots"></div>
 
 </section>
 
+
 <header class="hero">
 
-<div
-class="kicker"
-data-i18n="heroKicker">
+<div class="kicker" data-i18n="heroKicker">
 BUDA STUDIO / STORE
 </div>
 
@@ -1026,53 +889,46 @@ BUDA STUDIO / STORE
 STORE
 </h1>
 
-<p
-class="hero-text"
-data-i18n="heroText">
-Obras originales, ediciones limitadas, objetos físicos, wearables y piezas digitales creadas y seleccionadas por Buda Studio.
+<p class="hero-text" data-i18n="heroText">
+Original artworks, limited editions, physical objects, wearables and digital pieces created and curated by Buda Studio.
 </p>
 
 </header>
 
+
 <div class="filters">
 
-<button
-class="filter active"
+<button class="filter active"
 data-category="ALL"
 data-i18n="filterAll">
-TODO
+ALL
 </button>
 
-<button
-class="filter"
+<button class="filter"
 data-category="PAINTING"
 data-i18n="filterPaintings">
-PINTURAS
+PAINTINGS
 </button>
 
-<button
-class="filter"
+<button class="filter"
 data-category="PRINT"
 data-i18n="filterPrints">
-IMPRESIONES
+PRINTS
 </button>
 
-<button
-class="filter"
+<button class="filter"
 data-category="T-SHIRT"
 data-i18n="filterTshirts">
-CAMISETAS
+T-SHIRTS
 </button>
 
-<button
-class="filter"
+<button class="filter"
 data-category="PHYSICAL"
 data-i18n="filterPhysical">
-FÍSICO
+PHYSICAL
 </button>
 
-<button
-class="filter"
+<button class="filter"
 data-category="OBJKT"
 data-i18n="filterObjkt">
 OBJKT
@@ -1080,80 +936,84 @@ OBJKT
 
 </div>
 
+
 <main class="store">
 
 <div class="carousel-wrapper">
 
-<button
-class="carousel-arrow arrow-left"
+<button class="carousel-arrow arrow-left"
 onclick="moveCarousel(-1)">
 ‹
 </button>
 
-<div
-id="productCarousel"
-class="carousel">
-</div>
+<div id="productCarousel" class="carousel"></div>
 
-<button
-class="carousel-arrow arrow-right"
+<button class="carousel-arrow arrow-right"
 onclick="moveCarousel(1)">
 ›
 </button>
 
 </div>
 
+
 <div class="store-note">
 
-<span
-class="store-note-title"
+<span class="store-note-title"
 data-i18n="formatEdition">
-FORMATO / EDICIÓN
+FORMAT / EDITION
 </span>
 
 <span data-i18n="storeNote1">
-Cada obra puede convertirse en algo que llevas cerca: una parte de una imagen, un recuerdo, una sensación que eliges vivir.
+Every artwork can become something you keep close: a piece of an image, a memory, a feeling you choose to live with.
 </span>
 
 <strong data-i18n="storeNoteStrong1">
-Elige el formato que sientas adecuado para ti.
+Choose the format that feels right for you.
 </strong>
 
 <br><br>
 
 <span data-i18n="storeNote2">
-Cada obra está disponible en proporciones cuidadosamente seleccionadas como impresión Fine Art, Canvas Hahnemühle, edición enmarcada y, cuando corresponde, Certificado NFT u Original.
+Each work is available in carefully selected proportions as Fine Art print, Hahnemühle Canvas, framed edition and, when applicable, NFT Certificate or Original.
 </span>
 
 <strong data-i18n="storeNoteStrong2">
-Los precios son estimaciones basadas en referencias brasileñas de impresión Fine Art y enmarcado y no incluyen el envío.
+Prices are estimated from Brazilian Fine Art printing and framing references and do not include shipping.
 </strong>
 
 <br><br>
 
 <span data-i18n="storeNote3">
-Las 10 obras utilizan ahora los mismos cinco formatos para coleccionistas.
+The artworks use carefully selected collector formats.
 </span>
+
+<br><br>
 
 <strong>
 WAVES — TRIPTYCH
 </strong>
 
 <span data-i18n="storeNote4">
-se presenta como una edición tríptica.
+is presented as a triptych edition.
+</span>
+
+<br><br>
+
+<span data-i18n="storeNoteTshirt">
+The Buda Studio T-shirt is available as a wearable edition.
 </span>
 
 </div>
 
 </main>
 
+
 <footer>
 
 <ul class="social-links">
 
 <li>
-<a
-href="https://x.com/budastudio_nft"
+<a href="https://x.com/budastudio_nft"
 target="_blank"
 rel="noopener">
 X
@@ -1161,8 +1021,7 @@ X
 </li>
 
 <li>
-<a
-href="https://instagram.com/budastudio_art"
+<a href="https://instagram.com/budastudio_art"
 target="_blank"
 rel="noopener">
 Instagram
@@ -1170,8 +1029,7 @@ Instagram
 </li>
 
 <li>
-<a
-href="https://linktr.ee/budastudio"
+<a href="https://linktr.ee/budastudio"
 target="_blank"
 rel="noopener">
 Linktree
@@ -1179,22 +1037,20 @@ Linktree
 </li>
 
 <li>
-<a
-href="mailto:budastudiomkt@gmail.com"
+<a href="mailto:budastudiomkt@gmail.com"
 data-i18n="navContact">
-Contacto
+Contact
 </a>
 </li>
 
 </ul>
 
-<p
-class="copyright"
-data-i18n="footer">
-© Buda Studio — Arte, Diseño y Tecnología
+<p class="copyright">
+© Buda Studio — Art, Design & Technology
 </p>
 
 </footer>
+
 
 <script>
 
@@ -1403,13 +1259,32 @@ chassi:126,
 frame:168,
 original:378
 }
+},
+
+/* =========================================================
+   NEW T-SHIRT
+========================================================= */
+
+{
+id:11,
+name:"Buda Studio Black T-Shirt",
+category:"T-SHIRT",
+description:"Buda Studio black T-shirt with the studio logo in gold.",
+technique:"Black cotton T-shirt · gold Buda Studio logo",
+dimensions:"Multiple sizes available",
+image:"camiseta.jpg",
+ambientImage:"camiseta.jpg",
+badge:"WEARABLE",
+kofi:"https://ko-fi.com/s/49bfad9eee",
+priceUSD:20,
+isTshirt:true
 }
 
 ];
 
 
 /* =========================================================
-   FORMAT TEMPLATES
+   ART FORMAT TEMPLATES
 ========================================================= */
 
 const formatTemplates=[
@@ -1453,7 +1328,7 @@ field:"original"
 
 
 /* =========================================================
-   LANGUAGE SYSTEM — EN / PT / ES
+   LANGUAGES
 ========================================================= */
 
 const translations={
@@ -1488,8 +1363,10 @@ storeNoteStrong1:"Elige el formato que sientas adecuado para ti.",
 storeNote2:"Cada obra está disponible en proporciones cuidadosamente seleccionadas como impresión Fine Art, Canvas Hahnemühle, edición enmarcada y, cuando corresponde, Certificado NFT u Original.",
 storeNoteStrong2:"Los precios son estimaciones basadas en referencias brasileñas de impresión Fine Art y enmarcado y no incluyen el envío.",
 
-storeNote3:"Las 10 obras utilizan ahora los mismos cinco formatos para coleccionistas.",
+storeNote3:"Las obras utilizan formatos cuidadosamente seleccionados para coleccionistas.",
 storeNote4:"se presenta como una edición tríptica.",
+
+storeNoteTshirt:"La camiseta Buda Studio está disponible como edición wearable.",
 
 artwork:"OBRA",
 inSpace:"EN EL ESPACIO",
@@ -1505,6 +1382,16 @@ chooseOne:"Elige una de las cinco ediciones para coleccionistas",
 shippingSeparate:"El envío se calcula por separado",
 
 continueKofi:"CONTINUAR A KO-FI",
+
+buyTshirt:"COMPRAR EN KO-FI",
+tshirtPrice:"PRECIO",
+tshirtSize:"TALLE / SIZE",
+selectSize:"SELECCIONAR TALLE",
+sizeS:"S",
+sizeM:"M",
+sizeL:"L",
+sizeXL:"XL",
+tshirtShipping:"Envío internacional calculado en Ko-fi.",
 
 shippingCalculated:"Envío calculado por separado",
 
@@ -1527,8 +1414,13 @@ canvas:"Canvas Hahnemühle Art Canvas, sin marco.",
 },
 
 ambientFeatureTitle:"LLEVA A CASA UNA PARTE DE LA HISTORIA",
+ambientFeatureSubtitle:"Una obra de arte es más que una imagen en una pared. Es un recuerdo, un gesto, una sensación que eliges vivir.",
 
-ambientFeatureSubtitle:"Una obra de arte es más que una imagen en una pared. Es un recuerdo, un gesto, una sensación que eliges vivir. Explora cinco formatos cuidadosamente seleccionados y encuentra una pieza que se convierta en parte de tu espacio, tu historia y tu vida cotidiana.",
+assignmentTitle:"DE MANO EN MANO",
+assignmentSubtitle:"Cuando una obra pasa de las manos del artista a las tuyas, no llevas solamente una imagen. Llevas un gesto, un recuerdo y una parte de la historia de la obra.",
+
+tshirtTitle:"BUDA STUDIO / WEAR THE ART",
+tshirtSubtitle:"Una edición wearable de Buda Studio. Camiseta negra con el logo del estudio en dorado.",
 
 wavesSubtitle:"Cinco formatos para coleccionistas: Fine Art, Canvas, Canvas + Chassi, Fine Art + Moldura y Original + NFT + Frame.",
 
@@ -1566,8 +1458,10 @@ storeNoteStrong1:"Escolha o formato que fizer sentido para você.",
 storeNote2:"Cada obra está disponível em proporções cuidadosamente selecionadas como impressão Fine Art, Canvas Hahnemühle, edição emoldurada e, quando aplicável, Certificado NFT ou Original.",
 storeNoteStrong2:"Os preços são estimativas baseadas em referências brasileiras de impressão Fine Art e emolduramento e não incluem o envio.",
 
-storeNote3:"As 10 obras agora utilizam os mesmos cinco formatos para colecionadores.",
+storeNote3:"As obras utilizam formatos cuidadosamente selecionados para colecionadores.",
 storeNote4:"é apresentado como uma edição tríptica.",
+
+storeNoteTshirt:"A camiseta Buda Studio está disponível como edição wearable.",
 
 artwork:"OBRA",
 inSpace:"NO ESPAÇO",
@@ -1583,6 +1477,16 @@ chooseOne:"Escolha uma das cinco edições para colecionadores",
 shippingSeparate:"O envio é calculado separadamente",
 
 continueKofi:"CONTINUAR PARA O KO-FI",
+
+buyTshirt:"COMPRAR NO KO-FI",
+tshirtPrice:"PREÇO",
+tshirtSize:"TAMANHO / SIZE",
+selectSize:"SELECIONAR TAMANHO",
+sizeS:"S",
+sizeM:"M",
+sizeL:"L",
+sizeXL:"XL",
+tshirtShipping:"Envio internacional calculado no Ko-fi.",
 
 shippingCalculated:"Envio calculado separadamente",
 
@@ -1605,8 +1509,13 @@ canvas:"Canvas Hahnemühle Art Canvas, sem moldura.",
 },
 
 ambientFeatureTitle:"LEVE PARA CASA UMA PARTE DA HISTÓRIA",
+ambientFeatureSubtitle:"Uma obra de arte é mais do que uma imagem na parede. É uma memória, um gesto, um sentimento que você escolhe viver.",
 
-ambientFeatureSubtitle:"Uma obra de arte é mais do que uma imagem na parede. É uma memória, um gesto, um sentimento que você escolhe viver. Explore cinco formatos cuidadosamente selecionados e encontre uma peça que se torne parte do seu espaço, da sua história e da sua vida cotidiana.",
+assignmentTitle:"DE MÃO EM MÃO",
+assignmentSubtitle:"Quando uma obra passa das mãos do artista para as suas, você não leva apenas uma imagem. Você leva um gesto, uma memória e uma parte da história da obra.",
+
+tshirtTitle:"BUDA STUDIO / VISTA A ARTE",
+tshirtSubtitle:"Uma edição wearable do Buda Studio. Camiseta preta com o logo do estúdio em dourado.",
 
 wavesSubtitle:"Cinco formatos para colecionadores: Fine Art, Canvas, Canvas + Chassi, Fine Art + Moldura e Original + NFT + Frame.",
 
@@ -1644,8 +1553,10 @@ storeNoteStrong1:"Choose the format that feels right for you.",
 storeNote2:"Each work is available in carefully selected proportions as Fine Art print, Hahnemühle Canvas, framed edition and, when applicable, NFT Certificate or Original.",
 storeNoteStrong2:"Prices are estimated from Brazilian Fine Art printing and framing references and do not include shipping.",
 
-storeNote3:"All 10 artworks now use the same five collector formats.",
+storeNote3:"The artworks use carefully selected collector formats.",
 storeNote4:"is presented as a triptych edition.",
+
+storeNoteTshirt:"The Buda Studio T-shirt is available as a wearable edition.",
 
 artwork:"ARTWORK",
 inSpace:"IN SPACE",
@@ -1662,6 +1573,16 @@ shippingSeparate:"Shipping calculated separately",
 
 continueKofi:"CONTINUE TO KO-FI",
 
+buyTshirt:"BUY ON KO-FI",
+tshirtPrice:"PRICE",
+tshirtSize:"SIZE",
+selectSize:"SELECT SIZE",
+sizeS:"S",
+sizeM:"M",
+sizeL:"L",
+sizeXL:"XL",
+tshirtShipping:"International shipping calculated on Ko-fi.",
+
 shippingCalculated:"Shipping calculated separately",
 
 currencyLabel:"USD / BRL · shipping calculated separately",
@@ -1669,7 +1590,7 @@ currencyLabel:"USD / BRL · shipping calculated separately",
 formatNames:{
 fineart:"FINE ART",
 canvas:"CANVAS",
-"canvas-chassi":"CANVAS + STRETCHER",
+"canvas-chassi":"CANVAS + CHASSI",
 "fineart-frame":"FINE ART + FRAME",
 "original-nft-frame":"ORIGINAL + NFT + FRAME"
 },
@@ -1677,16 +1598,21 @@ canvas:"CANVAS",
 formatDescriptions:{
 fineart:"Hahnemühle Fine Art print, unframed.",
 canvas:"Hahnemühle Art Canvas, unframed.",
-"canvas-chassi":"Canvas stretched on a wooden stretcher, ready to hang.",
+"canvas-chassi":"Canvas stretched on wooden stretcher, ready to hang.",
 "fineart-frame":"Hahnemühle Fine Art print with gallery frame.",
 "original-nft-frame":"Original artwork with frame, physical certificate and NFT Certificate."
 },
 
 ambientFeatureTitle:"TAKE HOME A PIECE OF THE STORY",
+ambientFeatureSubtitle:"A work of art is more than an image on a wall. It is a memory, a gesture, a feeling you choose to live with.",
 
-ambientFeatureSubtitle:"A work of art is more than an image on a wall. It is a memory, a gesture, a feeling you choose to live with. Explore five carefully selected formats and find a piece that becomes part of your space, your story and your everyday life.",
+assignmentTitle:"FROM HAND TO HAND",
+assignmentSubtitle:"When an artwork passes from the artist's hands into yours, you are not only taking home an image. You are taking a gesture, a memory and a piece of the artwork's story.",
 
-wavesSubtitle:"Five collector formats: Fine Art, Canvas, Canvas + Stretcher, Fine Art + Frame and Original + NFT + Frame.",
+tshirtTitle:"BUDA STUDIO / WEAR THE ART",
+tshirtSubtitle:"A wearable edition by Buda Studio. Black T-shirt with the studio logo in gold.",
+
+wavesSubtitle:"Five collector formats: Fine Art, Canvas, Canvas + Chassi, Fine Art + Frame and Original + NFT + Frame.",
 
 footer:"© Buda Studio — Art, Design & Technology"
 
@@ -1694,7 +1620,14 @@ footer:"© Buda Studio — Art, Design & Technology"
 
 };
 
-let currentLanguage=localStorage.getItem("budaStoreLanguage")||"es";
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentLanguage=
+localStorage.getItem("budaStoreLanguage")||"es";
+
 let currentCurrency="USD";
 let currentAmbient=0;
 let currentCategory="ALL";
@@ -1706,7 +1639,8 @@ let currentCategory="ALL";
 
 function t(key){
 
-const lang=translations[currentLanguage]||translations.es;
+const lang=
+translations[currentLanguage]||translations.es;
 
 return lang[key]!==undefined
 ?lang[key]
@@ -1716,17 +1650,10 @@ return lang[key]!==undefined
 
 function formatName(key){
 
-const lang=translations[currentLanguage]||translations.es;
+const lang=
+translations[currentLanguage]||translations.es;
 
 return lang.formatNames[key]||key;
-
-}
-
-function formatDescription(key){
-
-const lang=translations[currentLanguage]||translations.es;
-
-return lang.formatDescriptions[key]||"";
 
 }
 
@@ -1741,30 +1668,45 @@ if(!translations[lang])return;
 
 currentLanguage=lang;
 
-localStorage.setItem("budaStoreLanguage",lang);
+localStorage.setItem(
+"budaStoreLanguage",
+lang
+);
 
 document.documentElement.lang=lang;
 
-document.getElementById("langES").classList.toggle("active",lang==="es");
-document.getElementById("langPT").classList.toggle("active",lang==="pt");
-document.getElementById("langEN").classList.toggle("active",lang==="en");
+document.getElementById("langEN")
+.classList.toggle("active",lang==="en");
 
-document.querySelectorAll("[data-i18n]").forEach(el=>{
+document.getElementById("langPT")
+.classList.toggle("active",lang==="pt");
+
+document.getElementById("langES")
+.classList.toggle("active",lang==="es");
+
+document
+.querySelectorAll("[data-i18n]")
+.forEach(el=>{
 
 const key=el.dataset.i18n;
 
 if(translations[lang][key]!==undefined){
-el.textContent=translations[lang][key];
+
+el.textContent=
+translations[lang][key];
+
 }
 
 });
 
 renderProducts(currentCategory);
+
 updateAmbientText();
 
-trackEvent("language_change",{
-language:lang
-});
+trackEvent(
+"language_change",
+{language:lang}
+);
 
 }
 
@@ -1800,12 +1742,6 @@ currency:"BRL",
 maximumFractionDigits:0
 }).format(p);
 
-function displayPrice(usd){
-
-return formatUSD(usd);
-
-}
-
 function brlFromUSD(usd){
 
 return Math.round(usd*5.4);
@@ -1817,57 +1753,78 @@ return Math.round(usd*5.4);
    AMBIENT HERO
 ========================================================= */
 
-const ambientFeature={
-image:"entregandoarte.jpg",
+const ambientFeatures=[
 
-title:"TAKE HOME A PIECE OF THE STORY",
+{
+image:"obrasassignadas.jpg",
+type:"assignment"
+},
 
-subtitle:"A work of art is more than an image on a wall. It is a memory, a gesture, a feeling you choose to live with. Explore five carefully selected formats and find a piece that becomes part of your space, your story and your everyday life."
-};
+{
+image:"camiseta.jpg",
+type:"tshirt"
+}
+
+];
 
 
 function createAmbientSlides(){
 
-const s=document.getElementById("ambientSlides");
-const d=document.getElementById("ambientDots");
+const s=
+document.getElementById("ambientSlides");
+
+const d=
+document.getElementById("ambientDots");
 
 s.innerHTML="";
 d.innerHTML="";
 
 const wavesProduct=
-products.find(p=>p.name.toLowerCase().includes("waves"));
+products.find(
+p=>p.name.toLowerCase().includes("waves")
+);
 
 const otherProducts=
 products.filter(
-p=>p.ambientImage &&
+p=>
+p.ambientImage &&
+p.id!==11 &&
 (!wavesProduct||p.id!==wavesProduct.id)
 );
 
 const slides=[
-ambientFeature,
+
+...ambientFeatures,
+
 ...(wavesProduct?[wavesProduct]:[]),
+
 ...otherProducts
+
 ];
 
 slides.forEach((p,i)=>{
 
-const x=document.createElement("div");
+const x=
+document.createElement("div");
 
 x.className=
 "ambient-slide"+
 (i?"":" active");
 
 x.innerHTML=`
+
 <img
 src="${p.image||p.ambientImage}"
-alt="${p.title||p.name}"
+alt="${p.title||p.name||"Buda Studio"}"
 onerror="this.style.display='none'"
 >
+
 `;
 
 s.appendChild(x);
 
-const dot=document.createElement("div");
+const dot=
+document.createElement("div");
 
 dot.className=
 "ambient-dot"+
@@ -1887,10 +1844,14 @@ updateAmbientText();
 function showAmbient(i){
 
 const s=
-document.querySelectorAll(".ambient-slide");
+document.querySelectorAll(
+".ambient-slide"
+);
 
 const d=
-document.querySelectorAll(".ambient-dot");
+document.querySelectorAll(
+".ambient-dot"
+);
 
 if(!s.length)return;
 
@@ -1905,8 +1866,11 @@ d.forEach(x=>
 x.classList.remove("active")
 );
 
-s[currentAmbient].classList.add("active");
-d[currentAmbient].classList.add("active");
+s[currentAmbient]
+.classList.add("active");
+
+d[currentAmbient]
+.classList.add("active");
 
 updateAmbientText();
 
@@ -1916,12 +1880,19 @@ updateAmbientText();
 function updateAmbientText(){
 
 const title=
-document.getElementById("ambientTitle");
+document.getElementById(
+"ambientTitle"
+);
 
 const subtitle=
-document.getElementById("ambientSubtitle");
+document.getElementById(
+"ambientSubtitle"
+);
 
 if(!title||!subtitle)return;
+
+
+/* SLIDE 1 — ASSIGNED ARTWORK */
 
 if(currentAmbient===0){
 
@@ -1935,6 +1906,24 @@ return;
 
 }
 
+
+/* SLIDE 2 — T-SHIRT */
+
+if(currentAmbient===1){
+
+title.textContent=
+t("tshirtTitle");
+
+subtitle.textContent=
+t("tshirtSubtitle");
+
+return;
+
+}
+
+
+/* REMAINING SLIDES */
+
 const wavesProduct=
 products.find(
 p=>p.name.toLowerCase().includes("waves")
@@ -1942,17 +1931,22 @@ p=>p.name.toLowerCase().includes("waves")
 
 const otherProducts=
 products.filter(
-p=>p.ambientImage &&
+p=>
+p.ambientImage &&
+p.id!==11 &&
 (!wavesProduct||p.id!==wavesProduct.id)
 );
 
 const ordered=[
+
 ...(wavesProduct?[wavesProduct]:[]),
+
 ...otherProducts
+
 ];
 
 const p=
-ordered[currentAmbient-1];
+ordered[currentAmbient-2];
 
 if(!p)return;
 
@@ -1970,7 +1964,10 @@ title.textContent=
 p.name;
 
 subtitle.textContent=
-translateTechnique(p,currentLanguage);
+translateTechnique(
+p,
+currentLanguage
+);
 
 }
 
@@ -1991,15 +1988,24 @@ function productVisual(p){
 
 return `
 
-<div class="visual-layer" id="visual-${p.id}">
+<div
+class="visual-layer"
+id="visual-${p.id}"
+>
 
 <img
 src="${p.image}"
 alt="${p.name}"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex'
+"
 >
 
-<div class="placeholder" style="display:none">
+<div
+class="placeholder"
+style="display:none"
+>
 
 <div class="placeholder-symbol">
 ✦
@@ -2041,7 +2047,9 @@ const p=
 products.find(x=>x.id===id);
 
 const v=
-document.getElementById("visual-"+id);
+document.getElementById(
+"visual-"+id
+);
 
 if(!p||!v)return;
 
@@ -2050,10 +2058,16 @@ v.innerHTML=`
 <img
 src="${p.image}"
 alt="${p.name}"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex'
+"
 >
 
-<div class="placeholder" style="display:none">
+<div
+class="placeholder"
+style="display:none"
+>
 
 <div class="placeholder-symbol">
 ✦
@@ -2062,20 +2076,28 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
 ARTWORK
 
 </div>
+
 `;
 
 document
-.getElementById("artwork-button-"+id)
+.getElementById(
+"artwork-button-"+id
+)
 .classList.add("active");
 
 document
-.getElementById("space-button-"+id)
+.getElementById(
+"space-button-"+id
+)
 .classList.remove("active");
 
-trackEvent("view_artwork",{
+trackEvent(
+"view_artwork",
+{
 item_id:String(p.id),
 item_name:p.name
-});
+}
+);
 
 }
 
@@ -2086,7 +2108,9 @@ const p=
 products.find(x=>x.id===id);
 
 const v=
-document.getElementById("visual-"+id);
+document.getElementById(
+"visual-"+id
+);
 
 if(!p||!v)return;
 
@@ -2095,10 +2119,16 @@ v.innerHTML=`
 <img
 src="${p.ambientImage}"
 alt="${p.name} in space"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex'
+"
 >
 
-<div class="placeholder" style="display:none">
+<div
+class="placeholder"
+style="display:none"
+>
 
 <div class="placeholder-symbol">
 ✦
@@ -2107,20 +2137,28 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
 IN SPACE
 
 </div>
+
 `;
 
 document
-.getElementById("artwork-button-"+id)
+.getElementById(
+"artwork-button-"+id
+)
 .classList.remove("active");
 
 document
-.getElementById("space-button-"+id)
+.getElementById(
+"space-button-"+id
+)
 .classList.add("active");
 
-trackEvent("view_in_space",{
+trackEvent(
+"view_in_space",
+{
 item_id:String(p.id),
 item_name:p.name
-});
+}
+);
 
 }
 
@@ -2128,13 +2166,6 @@ item_name:p.name
 /* =========================================================
    FORMAT SYSTEM
 ========================================================= */
-
-function getFormats(p){
-
-return formatTemplates;
-
-}
-
 
 function priceFor(p,format){
 
@@ -2148,9 +2179,7 @@ function formatOptionsMarkup(p){
 return formatTemplates.map(f=>`
 
 <option value="${f.key}">
-
-${formatName(f.key)} — ${displayPrice(priceFor(p,f))}
-
+${formatName(f.key)} — ${formatUSD(priceFor(p,f))}
 </option>
 
 `).join("");
@@ -2180,6 +2209,167 @@ ${t("shippingSeparate")}
 
 
 /* =========================================================
+   T-SHIRT CARD
+========================================================= */
+
+function tshirtMarkup(p){
+
+return `
+
+<div class="format-select-wrap">
+
+<label
+class="format-label"
+for="size-select-${p.id}"
+>
+${t("tshirtSize")}
+</label>
+
+<select
+class="format-select"
+id="size-select-${p.id}"
+onchange="selectTshirtSize(${p.id},this.value)"
+>
+
+<option value="">
+${t("selectSize")}
+</option>
+
+<option value="S">
+${t("sizeS")}
+</option>
+
+<option value="M">
+${t("sizeM")}
+</option>
+
+<option value="L">
+${t("sizeL")}
+</option>
+
+<option value="XL">
+${t("sizeXL")}
+</option>
+
+</select>
+
+</div>
+
+
+<div
+class="price-panel"
+id="price-panel-${p.id}"
+>
+
+<div class="price-confirm">
+${t("tshirtPrice")}
+</div>
+
+<div class="price-usd">
+${formatUSD(p.priceUSD)}
+</div>
+
+<div class="price-brl">
+${formatBRL(brlFromUSD(p.priceUSD))}
+</div>
+
+<div class="currency-note">
+USD / BRL
+</div>
+
+</div>
+
+
+<a
+id="buy-button-${p.id}"
+class="buy-button"
+href="${p.kofi}"
+target="_blank"
+rel="noopener"
+onclick="return handleTshirtClick(${p.id})"
+>
+
+${t("buyTshirt")}
+
+</a>
+
+<div class="format-status">
+${t("tshirtShipping")}
+</div>
+
+`;
+
+}
+
+
+function selectTshirtSize(id,size){
+
+const p=
+products.find(x=>x.id===id);
+
+if(!p)return;
+
+const button=
+document.getElementById(
+"buy-button-"+id
+);
+
+if(!size){
+
+button.classList.remove("disabled");
+
+delete button.dataset.size;
+
+return;
+
+}
+
+button.dataset.size=size;
+
+trackEvent(
+"select_tshirt_size",
+{
+item_id:String(p.id),
+item_name:p.name,
+size:size,
+price_usd:p.priceUSD
+}
+);
+
+}
+
+
+function handleTshirtClick(id){
+
+const p=
+products.find(x=>x.id===id);
+
+if(!p)return false;
+
+const select=
+document.getElementById(
+"size-select-"+id
+);
+
+const size=
+select?select.value:"";
+
+trackEvent(
+"click_tshirt_kofi",
+{
+item_id:String(p.id),
+item_name:p.name,
+size:size||"not_selected",
+price_usd:p.priceUSD
+}
+);
+
+return true;
+
+}
+
+
+/* =========================================================
    RENDER PRODUCTS
 ========================================================= */
 
@@ -2188,7 +2378,9 @@ function renderProducts(category="ALL"){
 currentCategory=category;
 
 const c=
-document.getElementById("productCarousel");
+document.getElementById(
+"productCarousel"
+);
 
 let list=
 category==="ALL"
@@ -2214,6 +2406,65 @@ document.createElement("article");
 
 card.className="product";
 
+let productControls="";
+
+if(p.isTshirt){
+
+productControls=
+tshirtMarkup(p);
+
+}else{
+
+productControls=`
+
+<div class="format-select-wrap">
+
+<label
+class="format-label"
+for="format-select-${p.id}"
+>
+${t("selectFormat")}
+</label>
+
+<select
+class="format-select"
+id="format-select-${p.id}"
+data-product-id="${p.id}"
+onchange="selectCardFormat(${p.id},this.value)"
+>
+
+<option value="">
+${t("chooseFormat")}
+</option>
+
+${formatOptionsMarkup(p)}
+
+</select>
+
+</div>
+
+<div
+class="price-panel"
+id="price-panel-${p.id}"
+>
+${priceMarkup()}
+</div>
+
+<a
+id="buy-button-${p.id}"
+class="buy-button"
+href="${p.kofi}"
+target="_blank"
+rel="noopener"
+onclick="return handleKoFiClick(${p.id})"
+>
+${t("continueKofi")}
+</a>
+
+`;
+
+}
+
 card.innerHTML=`
 
 <div class="product-image">
@@ -2237,66 +2488,43 @@ ${p.name}
 </h2>
 
 <p class="product-description">
-${translateProductDescription(p.id,currentLanguage)}
+
+${translateProductDescription(
+p.id,
+currentLanguage
+)}
+
 </p>
 
 <div class="product-details">
 
 <span>
-<strong>${t("technique")}</strong>
-${translateTechnique(p,currentLanguage)}
+<strong>
+${t("technique")}
+</strong>
+
+${translateTechnique(
+p,
+currentLanguage
+)}
+
 </span>
 
 <span>
-<strong>${t("dimensions")}</strong>
+<strong>
+${t("dimensions")}
+</strong>
+
 ${p.dimensions}
+
 </span>
 
 </div>
 
-<div class="format-select-wrap">
-
-<label
-class="format-label"
-for="format-select-${p.id}">
-${t("selectFormat")}
-</label>
-
-<select
-class="format-select"
-id="format-select-${p.id}"
-data-product-id="${p.id}"
-onchange="selectCardFormat(${p.id},this.value)"
->
-
-<option value="">
-${t("chooseFormat")}
-</option>
-
-${formatOptionsMarkup(p)}
-
-</select>
+${productControls}
 
 </div>
 
-<div
-class="price-panel"
-id="price-panel-${p.id}">
-${priceMarkup()}
-</div>
-
-<a
-id="buy-button-${p.id}"
-class="buy-button"
-href="${p.kofi}"
-target="_blank"
-rel="noopener"
-onclick="return handleKoFiClick(${p.id})"
->
-${t("continueKofi")}
-</a>
-
-</div>
 `;
 
 c.appendChild(card);
@@ -2420,6 +2648,17 @@ en:{
 description:"A recycled street-sign artwork transforming an obsolete metal signal into an impossible visual message about UFOs, abduction and contemporary mythology.",
 technique:"Recycled metal street sign + acrylic · yellow and black"
 }
+},
+
+11:{
+pt:{
+description:"Camiseta preta Buda Studio com o logo do estúdio em dourado.",
+technique:"Camiseta preta de algodão · logo Buda Studio dourado"
+},
+en:{
+description:"Buda Studio black T-shirt with the studio logo in gold.",
+technique:"Black cotton T-shirt · gold Buda Studio logo"
+}
 }
 
 };
@@ -2432,7 +2671,9 @@ productTranslations[id] &&
 productTranslations[id][lang] &&
 productTranslations[id][lang].description
 ){
+
 return productTranslations[id][lang].description;
+
 }
 
 const p=
@@ -2450,7 +2691,9 @@ productTranslations[p.id] &&
 productTranslations[p.id][lang] &&
 productTranslations[p.id][lang].technique
 ){
+
 return productTranslations[p.id][lang].technique;
+
 }
 
 return p.technique;
@@ -2459,7 +2702,7 @@ return p.technique;
 
 
 /* =========================================================
-   SELECT FORMAT
+   SELECT ART FORMAT
 ========================================================= */
 
 function selectCardFormat(productId,key){
@@ -2535,15 +2778,16 @@ String(brl);
 button.dataset.priceUsd=
 String(usd);
 
-trackEvent("select_format",{
-
+trackEvent(
+"select_format",
+{
 item_id:String(p.id),
 item_name:p.name,
 format:key,
 value_brl:brl,
 value_usd:usd
-
-});
+}
+);
 
 }
 
@@ -2568,24 +2812,32 @@ if(!button)return false;
 
 if(!button.dataset.format){
 
-trackEvent("kofi_without_format",{
+trackEvent(
+"kofi_without_format",
+{
 item_id:String(p.id),
 item_name:p.name
-});
+}
+);
 
 return true;
 
 }
 
-trackEvent("click_kofi",{
-
+trackEvent(
+"click_kofi",
+{
 item_id:String(p.id),
 item_name:p.name,
 format:button.dataset.format,
-price_brl:Number(button.dataset.priceBrl||0),
-price_usd:Number(button.dataset.priceUsd||0)
-
-});
+price_brl:Number(
+button.dataset.priceBrl||0
+),
+price_usd:Number(
+button.dataset.priceUsd||0
+)
+}
+);
 
 return true;
 
@@ -2621,9 +2873,12 @@ left:0,
 behavior:"smooth"
 });
 
-trackEvent("filter_store",{
+trackEvent(
+"filter_store",
+{
 category:b.dataset.category
-});
+}
+);
 
 });
 
