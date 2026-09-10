@@ -288,7 +288,8 @@ gap:8px
 width:6px;
 height:6px;
 border-radius:50%;
-border:1px solid #d4af37b3
+border:1px solid #d4af37b3;
+cursor:pointer
 }
 
 .ambient-dot.active{background:#d4af37}
@@ -434,7 +435,8 @@ background:#000b;
 border:1px solid #ffffff29
 }
 
-.image-switcher button{
+.image-switcher button,
+.image-switcher a{
 border:0;
 background:transparent;
 color:#ffffffa6;
@@ -442,12 +444,17 @@ padding:7px 11px;
 border-radius:999px;
 cursor:pointer;
 font-size:8px;
-letter-spacing:1.2px
+letter-spacing:1.2px;
+text-decoration:none
 }
 
 .image-switcher button.active{
 background:#d4af37;
 color:#000
+}
+
+.image-switcher a:hover{
+color:#d4af37
 }
 
 .placeholder{
@@ -508,6 +515,23 @@ font-size:10px
 .product-details strong{
 color:#aaa;
 font-weight:400
+}
+
+.visualizer-card-note{
+margin-bottom:15px;
+padding:10px;
+border:1px dashed #d4af3766;
+border-radius:8px;
+background:#d4af3708;
+font-size:9.5px;
+color:#ccc;
+line-height:1.4
+}
+
+.visualizer-card-note a{
+color:#d4af37;
+text-decoration:underline;
+font-weight:500
 }
 
 .format-select-wrap{
@@ -811,6 +835,12 @@ Store
 </li>
 
 <li>
+<a href="#visualizer" data-i18n="navVisualizer">
+Visualizer
+</a>
+</li>
+
+<li>
 <a href="mailto:budastudiomkt@gmail.com" data-i18n="navContact">
 Contacto
 </a>
@@ -843,12 +873,7 @@ STORE / LIVE
 
 
 <!-- =========================================================
-     MAIN HERO SLIDES
-     
-     1. obrasassignadas.jpg
-     2. camiseta.jpg
-     3. WAVES
-     4+. OTHER ARTWORKS
+    MAIN HERO SLIDES
 ========================================================= -->
 
 <section class="ambient-hero">
@@ -1255,10 +1280,6 @@ original:378
 }
 },
 
-/* =========================================================
-   NEW T-SHIRT
-========================================================= */
-
 {
 id:11,
 name:"Buda Studio Black T-Shirt",
@@ -1332,6 +1353,7 @@ es:{
 navBuda:"Buda Studio",
 navLastDrop:"Last Drop",
 navStore:"Store",
+navVisualizer:"Visualizer",
 navContact:"Contacto",
 storeLive:"STORE / LIVE",
 
@@ -1364,6 +1386,10 @@ storeNoteTshirt:"La camiseta Buda Studio está disponible como edición wearable
 
 artwork:"OBRA",
 inSpace:"EN EL ESPACIO",
+visualizerBtn:"VISUALIZER",
+
+visualizerNoteTitle:"¿QUIERES VER CÓMO QUEDA EN TU CASA?",
+visualizerNoteText:"¿Quieres ver cómo queda en tu casa? Sácale una foto y súbela al visualizer.",
 
 technique:"Técnica:",
 dimensions:"Dimensiones:",
@@ -1387,7 +1413,7 @@ sizeL:"L",
 sizeXL:"XL",
 tshirtShipping:"Envío internacional calculado en Ko-fi.",
 
-shippingCalculated:"Envío calculado por separado",
+shippingCalculated:"Envío calculated por separado",
 
 currencyLabel:"USD / BRL · envío calculado por separado",
 
@@ -1416,6 +1442,9 @@ assignmentSubtitle:"Cuando una obra pasa de las manos del artista a las tuyas, n
 tshirtTitle:"BUDA STUDIO / WEAR THE ART",
 tshirtSubtitle:"Una edición wearable de Buda Studio. Camiseta negra con el logo del estudio en dorado.",
 
+visualizerHeaderTitle:"BUDA STUDIO / VISUALIZER",
+visualizerHeaderSubtitle:"Prueba virtualmente cómo luce cada obra en tus propios espacios antes de adquirirla.",
+
 wavesSubtitle:"Cinco formatos para coleccionistas: Fine Art, Canvas, Canvas + Chassi, Fine Art + Moldura y Original + NFT + Frame.",
 
 footer:"© Buda Studio — Arte, Diseño y Tecnología"
@@ -1427,6 +1456,7 @@ pt:{
 navBuda:"Buda Studio",
 navLastDrop:"Last Drop",
 navStore:"Store",
+navVisualizer:"Visualizer",
 navContact:"Contato",
 storeLive:"STORE / LIVE",
 
@@ -1459,6 +1489,10 @@ storeNoteTshirt:"A camiseta Buda Studio está disponível como edição wearable
 
 artwork:"OBRA",
 inSpace:"NO ESPAÇO",
+visualizerBtn:"VISUALIZER",
+
+visualizerNoteTitle:"QUER VER COMO FICA NA SUA CASA?",
+visualizerNoteText:"Quer ver como fica na sua casa? Tire uma foto e envie para o visualizer.",
 
 technique:"Técnica:",
 dimensions:"Dimensões:",
@@ -1511,6 +1545,9 @@ assignmentSubtitle:"Quando uma obra passa das mãos do artista para as suas, voc
 tshirtTitle:"BUDA STUDIO / VISTA A ARTE",
 tshirtSubtitle:"Uma edição wearable do Buda Studio. Camiseta preta com o logo do estúdio em dourado.",
 
+visualizerHeaderTitle:"BUDA STUDIO / VISUALIZER",
+visualizerHeaderSubtitle:"Experimente virtualmente como cada obra fica em seus próprios espaços antes de comprar.",
+
 wavesSubtitle:"Cinco formatos para colecionadores: Fine Art, Canvas, Canvas + Chassi, Fine Art + Moldura e Original + NFT + Frame.",
 
 footer:"© Buda Studio — Arte, Design e Tecnologia"
@@ -1522,6 +1559,7 @@ en:{
 navBuda:"Buda Studio",
 navLastDrop:"Last Drop",
 navStore:"Store",
+navVisualizer:"Visualizer",
 navContact:"Contact",
 storeLive:"STORE / LIVE",
 
@@ -1554,6 +1592,10 @@ storeNoteTshirt:"The Buda Studio T-shirt is available as a wearable edition.",
 
 artwork:"ARTWORK",
 inSpace:"IN SPACE",
+visualizerBtn:"VISUALIZER",
+
+visualizerNoteTitle:"WANT TO SEE HOW IT LOOKS IN YOUR HOME?",
+visualizerNoteText:"Want to see how it looks in your home? Take a picture and upload it to the visualizer.",
 
 technique:"Technique:",
 dimensions:"Dimensions:",
@@ -1606,6 +1648,9 @@ assignmentSubtitle:"When an artwork passes from the artist's hands into yours, y
 tshirtTitle:"BUDA STUDIO / WEAR THE ART",
 tshirtSubtitle:"A wearable edition by Buda Studio. Black T-shirt with the studio logo in gold.",
 
+visualizerHeaderTitle:"BUDA STUDIO / VISUALIZER",
+visualizerHeaderSubtitle:"Virtually test how each artwork looks in your own space before purchasing.",
+
 wavesSubtitle:"Five collector formats: Fine Art, Canvas, Canvas + Chassi, Fine Art + Frame and Original + NFT + Frame.",
 
 footer:"© Buda Studio — Art, Design & Technology"
@@ -1619,1308 +1664,434 @@ footer:"© Buda Studio — Art, Design & Technology"
    STATE
 ========================================================= */
 
-let currentLanguage=
-localStorage.getItem("budaStoreLanguage")||"es";
-
+let currentLanguage=localStorage.getItem("budaStoreLanguage")||"es";
 let currentCurrency="USD";
-let currentAmbient=0;
-let currentCategory="ALL";
-
+let usdToBrlRate=5.00;
+let selectedFormats={};
+let activeCategory="ALL";
+let ambientIndex=0;
+let ambientInterval=null;
 
 /* =========================================================
-   TRANSLATION HELPERS
+   CURRENCY CONVERSION
 ========================================================= */
 
-function t(key){
-
-const lang=
-translations[currentLanguage]||translations.es;
-
-return lang[key]!==undefined
-?lang[key]
-:key;
-
+async function fetchExchangeRate(){
+try{
+const res=await fetch("https://open.er-api.com/v6/latest/USD")
+const data=await res.json()
+if(data&&data.rates&&data.rates.BRL){
+usdToBrlRate=data.rates.BRL
+updateAllPrices()
+}
+}catch(e){
+console.warn("Using fallback exchange rate:",usdToBrlRate)
+}
 }
 
-function formatName(key){
-
-const lang=
-translations[currentLanguage]||translations.es;
-
-return lang.formatNames[key]||key;
-
+function convertUSDToBRL(usd){
+return Math.round(usd*usdToBrlRate)
 }
-
 
 /* =========================================================
-   SET LANGUAGE
+   LANGUAGE SWITCHING
 ========================================================= */
 
 function setLanguage(lang){
+currentLanguage=lang
+localStorage.setItem("budaStoreLanguage",lang)
 
-if(!translations[lang])return;
+document.querySelectorAll(".language-selector button").forEach(btn=>{
+btn.classList.remove("active")
+})
+const activeBtn=document.getElementById("lang"+lang.toUpperCase())
+if(activeBtn)activeBtn.classList.add("active")
 
-currentLanguage=lang;
-
-localStorage.setItem(
-"budaStoreLanguage",
-lang
-);
-
-document.documentElement.lang=lang;
-
-document.getElementById("langEN")
-.classList.toggle("active",lang==="en");
-
-document.getElementById("langPT")
-.classList.toggle("active",lang==="pt");
-
-document.getElementById("langES")
-.classList.toggle("active",lang==="es");
-
-document
-.querySelectorAll("[data-i18n]")
-.forEach(el=>{
-
-const key=el.dataset.i18n;
-
-if(translations[lang][key]!==undefined){
-
-el.textContent=
-translations[lang][key];
-
+document.documentElement.lang=lang
+applyTranslations()
+renderAmbientSlides()
+renderProducts()
 }
 
-});
-
-renderProducts(currentCategory);
-
-updateAmbientText();
-
-trackEvent(
-"language_change",
-{language:lang}
-);
-
+function applyTranslations(){
+const t=translations[currentLanguage]||translations.es
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key=el.getAttribute("data-i18n")
+if(t[key])el.textContent=t[key]
+})
 }
-
 
 /* =========================================================
-   ANALYTICS
+   AMBIENT HERO SLIDESHOW
 ========================================================= */
 
-function trackEvent(n,p={}){
-
-if(typeof gtag==="function"){
-gtag("event",n,p);
-}
-
-}
-
-
-/* =========================================================
-   CURRENCY
-========================================================= */
-
-const formatUSD=p=>
-new Intl.NumberFormat("en-US",{
-style:"currency",
-currency:"USD",
-maximumFractionDigits:0
-}).format(p);
-
-const formatBRL=p=>
-new Intl.NumberFormat("pt-BR",{
-style:"currency",
-currency:"BRL",
-maximumFractionDigits:0
-}).format(p);
-
-function brlFromUSD(usd){
-
-return Math.round(usd*5.4);
-
-}
-
-
-/* =========================================================
-   AMBIENT HERO
-========================================================= */
-
-const ambientFeatures=[
-
+const ambientSlidesData=[
 {
 image:"obrasassignadas.jpg",
-type:"assignment"
+kickerKey:"ambientKicker",
+titleKey:"assignmentTitle",
+subtitleKey:"assignmentSubtitle"
 },
-
+{
+image:"Visualizer.jpg",
+kickerKey:"ambientKicker",
+titleKey:"visualizerHeaderTitle",
+subtitleKey:"visualizerHeaderSubtitle"
+},
 {
 image:"camiseta.jpg",
-type:"tshirt"
+kickerKey:"ambientKicker",
+titleKey:"tshirtTitle",
+subtitleKey:"tshirtSubtitle"
+},
+{
+image:"painting6_ambient.jpg",
+kickerKey:"ambientKicker",
+titleKey:"ambientFeatureTitle",
+subtitleKey:"wavesSubtitle"
+},
+{
+image:"painting1_ambient.jpg",
+kickerKey:"ambientKicker",
+titleKey:"ambientFeatureTitle",
+subtitleKey:"ambientFeatureSubtitle"
+},
+{
+image:"painting2_ambient.jpg",
+kickerKey:"ambientKicker",
+titleKey:"ambientFeatureTitle",
+subtitleKey:"ambientFeatureSubtitle"
 }
+]
 
-];
+function renderAmbientSlides(){
+const container=document.getElementById("ambientSlides")
+const dotsContainer=document.getElementById("ambientDots")
+if(!container||!dotsContainer)return
 
+const t=translations[currentLanguage]||translations.es
 
-function createAmbientSlides(){
+container.innerHTML=""
+dotsContainer.innerHTML=""
 
-const s=
-document.getElementById("ambientSlides");
+ambientSlidesData.forEach((slide,idx)=>{
+const slideEl=document.createElement("div")
+slideEl.className=`ambient-slide ${idx===ambientIndex?"active":""}`
+slideEl.innerHTML=`<img src="${slide.image}" alt="Buda Studio Ambient ${idx+1}">`
+container.appendChild(slideEl)
 
-const d=
-document.getElementById("ambientDots");
+const dot=document.createElement("div")
+dot.className=`ambient-dot ${idx===ambientIndex?"active":""}`
+dot.onclick=()=>setAmbientSlide(idx)
+dotsContainer.appendChild(dot)
+})
 
-s.innerHTML="";
-d.innerHTML="";
-
-const wavesProduct=
-products.find(
-p=>p.name.toLowerCase().includes("waves")
-);
-
-const otherProducts=
-products.filter(
-p=>
-p.ambientImage &&
-p.id!==11 &&
-(!wavesProduct||p.id!==wavesProduct.id)
-);
-
-const slides=[
-
-...ambientFeatures,
-
-...(wavesProduct?[wavesProduct]:[]),
-
-...otherProducts
-
-];
-
-slides.forEach((p,i)=>{
-
-const x=
-document.createElement("div");
-
-x.className=
-"ambient-slide"+
-(i?"":" active");
-
-x.innerHTML=`
-
-<img
-src="${p.image||p.ambientImage}"
-alt="${p.title||p.name||"Buda Studio"}"
-onerror="this.style.display='none'"
->
-
-`;
-
-s.appendChild(x);
-
-const dot=
-document.createElement("div");
-
-dot.className=
-"ambient-dot"+
-(i?"":" active");
-
-d.appendChild(dot);
-
-});
-
-currentAmbient=0;
-
-updateAmbientText();
-
+updateAmbientText()
+startAmbientTimer()
 }
-
-
-function showAmbient(i){
-
-const s=
-document.querySelectorAll(
-".ambient-slide"
-);
-
-const d=
-document.querySelectorAll(
-".ambient-dot"
-);
-
-if(!s.length)return;
-
-currentAmbient=
-(i+s.length)%s.length;
-
-s.forEach(x=>
-x.classList.remove("active")
-);
-
-d.forEach(x=>
-x.classList.remove("active")
-);
-
-s[currentAmbient]
-.classList.add("active");
-
-d[currentAmbient]
-.classList.add("active");
-
-updateAmbientText();
-
-}
-
 
 function updateAmbientText(){
+const t=translations[currentLanguage]||translations.es
+const currentSlide=ambientSlidesData[ambientIndex]
+if(!currentSlide)return
 
-const title=
-document.getElementById(
-"ambientTitle"
-);
+const titleEl=document.getElementById("ambientTitle")
+const subtitleEl=document.getElementById("ambientSubtitle")
 
-const subtitle=
-document.getElementById(
-"ambientSubtitle"
-);
-
-if(!title||!subtitle)return;
-
-
-/* SLIDE 1 — ASSIGNED ARTWORK */
-
-if(currentAmbient===0){
-
-title.textContent=
-t("ambientFeatureTitle");
-
-subtitle.textContent=
-t("ambientFeatureSubtitle");
-
-return;
-
+if(titleEl)titleEl.textContent=t[currentSlide.titleKey]||currentSlide.titleKey
+if(subtitleEl)subtitleEl.textContent=t[currentSlide.subtitleKey]||currentSlide.subtitleKey
 }
 
+function setAmbientSlide(index){
+ambientIndex=index
+const slides=document.querySelectorAll(".ambient-slide")
+const dots=document.querySelectorAll(".ambient-dot")
 
-/* SLIDE 2 — T-SHIRT */
+slides.forEach((s,i)=>s.classList.toggle("active",i===ambientIndex))
+dots.forEach((d,i)=>d.classList.toggle("active",i===ambientIndex))
 
-if(currentAmbient===1){
-
-title.textContent=
-t("tshirtTitle");
-
-subtitle.textContent=
-t("tshirtSubtitle");
-
-return;
-
+updateAmbientText()
+startAmbientTimer()
 }
 
+function nextAmbientSlide(){
+const next=(ambientIndex+1)%ambientSlidesData.length
+setAmbientSlide(next)
+}
 
-/* REMAINING SLIDES */
+function startAmbientTimer(){
+if(ambientInterval)clearInterval(ambientInterval)
+ambientInterval=setInterval(nextAmbientSlide,6000)
+}
 
-const wavesProduct=
-products.find(
-p=>p.name.toLowerCase().includes("waves")
-);
+/* =========================================================
+   STORE & PRODUCTS RENDER
+========================================================= */
 
-const otherProducts=
-products.filter(
-p=>
-p.ambientImage &&
-p.id!==11 &&
-(!wavesProduct||p.id!==wavesProduct.id)
-);
+function renderProducts(){
+const carousel=document.getElementById("productCarousel")
+if(!carousel)return
 
-const ordered=[
+const t=translations[currentLanguage]||translations.es
+const filteredProducts=products.filter(p=>{
+if(activeCategory==="ALL")return true
+return p.category===activeCategory
+})
 
-...(wavesProduct?[wavesProduct]:[]),
+carousel.innerHTML=""
 
-...otherProducts
+filteredProducts.forEach(product=>{
+const productCard=document.createElement("div")
+productCard.className="product"
+productCard.id=`product-${product.id}`
 
-];
-
-const p=
-ordered[currentAmbient-2];
-
-if(!p)return;
-
-if(p.id===wavesProduct?.id){
-
-title.textContent=
-"WAVES — TRIPTYCH";
-
-subtitle.textContent=
-t("wavesSubtitle");
-
+if(product.isTshirt){
+productCard.innerHTML=renderTshirtCard(product,t)
 }else{
-
-title.textContent=
-p.name;
-
-subtitle.textContent=
-translateTechnique(
-p,
-currentLanguage
-);
-
+productCard.innerHTML=renderArtCard(product,t)
 }
 
+carousel.appendChild(productCard)
+})
 }
 
-
-setInterval(
-()=>showAmbient(currentAmbient+1),
-5500
-);
-
-
-/* =========================================================
-   PRODUCT VISUAL
-========================================================= */
-
-function productVisual(p){
+function renderArtCard(product,t){
+const selectedKey=selectedFormats[product.id]||""
+const currentPriceUSD=selectedKey?product.formats[getFormatField(selectedKey)]:null
+const currentPriceBRL=currentPriceUSD?convertUSDToBRL(currentPriceUSD):null
 
 return `
-
-<div
-class="visual-layer"
-id="visual-${p.id}"
->
-
-<img
-src="${p.image}"
-alt="${p.name}"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex'
-"
->
-
-<div
-class="placeholder"
-style="display:none"
->
-
-<div class="placeholder-symbol">
-✦
-</div>
-
-ARTWORK
-
-</div>
-
-</div>
-
-<div class="image-switcher">
-
-<button
-class="active"
-id="artwork-button-${p.id}"
-onclick="showArtwork(${p.id})"
->
-${t("artwork")}
-</button>
-
-<button
-id="space-button-${p.id}"
-onclick="showAmbientProduct(${p.id})"
->
-${t("inSpace")}
-</button>
-
-</div>
-
-`;
-
-}
-
-
-function showArtwork(id){
-
-const p=
-products.find(x=>x.id===id);
-
-const v=
-document.getElementById(
-"visual-"+id
-);
-
-if(!p||!v)return;
-
-v.innerHTML=`
-
-<img
-src="${p.image}"
-alt="${p.name}"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex'
-"
->
-
-<div
-class="placeholder"
-style="display:none"
->
-
-<div class="placeholder-symbol">
-✦
-</div>
-
-ARTWORK
-
-</div>
-
-`;
-
-document
-.getElementById(
-"artwork-button-"+id
-)
-.classList.add("active");
-
-document
-.getElementById(
-"space-button-"+id
-)
-.classList.remove("active");
-
-trackEvent(
-"view_artwork",
-{
-item_id:String(p.id),
-item_name:p.name
-}
-);
-
-}
-
-
-function showAmbientProduct(id){
-
-const p=
-products.find(x=>x.id===id);
-
-const v=
-document.getElementById(
-"visual-"+id
-);
-
-if(!p||!v)return;
-
-v.innerHTML=`
-
-<img
-src="${p.ambientImage}"
-alt="${p.name} in space"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex'
-"
->
-
-<div
-class="placeholder"
-style="display:none"
->
-
-<div class="placeholder-symbol">
-✦
-</div>
-
-IN SPACE
-
-</div>
-
-`;
-
-document
-.getElementById(
-"artwork-button-"+id
-)
-.classList.remove("active");
-
-document
-.getElementById(
-"space-button-"+id
-)
-.classList.add("active");
-
-trackEvent(
-"view_in_space",
-{
-item_id:String(p.id),
-item_name:p.name
-}
-);
-
-}
-
-
-/* =========================================================
-   FORMAT SYSTEM
-========================================================= */
-
-function priceFor(p,format){
-
-return p.formats[format.field]||0;
-
-}
-
-
-function formatOptionsMarkup(p){
-
-return formatTemplates.map(f=>`
-
-<option value="${f.key}">
-${formatName(f.key)} — ${formatUSD(priceFor(p,f))}
-</option>
-
-`).join("");
-
-}
-
-
-function priceMarkup(){
-
-return `
-
-<div class="price-confirm">
-${t("selectAFormat")}
-</div>
-
-<div class="price-brl">
-${t("chooseOne")}
-</div>
-
-<div class="price-usd">
-${t("shippingSeparate")}
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   T-SHIRT CARD
-========================================================= */
-
-function tshirtMarkup(p){
-
-return `
-
-<div class="format-select-wrap">
-
-<label
-class="format-label"
-for="size-select-${p.id}"
->
-${t("tshirtSize")}
-</label>
-
-<select
-class="format-select"
-id="size-select-${p.id}"
-onchange="selectTshirtSize(${p.id},this.value)"
->
-
-<option value="">
-${t("selectSize")}
-</option>
-
-<option value="S">
-${t("sizeS")}
-</option>
-
-<option value="M">
-${t("sizeM")}
-</option>
-
-<option value="L">
-${t("sizeL")}
-</option>
-
-<option value="XL">
-${t("sizeXL")}
-</option>
-
-</select>
-
-</div>
-
-
-<div
-class="price-panel"
-id="price-panel-${p.id}"
->
-
-<div class="price-confirm">
-${t("tshirtPrice")}
-</div>
-
-<div class="price-usd">
-${formatUSD(p.priceUSD)}
-</div>
-
-<div class="price-brl">
-${formatBRL(brlFromUSD(p.priceUSD))}
-</div>
-
-<div class="currency-note">
-USD / BRL
-</div>
-
-</div>
-
-
-<a
-id="buy-button-${p.id}"
-class="buy-button"
-href="${p.kofi}"
-target="_blank"
-rel="noopener"
-onclick="return handleTshirtClick(${p.id})"
->
-
-${t("buyTshirt")}
-
-</a>
-
-<div class="format-status">
-${t("tshirtShipping")}
-</div>
-
-`;
-
-}
-
-
-function selectTshirtSize(id,size){
-
-const p=
-products.find(x=>x.id===id);
-
-if(!p)return;
-
-const button=
-document.getElementById(
-"buy-button-"+id
-);
-
-if(!size){
-
-button.classList.remove("disabled");
-
-delete button.dataset.size;
-
-return;
-
-}
-
-button.dataset.size=size;
-
-trackEvent(
-"select_tshirt_size",
-{
-item_id:String(p.id),
-item_name:p.name,
-size:size,
-price_usd:p.priceUSD
-}
-);
-
-}
-
-
-function handleTshirtClick(id){
-
-const p=
-products.find(x=>x.id===id);
-
-if(!p)return false;
-
-const select=
-document.getElementById(
-"size-select-"+id
-);
-
-const size=
-select?select.value:"";
-
-trackEvent(
-"click_tshirt_kofi",
-{
-item_id:String(p.id),
-item_name:p.name,
-size:size||"not_selected",
-price_usd:p.priceUSD
-}
-);
-
-return true;
-
-}
-
-
-/* =========================================================
-   RENDER PRODUCTS
-========================================================= */
-
-function renderProducts(category="ALL"){
-
-currentCategory=category;
-
-const c=
-document.getElementById(
-"productCarousel"
-);
-
-let list=
-category==="ALL"
-?products
-:products.filter(
-p=>p.category===category
-);
-
-list=[
-...list
-].sort(
-(a,b)=>
-(b.pilot?1:0)-
-(a.pilot?1:0)
-);
-
-c.innerHTML="";
-
-list.forEach(p=>{
-
-const card=
-document.createElement("article");
-
-card.className="product";
-
-let productControls="";
-
-if(p.isTshirt){
-
-productControls=
-tshirtMarkup(p);
-
-}else{
-
-productControls=`
-
-<div class="format-select-wrap">
-
-<label
-class="format-label"
-for="format-select-${p.id}"
->
-${t("selectFormat")}
-</label>
-
-<select
-class="format-select"
-id="format-select-${p.id}"
-data-product-id="${p.id}"
-onchange="selectCardFormat(${p.id},this.value)"
->
-
-<option value="">
-${t("chooseFormat")}
-</option>
-
-${formatOptionsMarkup(p)}
-
-</select>
-
-</div>
-
-<div
-class="price-panel"
-id="price-panel-${p.id}"
->
-${priceMarkup()}
-</div>
-
-<a
-id="buy-button-${p.id}"
-class="buy-button"
-href="${p.kofi}"
-target="_blank"
-rel="noopener"
-onclick="return handleKoFiClick(${p.id})"
->
-${t("continueKofi")}
-</a>
-
-`;
-
-}
-
-card.innerHTML=`
-
 <div class="product-image">
-
-<div class="badge">
-${p.badge}
+<span class="badge">${product.badge}</span>
+<div class="visual-layer" id="visual-${product.id}">
+<img src="${product.image}" alt="${product.name}">
 </div>
-
-${productVisual(p)}
-
+<div class="image-switcher">
+<button class="active" onclick="switchProductImage(${product.id}, 'art')">${t.artwork}</button>
+<button onclick="switchProductImage(${product.id}, 'ambient')">${t.inSpace}</button>
+<a href="#visualizer">${t.visualizerBtn}</a>
+</div>
 </div>
 
 <div class="product-info">
-
-<div class="product-type">
-${p.category}
-</div>
-
-<h2 class="product-name">
-${p.name}
-</h2>
-
-<p class="product-description">
-
-${translateProductDescription(
-p.id,
-currentLanguage
-)}
-
-</p>
+<div class="product-type">${product.category}</div>
+<h3 class="product-name">${product.name}</h3>
+<p class="product-description">${product.description}</p>
 
 <div class="product-details">
-
-<span>
-<strong>
-${t("technique")}
-</strong>
-
-${translateTechnique(
-p,
-currentLanguage
-)}
-
-</span>
-
-<span>
-<strong>
-${t("dimensions")}
-</strong>
-
-${p.dimensions}
-
-</span>
-
+<span><strong>${t.technique}</strong> ${product.technique}</span>
+<span><strong>${t.dimensions}</strong> ${product.dimensions}</span>
 </div>
 
-${productControls}
-
+<div class="visualizer-card-note">
+<span data-i18n="visualizerNoteText">${t.visualizerNoteText}</span> <a href="#visualizer">${t.visualizerBtn}</a>
 </div>
 
-`;
-
-c.appendChild(card);
-
-});
-
-}
-
-
-/* =========================================================
-   PRODUCT TRANSLATIONS
-========================================================= */
-
-const productTranslations={
-
-1:{
-pt:{
-description:"Uma pintura original a óleo que explora a convergência da percepção individual, da memória e da consciência coletiva.",
-technique:"Óleo sobre tela"
-},
-en:{
-description:"An original oil painting exploring the convergence of individual perception, memory and collective consciousness.",
-technique:"Oil on canvas"
-}
-},
-
-2:{
-pt:{
-description:"Uma pintura original a óleo inspirada no estado contemplativo entre percepção, quietude e despertar.",
-technique:"Óleo sobre tela"
-},
-en:{
-description:"An original oil painting inspired by the contemplative state between perception, stillness and awakening.",
-technique:"Oil on canvas"
-}
-},
-
-3:{
-pt:{
-description:"Um retrato original e divertido de Pepe, combinando imagens pop com a linguagem expressiva da pintura contemporânea.",
-technique:"Óleo sobre tela"
-},
-en:{
-description:"A playful original portrait of Pepe, combining pop imagery with the expressive language of contemporary painting.",
-technique:"Oil on canvas"
-}
-},
-
-4:{
-pt:{
-description:"Uma composição de Pepe desenhada à mão com lápis aquareláveis sobre papel fino de 300 g/m².",
-technique:"Lápis aquarelável sobre papel 300 g/m²"
-},
-en:{
-description:"A hand-rendered Pepe composition created with watercolor pencils on fine 300 gsm paper.",
-technique:"Watercolor pencil on 300 gsm paper"
-}
-},
-
-5:{
-pt:{
-description:"Uma pintura original a óleo que reflete a cultura visual, as personalidades e a mitologia que cercam o ecossistema Bitcoin.",
-technique:"Óleo sobre tela"
-},
-en:{
-description:"An original oil painting reflecting the visual culture, personalities and mythology surrounding the Bitcoin ecosystem.",
-technique:"Oil on canvas"
-}
-},
-
-6:{
-pt:{
-description:"Um tríptico de três pinturas originais que explora ritmo, movimento e a energia orgânica do oceano.",
-technique:"Óleo sobre tela · Tríptico"
-},
-en:{
-description:"A triptych of three original paintings exploring rhythm, movement and the organic energy of the ocean.",
-technique:"Oil on canvas · Triptych"
-}
-},
-
-7:{
-pt:{
-description:"Uma obra original que explora a percepção como um limiar entre o mundo visível e a paisagem interior.",
-technique:"Óleo sobre tela sobre painel de madeira"
-},
-en:{
-description:"An original work exploring perception as a threshold between the visible world and the inner landscape.",
-technique:"Oil on canvas on wood panel"
-}
-},
-
-8:{
-pt:{
-description:"Uma obra artesanal de Pepe criada com pastéis a óleo sobre papel Canson fino de 300 g/m².",
-technique:"Pastéis a óleo sobre papel Canson 300 g/m²"
-},
-en:{
-description:"A handmade Pepe artwork created with oil pastels on fine 300 gsm Canson paper.",
-technique:"Oil pastels on 300 gsm Canson paper"
-}
-},
-
-9:{
-pt:{
-description:"Uma colagem original de técnica mista que explora sinais fragmentados, tensão visual e a linguagem imprevisível das imagens urbanas contemporâneas.",
-technique:"Colagem e acrílica sobre papelão preto"
-},
-en:{
-description:"An original mixed-media collage exploring fragmented signs, visual tension and the unpredictable language of contemporary urban imagery.",
-technique:"Collage and acrylic on black cardboard"
-}
-},
-
-10:{
-pt:{
-description:"Uma obra criada a partir de uma placa de rua reciclada, transformando um sinal metálico obsoleto em uma mensagem visual impossível sobre OVNIs, abdução e mitologia contemporânea.",
-technique:"Placa metálica reciclada + acrílica · amarelo e preto"
-},
-en:{
-description:"A recycled street-sign artwork transforming an obsolete metal signal into an impossible visual message about UFOs, abduction and contemporary mythology.",
-technique:"Recycled metal street sign + acrylic · yellow and black"
-}
-},
-
-11:{
-pt:{
-description:"Camiseta preta Buda Studio com o logo do estúdio em dourado.",
-technique:"Camiseta preta de algodão · logo Buda Studio dourado"
-},
-en:{
-description:"Buda Studio black T-shirt with the studio logo in gold.",
-technique:"Black cotton T-shirt · gold Buda Studio logo"
-}
-}
-
-};
-
-
-function translateProductDescription(id,lang){
-
-if(
-productTranslations[id] &&
-productTranslations[id][lang] &&
-productTranslations[id][lang].description
-){
-
-return productTranslations[id][lang].description;
-
-}
-
-const p=
-products.find(x=>x.id===id);
-
-return p?p.description:"";
-
-}
-
-
-function translateTechnique(p,lang){
-
-if(
-productTranslations[p.id] &&
-productTranslations[p.id][lang] &&
-productTranslations[p.id][lang].technique
-){
-
-return productTranslations[p.id][lang].technique;
-
-}
-
-return p.technique;
-
-}
-
-
-/* =========================================================
-   SELECT ART FORMAT
-========================================================= */
-
-function selectCardFormat(productId,key){
-
-const p=
-products.find(x=>x.id===productId);
-
-if(!p)return;
-
-const panel=
-document.getElementById(
-`price-panel-${productId}`
-);
-
-const button=
-document.getElementById(
-`buy-button-${productId}`
-);
-
-const format=
-formatTemplates.find(
-f=>f.key===key
-);
-
-if(!format){
-
-panel.innerHTML=
-priceMarkup();
-
-button.classList.remove("disabled");
-
-button.href=p.kofi;
-
-delete button.dataset.format;
-delete button.dataset.priceBrl;
-delete button.dataset.priceUsd;
-
-return;
-
-}
-
-const usd=
-priceFor(p,format);
-
-const brl=
-brlFromUSD(usd);
-
-panel.innerHTML=`
-
-<div class="price-usd">
-${formatUSD(usd)}
+<div class="format-select-wrap">
+<label class="format-label">${t.selectFormat}</label>
+<select class="format-select" onchange="handleFormatChange(${product.id}, this.value)">
+<option value="" ${!selectedKey?"selected":""}>-- ${t.chooseFormat} --</option>
+${formatTemplates.map(fmt=>`
+<option value="${fmt.key}" ${selectedKey===fmt.key?"selected":""}>
+${t.formatNames[fmt.key]||fmt.name} - $${product.formats[fmt.field]} USD
+</option>
+`).join("")}
+</select>
 </div>
 
-<div class="price-brl">
-${formatBRL(brl)}
+<div class="price-panel" id="price-panel-${product.id}">
+${selectedKey ? `
+<div class="price-confirm">${t.formatNames[selectedKey]||selectedKey}</div>
+<div class="price-usd">$${currentPriceUSD} USD</div>
+<div class="price-brl">R$ ${currentPriceBRL} BRL</div>
+` : `
+<div class="price-confirm">${t.selectAFormat}</div>
+<div class="price-usd" style="font-size:11px;color:#777;margin-top:4px">${t.chooseOne}</div>
+<div class="price-brl" style="color:#555">${t.shippingSeparate}</div>
+`}
 </div>
 
-<div class="currency-note">
-${formatName(format.key)} · ${t("currencyLabel")}
+<a href="${product.kofi}" 
+target="_blank" 
+rel="noopener" 
+class="buy-button ${!selectedKey?"disabled":""}" 
+id="buy-btn-${product.id}">
+${t.continueKofi}
+</a>
+
+<div class="currency-note">${t.currencyLabel}</div>
+</div>
+`
+}
+
+function renderTshirtCard(product,t){
+const priceBRL=convertUSDToBRL(product.priceUSD)
+
+return `
+<div class="product-image">
+<span class="badge">${product.badge}</span>
+<div class="visual-layer">
+<img src="${product.image}" alt="${product.name}">
+</div>
 </div>
 
-`;
+<div class="product-info">
+<div class="product-type">${product.category}</div>
+<h3 class="product-name">${product.name}</h3>
+<p class="product-description">${product.description}</p>
 
-button.classList.remove("disabled");
+<div class="product-details">
+<span><strong>${t.technique}</strong> ${product.technique}</span>
+<span><strong>${t.dimensions}</strong> ${product.dimensions}</span>
+</div>
 
-button.href=p.kofi;
+<div class="format-select-wrap">
+<label class="format-label">${t.tshirtSize}</label>
+<select class="format-select">
+<option value="S">${t.sizeS}</option>
+<option value="M" selected>${t.sizeM}</option>
+<option value="L">${t.sizeL}</option>
+<option value="XL">${t.sizeXL}</option>
+</select>
+</div>
 
-button.dataset.format=key;
+<div class="price-panel">
+<div class="price-confirm">${t.tshirtPrice}</div>
+<div class="price-usd">$${product.priceUSD} USD</div>
+<div class="price-brl">R$ ${priceBRL} BRL</div>
+</div>
 
-button.dataset.priceBrl=
-String(brl);
+<a href="${product.kofi}" 
+target="_blank" 
+rel="noopener" 
+class="buy-button">
+${t.buyTshirt}
+</a>
 
-button.dataset.priceUsd=
-String(usd);
-
-trackEvent(
-"select_format",
-{
-item_id:String(p.id),
-item_name:p.name,
-format:key,
-value_brl:brl,
-value_usd:usd
+<div class="currency-note">${t.tshirtShipping}</div>
+</div>
+`
 }
-);
-
-}
-
 
 /* =========================================================
-   KO-FI
+   PRODUCT INTERACTIONS & HELPERS
 ========================================================= */
 
-function handleKoFiClick(id){
-
-const p=
-products.find(x=>x.id===id);
-
-if(!p)return false;
-
-const button=
-document.getElementById(
-`buy-button-${id}`
-);
-
-if(!button)return false;
-
-if(!button.dataset.format){
-
-trackEvent(
-"kofi_without_format",
-{
-item_id:String(p.id),
-item_name:p.name
-}
-);
-
-return true;
-
+function getFormatField(key){
+const template=formatTemplates.find(f=>f.key===key)
+return template?template.field:"fineart"
 }
 
-trackEvent(
-"click_kofi",
-{
-item_id:String(p.id),
-item_name:p.name,
-format:button.dataset.format,
-price_brl:Number(
-button.dataset.priceBrl||0
-),
-price_usd:Number(
-button.dataset.priceUsd||0
-)
+function handleFormatChange(productId,formatKey){
+selectedFormats[productId]=formatKey
+const product=products.find(p=>p.id===productId)
+if(!product)return
+
+const t=translations[currentLanguage]||translations.es
+const pricePanel=document.getElementById(`price-panel-${productId}`)
+const buyBtn=document.getElementById(`buy-btn-${productId}`)
+
+if(formatKey){
+const field=getFormatField(formatKey)
+const usd=product.formats[field]
+const brl=convertUSDToBRL(usd)
+
+if(pricePanel){
+pricePanel.innerHTML=`
+<div class="price-confirm">${t.formatNames[formatKey]||formatKey}</div>
+<div class="price-usd">$${usd} USD</div>
+<div class="price-brl">R$ ${brl} BRL</div>
+`
 }
-);
 
-return true;
-
+if(buyBtn){
+buyBtn.classList.remove("disabled")
+}
+}else{
+if(pricePanel){
+pricePanel.innerHTML=`
+<div class="price-confirm">${t.selectAFormat}</div>
+<div class="price-usd" style="font-size:11px;color:#777;margin-top:4px">${t.chooseOne}</div>
+<div class="price-brl" style="color:#555">${t.shippingSeparate}</div>
+`
 }
 
+if(buyBtn){
+buyBtn.classList.add("disabled")
+}
+}
+}
+
+function switchProductImage(productId,type){
+const product=products.find(p=>p.id===productId)
+if(!product)return
+
+const visualLayer=document.getElementById(`visual-${productId}`)
+const switcher=visualLayer?visualLayer.nextElementSibling:null
+
+if(visualLayer){
+const imgSrc=type==="ambient"?(product.ambientImage||product.image):product.image
+visualLayer.innerHTML=`<img src="${imgSrc}" alt="${product.name}">`
+}
+
+if(switcher){
+const buttons=switcher.querySelectorAll("button")
+buttons.forEach(btn=>{
+btn.classList.remove("active")
+if(type==="art"&&btn.textContent===translations[currentLanguage].artwork)btn.classList.add("active")
+if(type==="ambient"&&btn.textContent===translations[currentLanguage].inSpace)btn.classList.add("active")
+})
+}
+}
+
+function updateAllPrices(){
+products.forEach(p=>{
+if(p.isTshirt){
+const card=document.getElementById(`product-${p.id}`)
+if(card){
+const brlEl=card.querySelector(".price-brl")
+if(brlEl)brlEl.textContent=`R$ ${convertUSDToBRL(p.priceUSD)} BRL`
+}
+}else{
+if(selectedFormats[p.id]){
+handleFormatChange(p.id,selectedFormats[p.id])
+}
+}
+})
+}
 
 /* =========================================================
-   FILTERS
+   CAROUSEL NAVIGATION & FILTERS
 ========================================================= */
 
-document
-.querySelectorAll(".filter")
-.forEach(b=>{
-
-b.addEventListener("click",()=>{
-
-document
-.querySelectorAll(".filter")
-.forEach(x=>
-x.classList.remove("active")
-);
-
-b.classList.add("active");
-
-renderProducts(
-b.dataset.category
-);
-
-document
-.getElementById("productCarousel")
-.scrollTo({
-left:0,
-behavior:"smooth"
-});
-
-trackEvent(
-"filter_store",
-{
-category:b.dataset.category
+function moveCarousel(direction){
+const carousel=document.getElementById("productCarousel")
+if(!carousel)return
+const scrollAmount=340*direction
+carousel.scrollBy({left:scrollAmount,behavior:"smooth"})
 }
-);
 
-});
-
-});
-
+function setupFilters(){
+const filterButtons=document.querySelectorAll(".filter")
+filterButtons.forEach(btn=>{
+btn.addEventListener("click",()=>{
+filterButtons.forEach(b=>b.classList.remove("active"))
+btn.classList.add("active")
+activeCategory=btn.getAttribute("data-category")
+renderProducts()
+})
+})
+}
 
 /* =========================================================
-   CAROUSEL
+   INITIALIZATION
 ========================================================= */
 
-function moveCarousel(d){
-
-document
-.getElementById("productCarousel")
-.scrollBy({
-left:d*345,
-behavior:"smooth"
-});
-
-trackEvent(
-"carousel_navigation",
-{
-direction:
-d>0
-?"next"
-:"previous"
-}
-);
-
-}
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-createAmbientSlides();
-
-renderProducts();
-
-setLanguage(currentLanguage);
-
-trackEvent(
-"store_visit",
-{
-store_name:"Buda Studio Store"
-}
-);
+document.addEventListener("DOMContentLoaded",()=>{
+fetchExchangeRate()
+setLanguage(currentLanguage)
+setupFilters()
+})
 
 </script>
 
