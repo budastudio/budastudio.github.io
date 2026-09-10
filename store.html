@@ -835,7 +835,7 @@ Store
 </li>
 
 <li>
-<a href="#visualizer" data-i18n="navVisualizer">
+<a href="https://budastudio.github.io/art-space-visualizer" data-i18n="navVisualizer">
 Visualizer
 </a>
 </li>
@@ -1074,7 +1074,7 @@ Contact
 <script>
 
 /* =========================================================
-   PRODUCTS
+    PRODUCTS
 ========================================================= */
 
 const products=[
@@ -1299,7 +1299,7 @@ isTshirt:true
 
 
 /* =========================================================
-   ART FORMAT TEMPLATES
+    ART FORMAT TEMPLATES
 ========================================================= */
 
 const formatTemplates=[
@@ -1343,7 +1343,7 @@ field:"original"
 
 
 /* =========================================================
-   LANGUAGES
+    LANGUAGES
 ========================================================= */
 
 const translations={
@@ -1415,7 +1415,7 @@ tshirtShipping:"Envío internacional calculado en Ko-fi.",
 
 shippingCalculated:"Envío calculated por separado",
 
-currencyLabel:"USD / BRL · envío calculado por separado",
+currencyLabel:"USD / BRL · envío calculated por separado",
 
 formatNames:{
 fineart:"FINE ART",
@@ -1509,7 +1509,7 @@ continueKofi:"CONTINUAR PARA O KO-FI",
 buyTshirt:"COMPRAR NO KO-FI",
 tshirtPrice:"PREÇO",
 tshirtSize:"TAMANHO / SIZE",
-selectSize:"SELECIONAR TAMANHO",
+selectSize:"SELECCIONAR TAMANHO",
 sizeS:"S",
 sizeM:"M",
 sizeL:"L",
@@ -1640,18 +1640,18 @@ canvas:"Hahnemühle Art Canvas, unframed.",
 },
 
 ambientFeatureTitle:"TAKE HOME A PIECE OF THE STORY",
-ambientFeatureSubtitle:"A work of art is more than an image on a wall. It is a memory, a gesture, a feeling you choose to live with.",
+ambientFeatureSubtitle:"An artwork is more than an image on a wall. It is a memory, a gesture, a feeling you choose to live with.",
 
-assignmentTitle:"FROM HAND TO HAND",
-assignmentSubtitle:"When an artwork passes from the artist's hands into yours, you are not only taking home an image. You are taking a gesture, a memory and a piece of the artwork's story.",
+assignmentTitle:"HAND TO HAND",
+assignmentSubtitle:"When an artwork passes from the artist's hands to yours, you don't just take an image. You take a gesture, a memory, and a part of the story.",
 
 tshirtTitle:"BUDA STUDIO / WEAR THE ART",
-tshirtSubtitle:"A wearable edition by Buda Studio. Black T-shirt with the studio logo in gold.",
+tshirtSubtitle:"A wearable edition from Buda Studio. Black T-shirt with gold studio logo.",
 
 visualizerHeaderTitle:"BUDA STUDIO / VISUALIZER",
-visualizerHeaderSubtitle:"Virtually test how each artwork looks in your own space before purchasing.",
+visualizerHeaderSubtitle:"Virtually preview how each artwork looks in your own space before acquiring.",
 
-wavesSubtitle:"Five collector formats: Fine Art, Canvas, Canvas + Chassi, Fine Art + Frame and Original + NFT + Frame.",
+wavesSubtitle:"Five collector formats: Fine Art, Canvas, Canvas + Chassi, Fine Art + Frame, and Original + NFT + Frame.",
 
 footer:"© Buda Studio — Art, Design & Technology"
 
@@ -1659,441 +1659,259 @@ footer:"© Buda Studio — Art, Design & Technology"
 
 };
 
-
 /* =========================================================
-   STATE
+    STATE & INITIALIZATION
 ========================================================= */
 
-let currentLanguage=localStorage.getItem("budaStoreLanguage")||"es";
-let currentCurrency="USD";
-let usdToBrlRate=5.00;
-let selectedFormats={};
-let activeCategory="ALL";
-let ambientIndex=0;
-let ambientInterval=null;
+let currentLang = 'es';
+let currentCategory = 'ALL';
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderAmbientHero();
+  renderProducts();
+});
 
 /* =========================================================
-   CURRENCY CONVERSION
+    LANGUAGE SWITCHER
 ========================================================= */
 
-async function fetchExchangeRate(){
-try{
-const res=await fetch("https://open.er-api.com/v6/latest/USD")
-const data=await res.json()
-if(data&&data.rates&&data.rates.BRL){
-usdToBrlRate=data.rates.BRL
-updateAllPrices()
-}
-}catch(e){
-console.warn("Using fallback exchange rate:",usdToBrlRate)
-}
-}
+function setLanguage(lang) {
+  if (!translations[lang]) return;
+  currentLang = lang;
 
-function convertUSDToBRL(usd){
-return Math.round(usd*usdToBrlRate)
-}
+  ['langEN', 'langPT', 'langES'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.classList.remove('active');
+  });
+  const activeBtn = document.getElementById(`lang${lang.toUpperCase()}`);
+  if (activeBtn) activeBtn.classList.add('active');
 
-/* =========================================================
-   LANGUAGE SWITCHING
-========================================================= */
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
 
-function setLanguage(lang){
-currentLanguage=lang
-localStorage.setItem("budaStoreLanguage",lang)
-
-document.querySelectorAll(".language-selector button").forEach(btn=>{
-btn.classList.remove("active")
-})
-const activeBtn=document.getElementById("lang"+lang.toUpperCase())
-if(activeBtn)activeBtn.classList.add("active")
-
-document.documentElement.lang=lang
-applyTranslations()
-renderAmbientSlides()
-renderProducts()
-}
-
-function applyTranslations(){
-const t=translations[currentLanguage]||translations.es
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-const key=el.getAttribute("data-i18n")
-if(t[key])el.textContent=t[key]
-})
+  renderAmbientHero();
+  renderProducts();
 }
 
 /* =========================================================
-   AMBIENT HERO SLIDESHOW
+    AMBIENT HERO SLIDER
 ========================================================= */
 
-const ambientSlidesData=[
-{
-image:"obrasassignadas.jpg",
-kickerKey:"ambientKicker",
-titleKey:"assignmentTitle",
-subtitleKey:"assignmentSubtitle"
-},
-{
-image:"Visualizer.jpg",
-kickerKey:"ambientKicker",
-titleKey:"visualizerHeaderTitle",
-subtitleKey:"visualizerHeaderSubtitle"
-},
-{
-image:"camiseta.jpg",
-kickerKey:"ambientKicker",
-titleKey:"tshirtTitle",
-subtitleKey:"tshirtSubtitle"
-},
-{
-image:"painting6_ambient.jpg",
-kickerKey:"ambientKicker",
-titleKey:"ambientFeatureTitle",
-subtitleKey:"wavesSubtitle"
-},
-{
-image:"painting1_ambient.jpg",
-kickerKey:"ambientKicker",
-titleKey:"ambientFeatureTitle",
-subtitleKey:"ambientFeatureSubtitle"
-},
-{
-image:"painting2_ambient.jpg",
-kickerKey:"ambientKicker",
-titleKey:"ambientFeatureTitle",
-subtitleKey:"ambientFeatureSubtitle"
-}
-]
+let currentSlideIndex = 0;
+let slideInterval;
 
-function renderAmbientSlides(){
-const container=document.getElementById("ambientSlides")
-const dotsContainer=document.getElementById("ambientDots")
-if(!container||!dotsContainer)return
+function renderAmbientHero() {
+  const slidesContainer = document.getElementById('ambientSlides');
+  const dotsContainer = document.getElementById('ambientDots');
+  if (!slidesContainer || !dotsContainer) return;
 
-const t=translations[currentLanguage]||translations.es
+  slidesContainer.innerHTML = '';
+  dotsContainer.innerHTML = '';
 
-container.innerHTML=""
-dotsContainer.innerHTML=""
+  products.forEach((product, idx) => {
+    const slide = document.createElement('div');
+    slide.className = `ambient-slide ${idx === currentSlideIndex ? 'active' : ''}`;
+    slide.innerHTML = `<img src="${product.ambientImage || product.image}" alt="${product.name}">`;
+    slidesContainer.appendChild(slide);
 
-ambientSlidesData.forEach((slide,idx)=>{
-const slideEl=document.createElement("div")
-slideEl.className=`ambient-slide ${idx===ambientIndex?"active":""}`
-slideEl.innerHTML=`<img src="${slide.image}" alt="Buda Studio Ambient ${idx+1}">`
-container.appendChild(slideEl)
+    const dot = document.createElement('div');
+    dot.className = `ambient-dot ${idx === currentSlideIndex ? 'active' : ''}`;
+    dot.onclick = () => goToSlide(idx);
+    dotsContainer.appendChild(dot);
+  });
 
-const dot=document.createElement("div")
-dot.className=`ambient-dot ${idx===ambientIndex?"active":""}`
-dot.onclick=()=>setAmbientSlide(idx)
-dotsContainer.appendChild(dot)
-})
-
-updateAmbientText()
-startAmbientTimer()
+  startSlideTimer();
 }
 
-function updateAmbientText(){
-const t=translations[currentLanguage]||translations.es
-const currentSlide=ambientSlidesData[ambientIndex]
-if(!currentSlide)return
-
-const titleEl=document.getElementById("ambientTitle")
-const subtitleEl=document.getElementById("ambientSubtitle")
-
-if(titleEl)titleEl.textContent=t[currentSlide.titleKey]||currentSlide.titleKey
-if(subtitleEl)subtitleEl.textContent=t[currentSlide.subtitleKey]||currentSlide.subtitleKey
+function goToSlide(index) {
+  currentSlideIndex = index;
+  renderAmbientHero();
 }
 
-function setAmbientSlide(index){
-ambientIndex=index
-const slides=document.querySelectorAll(".ambient-slide")
-const dots=document.querySelectorAll(".ambient-dot")
-
-slides.forEach((s,i)=>s.classList.toggle("active",i===ambientIndex))
-dots.forEach((d,i)=>d.classList.toggle("active",i===ambientIndex))
-
-updateAmbientText()
-startAmbientTimer()
-}
-
-function nextAmbientSlide(){
-const next=(ambientIndex+1)%ambientSlidesData.length
-setAmbientSlide(next)
-}
-
-function startAmbientTimer(){
-if(ambientInterval)clearInterval(ambientInterval)
-ambientInterval=setInterval(nextAmbientSlide,6000)
+function startSlideTimer() {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(() => {
+    currentSlideIndex = (currentSlideIndex + 1) % products.length;
+    renderAmbientHero();
+  }, 6000);
 }
 
 /* =========================================================
-   STORE & PRODUCTS RENDER
+    FILTERS
 ========================================================= */
 
-function renderProducts(){
-const carousel=document.getElementById("productCarousel")
-if(!carousel)return
+document.querySelectorAll('.filter').forEach(button => {
+  button.addEventListener('click', (e) => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    
+    currentCategory = e.target.getAttribute('data-category');
+    renderProducts();
+  });
+});
 
-const t=translations[currentLanguage]||translations.es
-const filteredProducts=products.filter(p=>{
-if(activeCategory==="ALL")return true
-return p.category===activeCategory
-})
+/* =========================================================
+    CAROUSEL SCROLLING
+========================================================= */
 
-carousel.innerHTML=""
-
-filteredProducts.forEach(product=>{
-const productCard=document.createElement("div")
-productCard.className="product"
-productCard.id=`product-${product.id}`
-
-if(product.isTshirt){
-productCard.innerHTML=renderTshirtCard(product,t)
-}else{
-productCard.innerHTML=renderArtCard(product,t)
-}
-
-carousel.appendChild(productCard)
-})
-}
-
-function renderArtCard(product,t){
-const selectedKey=selectedFormats[product.id]||""
-const currentPriceUSD=selectedKey?product.formats[getFormatField(selectedKey)]:null
-const currentPriceBRL=currentPriceUSD?convertUSDToBRL(currentPriceUSD):null
-
-return `
-<div class="product-image">
-<span class="badge">${product.badge}</span>
-<div class="visual-layer" id="visual-${product.id}">
-<img src="${product.image}" alt="${product.name}">
-</div>
-<div class="image-switcher">
-<button class="active" onclick="switchProductImage(${product.id}, 'art')">${t.artwork}</button>
-<button onclick="switchProductImage(${product.id}, 'ambient')">${t.inSpace}</button>
-<a href="#visualizer">${t.visualizerBtn}</a>
-</div>
-</div>
-
-<div class="product-info">
-<div class="product-type">${product.category}</div>
-<h3 class="product-name">${product.name}</h3>
-<p class="product-description">${product.description}</p>
-
-<div class="product-details">
-<span><strong>${t.technique}</strong> ${product.technique}</span>
-<span><strong>${t.dimensions}</strong> ${product.dimensions}</span>
-</div>
-
-<div class="visualizer-card-note">
-<span data-i18n="visualizerNoteText">${t.visualizerNoteText}</span> <a href="#visualizer">${t.visualizerBtn}</a>
-</div>
-
-<div class="format-select-wrap">
-<label class="format-label">${t.selectFormat}</label>
-<select class="format-select" onchange="handleFormatChange(${product.id}, this.value)">
-<option value="" ${!selectedKey?"selected":""}>-- ${t.chooseFormat} --</option>
-${formatTemplates.map(fmt=>`
-<option value="${fmt.key}" ${selectedKey===fmt.key?"selected":""}>
-${t.formatNames[fmt.key]||fmt.name} - $${product.formats[fmt.field]} USD
-</option>
-`).join("")}
-</select>
-</div>
-
-<div class="price-panel" id="price-panel-${product.id}">
-${selectedKey ? `
-<div class="price-confirm">${t.formatNames[selectedKey]||selectedKey}</div>
-<div class="price-usd">$${currentPriceUSD} USD</div>
-<div class="price-brl">R$ ${currentPriceBRL} BRL</div>
-` : `
-<div class="price-confirm">${t.selectAFormat}</div>
-<div class="price-usd" style="font-size:11px;color:#777;margin-top:4px">${t.chooseOne}</div>
-<div class="price-brl" style="color:#555">${t.shippingSeparate}</div>
-`}
-</div>
-
-<a href="${product.kofi}" 
-target="_blank" 
-rel="noopener" 
-class="buy-button ${!selectedKey?"disabled":""}" 
-id="buy-btn-${product.id}">
-${t.continueKofi}
-</a>
-
-<div class="currency-note">${t.currencyLabel}</div>
-</div>
-`
-}
-
-function renderTshirtCard(product,t){
-const priceBRL=convertUSDToBRL(product.priceUSD)
-
-return `
-<div class="product-image">
-<span class="badge">${product.badge}</span>
-<div class="visual-layer">
-<img src="${product.image}" alt="${product.name}">
-</div>
-</div>
-
-<div class="product-info">
-<div class="product-type">${product.category}</div>
-<h3 class="product-name">${product.name}</h3>
-<p class="product-description">${product.description}</p>
-
-<div class="product-details">
-<span><strong>${t.technique}</strong> ${product.technique}</span>
-<span><strong>${t.dimensions}</strong> ${product.dimensions}</span>
-</div>
-
-<div class="format-select-wrap">
-<label class="format-label">${t.tshirtSize}</label>
-<select class="format-select">
-<option value="S">${t.sizeS}</option>
-<option value="M" selected>${t.sizeM}</option>
-<option value="L">${t.sizeL}</option>
-<option value="XL">${t.sizeXL}</option>
-</select>
-</div>
-
-<div class="price-panel">
-<div class="price-confirm">${t.tshirtPrice}</div>
-<div class="price-usd">$${product.priceUSD} USD</div>
-<div class="price-brl">R$ ${priceBRL} BRL</div>
-</div>
-
-<a href="${product.kofi}" 
-target="_blank" 
-rel="noopener" 
-class="buy-button">
-${t.buyTshirt}
-</a>
-
-<div class="currency-note">${t.tshirtShipping}</div>
-</div>
-`
+function moveCarousel(direction) {
+  const carousel = document.getElementById('productCarousel');
+  if (!carousel) return;
+  const scrollAmount = 340;
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
 }
 
 /* =========================================================
-   PRODUCT INTERACTIONS & HELPERS
+    PRODUCT CAROUSEL RENDERING
 ========================================================= */
 
-function getFormatField(key){
-const template=formatTemplates.find(f=>f.key===key)
-return template?template.field:"fineart"
-}
+function renderProducts() {
+  const carousel = document.getElementById('productCarousel');
+  if (!carousel) return;
 
-function handleFormatChange(productId,formatKey){
-selectedFormats[productId]=formatKey
-const product=products.find(p=>p.id===productId)
-if(!product)return
+  const t = translations[currentLang];
+  const filteredProducts = currentCategory === 'ALL'
+    ? products
+    : products.filter(p => p.category === currentCategory);
 
-const t=translations[currentLanguage]||translations.es
-const pricePanel=document.getElementById(`price-panel-${productId}`)
-const buyBtn=document.getElementById(`buy-btn-${productId}`)
+  carousel.innerHTML = filteredProducts.map(product => {
+    const isTshirt = product.isTshirt;
+    const badgeHtml = product.badge ? `<div class="badge">${product.badge}</div>` : '';
 
-if(formatKey){
-const field=getFormatField(formatKey)
-const usd=product.formats[field]
-const brl=convertUSDToBRL(usd)
+    let interactivePanel = '';
 
-if(pricePanel){
-pricePanel.innerHTML=`
-<div class="price-confirm">${t.formatNames[formatKey]||formatKey}</div>
-<div class="price-usd">$${usd} USD</div>
-<div class="price-brl">R$ ${brl} BRL</div>
-`
-}
+    if (isTshirt) {
+      interactivePanel = `
+        <div class="format-select-wrap">
+          <label class="format-label">${t.tshirtSize}</label>
+          <select class="format-select">
+            <option value="S">${t.sizeS}</option>
+            <option value="M">${t.sizeM}</option>
+            <option value="L">${t.sizeL}</option>
+            <option value="XL">${t.sizeXL}</option>
+          </select>
+        </div>
+        <div class="price-panel">
+          <div class="price-confirm">${t.tshirtPrice}</div>
+          <div class="price-usd">$${product.priceUSD} USD</div>
+        </div>
+        <a href="${product.kofi}" target="_blank" rel="noopener" class="buy-button">
+          ${t.buyTshirt}
+        </a>
+        <div class="currency-note">${t.tshirtShipping}</div>
+      `;
+    } else {
+      const optionsHtml = formatTemplates.map(fmt => {
+        const name = t.formatNames[fmt.key] || fmt.name;
+        const price = product.formats[fmt.field];
+        return `<option value="${fmt.key}" data-price="${price}">${name} — $${price} USD</option>`;
+      }).join('');
 
-if(buyBtn){
-buyBtn.classList.remove("disabled")
-}
-}else{
-if(pricePanel){
-pricePanel.innerHTML=`
-<div class="price-confirm">${t.selectAFormat}</div>
-<div class="price-usd" style="font-size:11px;color:#777;margin-top:4px">${t.chooseOne}</div>
-<div class="price-brl" style="color:#555">${t.shippingSeparate}</div>
-`
-}
+      interactivePanel = `
+        <div class="format-select-wrap">
+          <label class="format-label">${t.selectFormat}</label>
+          <select class="format-select" onchange="updateProductPrice(this, ${product.id})">
+            <option value="" disabled selected>${t.chooseFormat}</option>
+            ${optionsHtml}
+          </select>
+        </div>
+        <div class="price-panel" id="price-panel-${product.id}">
+          <div class="price-confirm">${t.selectAFormat}</div>
+          <div class="price-usd">${t.chooseOne}</div>
+        </div>
+        <a id="buy-btn-${product.id}" href="${product.kofi}" target="_blank" rel="noopener" class="buy-button disabled">
+          ${t.continueKofi}
+        </a>
+        <div class="currency-note">${t.currencyLabel}</div>
+      `;
+    }
 
-if(buyBtn){
-buyBtn.classList.add("disabled")
-}
-}
-}
+    return `
+      <div class="product">
+        <div class="product-image">
+          ${badgeHtml}
+          <div class="visual-layer">
+            <img id="img-${product.id}" src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="image-switcher">
+            <button class="active" onclick="switchImage(${product.id}, '${product.image}', this)">
+              ${t.artwork}
+            </button>
+            <button onclick="switchImage(${product.id}, '${product.ambientImage}', this)">
+              ${t.inSpace}
+            </button>
+            <a href="https://budastudio.github.io/art-space-visualizer" target="_blank" rel="noopener">
+              ${t.visualizerBtn}
+            </a>
+          </div>
+        </div>
 
-function switchProductImage(productId,type){
-const product=products.find(p=>p.id===productId)
-if(!product)return
+        <div class="product-info">
+          <div class="product-type">${product.category}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-description">${product.description}</div>
+          
+          <div class="product-details">
+            <span><strong>${t.technique}</strong> ${product.technique}</span>
+            <span><strong>${t.dimensions}</strong> ${product.dimensions}</span>
+          </div>
 
-const visualLayer=document.getElementById(`visual-${productId}`)
-const switcher=visualLayer?visualLayer.nextElementSibling:null
+          <div class="visualizer-card-note">
+            <strong>${t.visualizerNoteTitle}</strong><br>
+            ${t.visualizerNoteText}
+            <a href="https://budastudio.github.io/art-space-visualizer" target="_blank" rel="noopener">
+              ${t.visualizerBtn}
+            </a>
+          </div>
 
-if(visualLayer){
-const imgSrc=type==="ambient"?(product.ambientImage||product.image):product.image
-visualLayer.innerHTML=`<img src="${imgSrc}" alt="${product.name}">`
-}
-
-if(switcher){
-const buttons=switcher.querySelectorAll("button")
-buttons.forEach(btn=>{
-btn.classList.remove("active")
-if(type==="art"&&btn.textContent===translations[currentLanguage].artwork)btn.classList.add("active")
-if(type==="ambient"&&btn.textContent===translations[currentLanguage].inSpace)btn.classList.add("active")
-})
-}
-}
-
-function updateAllPrices(){
-products.forEach(p=>{
-if(p.isTshirt){
-const card=document.getElementById(`product-${p.id}`)
-if(card){
-const brlEl=card.querySelector(".price-brl")
-if(brlEl)brlEl.textContent=`R$ ${convertUSDToBRL(p.priceUSD)} BRL`
-}
-}else{
-if(selectedFormats[p.id]){
-handleFormatChange(p.id,selectedFormats[p.id])
-}
-}
-})
+          ${interactivePanel}
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 /* =========================================================
-   CAROUSEL NAVIGATION & FILTERS
+    INTERACTIVE CAROUSEL HELPERS
 ========================================================= */
 
-function moveCarousel(direction){
-const carousel=document.getElementById("productCarousel")
-if(!carousel)return
-const scrollAmount=340*direction
-carousel.scrollBy({left:scrollAmount,behavior:"smooth"})
+function switchImage(productId, src, btn) {
+  const img = document.getElementById(`img-${productId}`);
+  if (img) img.src = src;
+
+  const parent = btn.parentElement;
+  parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-function setupFilters(){
-const filterButtons=document.querySelectorAll(".filter")
-filterButtons.forEach(btn=>{
-btn.addEventListener("click",()=>{
-filterButtons.forEach(b=>b.classList.remove("active"))
-btn.classList.add("active")
-activeCategory=btn.getAttribute("data-category")
-renderProducts()
-})
-})
+function updateProductPrice(selectEl, productId) {
+  const selectedOption = selectEl.options[selectEl.selectedIndex];
+  const price = selectedOption.getAttribute('data-price');
+  const panel = document.getElementById(`price-panel-${productId}`);
+  const buyBtn = document.getElementById(`buy-btn-${productId}`);
+
+  if (price && panel) {
+    const brlPrice = (price * 5.2).toFixed(0);
+    panel.innerHTML = `
+      <div class="price-confirm">SELECCIONADO</div>
+      <div class="price-usd">$${price} USD</div>
+      <div class="price-brl">~ R$ ${brlPrice} BRL</div>
+    `;
+  }
+
+  if (buyBtn) {
+    buyBtn.classList.remove('disabled');
+  }
 }
-
-/* =========================================================
-   INITIALIZATION
-========================================================= */
-
-document.addEventListener("DOMContentLoaded",()=>{
-fetchExchangeRate()
-setLanguage(currentLanguage)
-setupFilters()
-})
 
 </script>
-
 </body>
 </html>
