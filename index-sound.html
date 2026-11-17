@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buda Studio</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKQY2568Q3"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-DKQY2568Q3');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#090909;font-family:Inter,sans-serif;color:#fff;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+canvas#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.page-wrapper{position:relative;z-index:1;width:100%}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(9,9,9,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-brand{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#fff;text-decoration:none;font-weight:300}
+.nav-links{display:flex;gap:25px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:.35s}
+.nav-links a:hover{color:#d4af37}
+.nav-links a.last-drop{color:#d4af37}
+.store-link{display:inline-flex;align-items:center;gap:7px}
+.store-icon{width:15px;height:15px}
+.store-live{color:#63e68a!important}
+.live-dot,.live-mini-dot{width:6px;height:6px;border-radius:50%;background:#63e68a;box-shadow:0 0 6px rgba(99,230,138,.9),0 0 12px rgba(99,230,138,.4);animation:livePulse 1.8s infinite}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+.hero{min-height:100vh;padding:120px 20px 80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.logo{display:block;margin:0 auto 20px;width:140px;height:140px;border-radius:50%;box-shadow:0 0 50px rgba(212,175,55,.18);transition:.5s}
+.logo:hover{transform:scale(1.05) rotate(2deg)}
+h1{font-size:36px;font-weight:200;letter-spacing:6px;margin-bottom:10px}
+.subtitle{font-size:13px;letter-spacing:3px;color:#d4af37;text-transform:uppercase;margin-bottom:25px}
+.hero-description{max-width:580px;font-size:14px;font-weight:300;color:#d0d0d0;line-height:1.7;margin:0 auto 42px}
+.store-feature{position:relative;width:100%;max-width:1100px;height:310px;margin:0 auto 45px;border-radius:28px;overflow:hidden;border:1px solid rgba(99,230,138,.28);background:#0d0d0d;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.store-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease}
+.store-slide.active{opacity:1}
+.store-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.8);transform:scale(1.02);transition:transform 8s ease}
+.store-slide.active img{transform:scale(1.08)}
+.store-feature-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.42),rgba(0,0,0,.75));z-index:2}
+.store-feature-content{position:absolute;z-index:4;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px}
+.store-live-label{display:inline-flex;align-items:center;gap:8px;color:#63e68a;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:15px}
+.store-feature-title{font-size:clamp(30px,5vw,54px);font-weight:200;letter-spacing:7px;text-transform:uppercase;margin-bottom:10px}
+.store-feature-subtitle{color:rgba(255,255,255,.72);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.store-feature-button{display:inline-flex;align-items:center;justify-content:center;padding:10px 22px;border:1px solid #63e68a;border-radius:999px;color:#fff;text-decoration:none;font-size:10px;letter-spacing:2px;transition:.35s;background:rgba(0,0,0,.25)}
+.store-feature-button:hover{background:#63e68a;color:#050505;box-shadow:0 0 25px rgba(99,230,138,.22)}
+.cards{display:flex;gap:25px;max-width:1100px;width:100%;justify-content:center;flex-wrap:wrap}
+.card{position:relative;width:310px;height:240px;border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.88)),var(--bg);background-size:cover;background-position:center;background-color:#111;transition:.45s;cursor:pointer;display:flex;align-items:flex-end;text-align:left}
+.card:hover{transform:translateY(-8px);border-color:#d4af37;box-shadow:0 0 35px rgba(212,175,55,.18)}
+.content{padding:25px;width:100%}
+.card h2{font-weight:300;font-size:20px;line-height:1.2;margin-bottom:10px}
+.card p{opacity:.75;line-height:1.5;font-size:13px;margin-bottom:15px}
+.store-card{border-color:rgba(99,230,138,.20)}
+.store-card:hover{border-color:#63e68a;box-shadow:0 0 35px rgba(99,230,138,.14)}
+.live-mini{display:inline-flex;align-items:center;gap:6px;color:#63e68a;font-size:8px;letter-spacing:2px;margin-bottom:8px;text-transform:uppercase}
+.live-mini-dot{width:5px;height:5px}
+.button{display:inline-flex;padding:10px 22px;border:1px solid #d4af37;border-radius:999px;color:#fff;text-decoration:none;font-size:13px;letter-spacing:1px;transition:.35s;cursor:pointer;background:transparent}
+.button:hover{background:#d4af37;color:#000}
+.store-button{border-color:#63e68a}
+.store-button:hover{background:#63e68a;color:#000}
+footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+.social-links{display:flex;justify-content:center;align-items:center;gap:35px;flex-wrap:wrap;list-style:none;margin-bottom:25px}
+.social-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:.35s;display:inline-block}
+.social-links a:hover{color:#d4af37}
+.copyright{color:rgba(255,255,255,.4);font-size:12px;letter-spacing:1px}
+
+/* Floating Howler audio player */
+#buda-audio-player{position:fixed;right:22px;bottom:22px;z-index:2000;display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(8,8,8,.9);border:1px solid rgba(212,175,55,.48);border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.45);backdrop-filter:blur(14px);color:#eee;font:11px Inter,sans-serif;letter-spacing:1px}
+#buda-audio-player button{border:0;background:none;color:#d4af37;cursor:pointer;font-size:17px;line-height:1;padding:2px}
+#buda-audio-player button:focus-visible,#buda-audio-player input:focus-visible{outline:2px solid #d4af37;outline-offset:4px}
+#buda-audio-player .audio-label{white-space:nowrap;color:rgba(255,255,255,.78)}
+#buda-audio-player .audio-bars{display:flex;align-items:center;gap:3px;height:17px}
+#buda-audio-player .audio-bars i{display:block;width:2px;height:5px;background:#d4af37;border-radius:2px;opacity:.65}
+#buda-audio-player.is-playing .audio-bars i{animation:soundBars .8s ease-in-out infinite alternate}
+#buda-audio-player .audio-bars i:nth-child(2){animation-delay:.2s}
+#buda-audio-player .audio-bars i:nth-child(3){animation-delay:.4s}
+#buda-audio-player .audio-bars i:nth-child(4){animation-delay:.1s}
+#buda-audio-player input{width:62px;accent-color:#d4af37;cursor:pointer}
+@keyframes soundBars{to{height:16px;opacity:1}}
+@media(max-width:768px){
+ nav{padding:15px 20px}.nav-links{display:none}.logo{width:110px;height:110px}
+ h1{font-size:28px;letter-spacing:3px}.subtitle{font-size:11px;letter-spacing:2px}
+ .store-feature{height:300px;border-radius:22px;margin-bottom:35px}
+ .store-feature-title{font-size:30px;letter-spacing:4px}.store-feature-subtitle{font-size:10px;letter-spacing:1.5px}
+ .cards{flex-direction:column;align-items:center;gap:20px}.card{width:100%;max-width:340px;height:200px}
+ .social-links{gap:20px}
+}
+@media(max-width:600px){#buda-audio-player{right:12px;bottom:12px;padding:10px 13px;gap:9px}#buda-audio-player .audio-label{font-size:9px}#buda-audio-player input{width:48px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="page-wrapper">
+<nav>
+<a href="https://budastudio.github.io/" class="nav-brand">BUDA STUDIO</a>
+<ul class="nav-links">
+<li><a href="https://budastudio.github.io/portfolio/">Buda Studio</a></li>
+<li><a href="https://budastudio.github.io/portfolio/carrouselnft.html" class="last-drop">Last Drop</a></li>
+<li><a href="https://budastudio.github.io/buda-collective-artist/welcome.html">Collective</a></li>
+<li><a href="https://budastudio.github.io/store.html" class="store-link store-live" onclick="trackStoreClick('navigation')"><svg class="store-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg><span class="live-dot"></span>Store</a></li>
+<li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<img src="logogold26_trans.png" class="logo" alt="Buda Studio Logo">
+<h1>BUDA STUDIO</h1>
+<div class="subtitle">A Permanent Collective of Art of Leonardo M Scarcia</div>
+<p class="hero-description">More than an Art community. A curated collective connecting artists, collectors, and creators around the world web 3.</p>
+
+<section class="store-feature">
+<div id="storeSlides">
+<div class="store-slide active"><img src="painting1_ambient.jpg" alt="Buda Studio Store artwork"></div>
+<div class="store-slide"><img src="painting2_ambient.jpg" alt="Buda Studio Store artwork"></div>
+<div class="store-slide"><img src="painting3_ambient.jpg" alt="Buda Studio Store artwork"></div>
+<div class="store-slide"><img src="painting5_ambient.jpg" alt="Buda Studio Store artwork"></div>
+</div>
+<div class="store-feature-overlay"></div>
+<div class="store-feature-content">
+<div class="store-live-label"><span class="live-dot"></span>STORE / LIVE</div>
+<div class="store-feature-title">LAST DROPS</div>
+<div class="store-feature-subtitle">Original artworks · Physical pieces · Selected editions</div>
+<a href="https://budastudio.github.io/store.html" class="store-feature-button" onclick="trackStoreClick('hero_slide')">ENTER STORE →</a>
+</div>
+</section>
+
+<div class="cards">
+<div class="card" style="--bg:url('community.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/'">
+<div class="content"><h2>JOIN THE<br>COLLECTIVE</h2><p>Become part of our curated community of artists.</p><a href="https://budastudio.github.io/buda-collective-artist/" class="button">APPLY →</a></div>
+</div>
+<div class="card" style="--bg:url('gallery.jpg')" onclick="location.href='https://budastudio.github.io/buda-collective-artist/welcome.html'">
+<div class="content"><h2>EXPLORE<br>GALLERY</h2><p>Experience the evolving exhibition of digital artists.</p><a href="https://budastudio.github.io/buda-collective-artist/welcome.html" class="button">ENTER →</a></div>
+</div>
+<div class="card" style="--bg:url('bg-work.jpg')" onclick="location.href='https://budastudio.github.io/portfolio/'">
+<div class="content"><h2>BUDA<br>STUDIO</h2><p>25+ years bridging visual art, design, and technology.</p><a href="https://budastudio.github.io/portfolio/" class="button">VISIT →</a></div>
+</div>
+<div class="card store-card" style="--bg:url('painting1_ambient.jpg')" onclick="trackStoreClick('card');location.href='https://budastudio.github.io/store.html'">
+<div class="content"><div class="live-mini"><span class="live-mini-dot"></span>STORE / LIVE</div><h2>BUDA<br>STORE</h2><p>Original artworks, physical pieces and selected drops available now.</p><a href="https://budastudio.github.io/store.html" class="button store-button" onclick="event.stopPropagation();trackStoreClick('card_button')">SHOP →</a></div>
+</div>
+</div>
+</section>
+
+<footer>
+<ul class="social-links">
+<li><a href="https://x.com/budastudio_nft" target="_blank" rel="noopener">X Twitter</a></li>
+<li><a href="https://linktr.ee/budastudio" target="_blank" rel="noopener">Linktree</a></li>
+<li><a href="https://instagram.com/budastudio_art" target="_blank" rel="noopener">Instagram</a></li>
+<li><a href="https://discord.com/users/872909014067978273" target="_blank" rel="noopener">Discord</a></li>
+<li><a href="mailto:budastudiomkt@gmail.com">Contact</a></li>
+</ul>
+<p class="copyright">&copy; Buda Studio. Building the future of artistic communities.</p>
+</footer>
+</div>
+
+<!-- Audio player: starts only after the visitor presses Play -->
+<div id="buda-audio-player" aria-label="Buda Studio ambient audio player">
+<button id="buda-audio-toggle" type="button" aria-label="Play ambient sound" title="Play / pause">▶</button>
+<span class="audio-label">AMBIENT SOUND</span>
+<span class="audio-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+<input id="buda-audio-volume" type="range" min="0" max="1" step="0.01" value="0.22" aria-label="Volume">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+<script>
+function trackStoreClick(location){
+ if(typeof gtag==='function')gtag('event','store_click',{event_category:'navigation',event_label:location});
+}
+
+/* Store image rotation */
+const storeSlides=document.querySelectorAll('.store-slide');
+let currentStoreSlide=0;
+function changeStoreSlide(){
+ if(!storeSlides.length)return;
+ storeSlides[currentStoreSlide].classList.remove('active');
+ currentStoreSlide=(currentStoreSlide+1)%storeSlides.length;
+ storeSlides[currentStoreSlide].classList.add('active');
+}
+if(storeSlides.length>1)setInterval(changeStoreSlide,5000);
+
+/* Gold floating particles */
+(function(){
+ const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
+ let width=canvas.width=window.innerWidth,height=canvas.height=window.innerHeight;
+ const particles=[];
+ function resize(){width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;}
+ window.addEventListener('resize',resize);
+ class Particle{
+  constructor(){this.reset();this.y=Math.random()*height;}
+  reset(){this.x=Math.random()*width;this.y=height+10;this.size=Math.random()*1.5+.5;this.speedY=-(Math.random()*.4+.1);this.speedX=(Math.random()-.5)*.2;this.alpha=Math.random()*.5+.1;}
+  update(){this.y+=this.speedY;this.x+=this.speedX;if(this.y<-10||this.x<-10||this.x>width+10)this.reset();}
+  draw(){ctx.save();ctx.globalAlpha=this.alpha;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='#d4af37';ctx.shadowBlur=8;ctx.shadowColor='#d4af37';ctx.fill();ctx.restore();}
+ }
+ for(let i=0;i<60;i++)particles.push(new Particle());
+ function animate(){ctx.clearRect(0,0,width,height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+ animate();
+})();
+
+/* Original generated ambient tone + interface click notes, powered by Howler.js */
+(function(){
+ if(!window.Howl)return;
+ const player=document.getElementById('buda-audio-player');
+ const toggle=document.getElementById('buda-audio-toggle');
+ const volume=document.getElementById('buda-audio-volume');
+
+ function createToneData(frequency,duration,amplitude,secondFrequency){
+  const sampleRate=22050,samples=Math.floor(sampleRate*duration);
+  const buffer=new ArrayBuffer(44+samples*2),view=new DataView(buffer);
+  function writeString(offset,string){for(let i=0;i<string.length;i++)view.setUint8(offset+i,string.charCodeAt(i));}
+  writeString(0,'RIFF');view.setUint32(4,36+samples*2,true);writeString(8,'WAVE');
+  writeString(12,'fmt ');view.setUint32(16,16,true);view.setUint16(20,1,true);
+  view.setUint16(22,1,true);view.setUint32(24,sampleRate,true);view.setUint32(28,sampleRate*2,true);
+  view.setUint16(32,2,true);view.setUint16(34,16,true);writeString(36,'data');view.setUint32(40,samples*2,true);
+  for(let i=0;i<samples;i++){
+   const t=i/sampleRate;
+   const fade=Math.min(1,t/.45,(duration-t)/.8);
+   const fundamental=Math.sin(2*Math.PI*frequency*t);
+   const harmonic=secondFrequency?Math.sin(2*Math.PI*secondFrequency*t)*.32:0;
+   const slowPulse=.78+.22*Math.sin(2*Math.PI*.12*t);
+   const sample=Math.max(-1,Math.min(1,(fundamental*.68+harmonic)*amplitude*slowPulse*Math.max(0,fade)));
+   view.setInt16(44+i*2,sample*32767,true);
+  }
+  let binary='';const bytes=new Uint8Array(buffer);
+  for(let i=0;i<bytes.length;i++)binary+=String.fromCharCode(bytes[i]);
+  return 'data:audio/wav;base64,'+btoa(binary);
+ }
+
+ const ambient=new Howl({src:[createToneData(130.81,12,.19,196.00)],format:['wav'],loop:true,volume:.22});
+ const clickSound=new Howl({src:[createToneData(659.25,.18,.13,987.77)],format:['wav'],volume:.2});
+
+ toggle.addEventListener('click',function(){
+  if(ambient.playing()){
+   ambient.pause();player.classList.remove('is-playing');
+   toggle.textContent='▶';toggle.setAttribute('aria-label','Play ambient sound');
+  }else{
+   ambient.play();player.classList.add('is-playing');
+   toggle.textContent='Ⅱ';toggle.setAttribute('aria-label','Pause ambient sound');
+  }
+ });
+ volume.addEventListener('input',function(){ambient.volume(Number(volume.value));});
+
+ document.addEventListener('click',function(event){
+  const target=event.target.closest('a,button,.card');
+  if(!target||player.contains(target)||target===toggle)return;
+  clickSound.play();
+ },true);
+ ambient.on('play',()=>player.classList.add('is-playing'));
+ ambient.on('pause',()=>player.classList.remove('is-playing'));
+})();
+</script>
+</body>
+</html>
